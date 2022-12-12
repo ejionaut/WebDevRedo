@@ -1,0 +1,147 @@
+@import url(./FontAndColors.css);
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--fnt-roboto-light);
+}
+
+body {
+    background-color: var(--clr-drk-purple);
+    color: var(--clr-white);
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login_btn {
+    width: 100%;
+    background-color: var(--clr-lgt-blue);
+    border: none;
+    padding: 0.5rem;
+    color: var(--clr-white);
+}
+
+.login_logo {
+    width: 65%;
+    margin-bottom: 2rem;
+    z-index: 5;
+}
+
+input {
+    font-family: var(--fnt-Quicksand);
+}
+
+.Main_Section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 50%;
+    padding: 4rem 10rem;
+    box-shadow: 1rem 1.5rem 2rem lightblue;
+    position: relative;
+    overflow: hidden;
+}
+
+.Main_Section::before{
+    content: "";
+    background-image: conic-gradient(
+        var(--clr-lgt-blue) 20deg,
+        transparent 120deg
+    );
+    width: 150%;
+    height: 150%;
+    position: absolute;
+    animation: rotate 2s linear infinite;
+}
+
+.Main_Section::after{
+    content: "";
+    width: 99%;
+    height: 99%;
+    background-color: var(--clr-drk-purple);
+    position: absolute;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+.input_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    row-gap: 1.2rem;
+    z-index: 5;
+}
+
+.password_section ,
+.username_section {
+    font-size: 2ch;
+}
+
+.password_section {
+    margin-bottom: 1rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.2rem solid var(--clr-white);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@media all and (min-width: 651px) {
+    .login_btn {
+        cursor: pointer;
+        transition: background-color 0.13s ease-in-out;
+    }
+
+    .login_btn:hover {
+        background-color: var(--clr-hover-lgt-blue);
+    }    
+
+    input:focus {
+        border-color: var(--clr-focus-blue);
+        outline: none;
+    }
+
+    .error_message { 
+        color: rgb(178, 62, 62);
+        position: absolute;
+        top: 2rem;
+        left: 13rem;
+        background-color: var(--clr-drk-purple);
+        width: 20rem;
+        height: 3rem;
+        z-index: 10;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1ch;
+    }
+
+}
+
+@media only screen and (max-width: 650px) {
+    img {
+        width: max(15rem, 20%);
+    }
+
+    .Main_Section {
+        padding: 2rem;
+    }
+}
+
+
+

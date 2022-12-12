@@ -1,0 +1,39 @@
+@import url(./FontAndColors.css);
+@import url(./studentModule.css);
+
+header {
+    width: 100%;
+}
+
+.Center_Section{
+    background-color: #dbdbdb;
+}
+
+.teacher_module_button_container{
+    background-color: var(--clr-Teacher-Module-But-Back);
+    height: 80%;
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+}
+
+.teacher_module_button_container button {
+    background-color: var(--clr-Teacher-Module-Buttons);
+    font-family: var(--fnt-Raleway);
+    color: var(--clr-white);
+    font-weight: bold;
+    font-size: 2.3ch;
+    border: none;
+    width: 80%;
+    height: 15%;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.teacher_module_button_container button:hover{
+    background-color: var(--clr-Teacher-Button-Hover);
+}

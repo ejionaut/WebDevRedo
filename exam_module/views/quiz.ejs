@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./style/form_style.css">
+    
+    <title>Test Form</title>
+</head>
+<body id="form">
+    <header>
+        <!-- Include a header here!!! -->
+    </header>
+    <main>
+        <div class="content">
+            <form id="test" autocomplete="off">
+                <% for(i = 0; i < quizData.length; i++) { %>
+                    <% switch(quizData[i].type_of_quiz) {
+                        case "mc": %>
+                        <%- include("q_types/mc", {
+                            qNumber: i+1,
+                            question: quizData[i].question,
+                            choices: quizData[i].choices
+                        })%>
+                    <% break;
+                        case "iden": %>
+                        <%- include("q_types/iden", {
+                            qNumber: i+1,
+                            question: quizData[i].question
+                        })%>
+                    <% break;
+                        case "enum": %>
+                        <%- include("q_types/enum", {
+                            qNumber: i+1,
+                            question: quizData[i].question
+                        })%>
+                    <% break;
+                        case "tf": %>
+                        <%- include("q_types/torf", {
+                            qNumber: i+1,
+                            question: quizData[i].question
+                        })%>
+                    <% break; 
+                    } %>
+                <% } %>
+                <button id="submit_btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

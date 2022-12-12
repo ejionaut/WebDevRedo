@@ -1,0 +1,36 @@
+@font-face { font-family: 'Roboto-Light'; src: url(./fonts/Roboto-Light.ttf); }
+@font-face { font-family: 'Roboto-Medium'; src: url(./fonts/Roboto-Medium.ttf); }
+@font-face { font-family: 'Quicksand'; src: url(./fonts/Quicksand-VariableFont_wght.ttf); }
+@font-face { font-family: 'Raleway'; src: url(./fonts/Raleway-VariableFont_wght.ttf); }
+@font-face {font-family: 'Caveat'; src: url(./fonts/Caveat-VariableFont_wght.ttf); }
+
+:root {
+    --clr-drk-purple: #221B23;
+    --clr-white: #FFFFFF;
+    --clr-lgt-blue: #6FADC8;
+    --clr-hover-lgt-blue: #3d6e83;
+    --clr-focus-blue: #87c8e3;
+
+    --clr-Main-body-modules: #DBDBDB;
+    --clr-Main-header-back: #472C4D;
+    --clr-Main-card-slot-student: #C3D2D4;
+    --clr-Main-Footer: #212121; 
+    --clr-Main-Right-Slot: #7C9DA1;
+    --clr-Main-Quiz: #472C4D;
+    --clr-Main-Quiz-BTN: #91bacc;
+    --clr-Main-Right-Container-Buttons: #91bacc;
+    --clr-Main-Right-Container-Buttons-Hover: #688d9d;
+    --clr-Footer-Hover: var(--clr-lgt-blue);
+
+    --clr-Teacher-Module-Buttons: #472C4D;
+    --clr-Teacher-Module-But-Back: #dbdbdb;
+    --clr-Teacher-Right-Container: #1A5962;
+    --clr-Teacher-Button-Hover: #688896;
+    
+
+    --fnt-roboto-light: 'Roboto-Light';
+    --fnt-roboto-reg: 'Roboto-Medium';
+    --fnt-Quicksand: 'Quicksand';
+    --fnt-Raleway: 'Raleway';
+    --fnt-footer-names:'Caveat';
+}

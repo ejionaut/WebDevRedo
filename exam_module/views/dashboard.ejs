@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Quiz Page</title>
+
+        <link rel="stylesheet" href="/css/studentModule.css">
+    </head>
+
+    <body>
+        <header className="Header_Section">
+            <img className="studentLOGO" src="styles/images/logo_square.png" alt="" />
+            <div className="header__greet">
+                <h1 className="greetingTXT"> <%= studentName%>, Hello! </h1>
+                <div className="header__buttons">
+                    <button className="buttons">Options</button>
+                    <button className="buttons">Log out</button>
+                </div>
+            </div>
+        </header>
+        <main className="Center_Section">
+            <div className="container_left">
+                <div className="display_quizes">
+                    <% availQuizzes.forEach(function(quiz) { %>
+                        <form action="/take_quiz"  method="POST">
+                            <div className="quiz">
+                                <label for="take_quiz_btn"><%= quiz.q_name%></label>
+                                <input type="hidden" name="quiz_name" value="<%= quiz.q_name%>">
+                                <input type="submit" name="take_quiz_btn" value="Take Quiz">
+                            </div>
+                        </form>
+                    <% }) %>
+                </div>
+            </div>
+            <div className="container_right">
+                <div className="display_history">
+
+                </div>
+                <div className="buttons_right_container">
+                    <button> Refresh </button>
+                    <button> Remove </button>
+                </div>
+            </div>
+        </main>
+    </body>
+
+</html>
