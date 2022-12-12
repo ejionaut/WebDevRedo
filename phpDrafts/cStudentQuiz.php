@@ -6,11 +6,12 @@
         $acc_id = $_POST['acc_id'];
         $quiz_code = $_POST['quiz_code'];
         $score = $_POST['score'];
+        $sq_id = $_POST['sq_id'];
         $timestamp = $_POST['timestamp'];
 
         $query = "INSERT INTO 'student_quiz'('acc_id', 'quiz_code', 
-        'score', 'timestamp') VALUES('$acc_id', '$quiz_code', 
-        '$score', '$timestamp')";
+        'score', 'sq_id', 'timestamp') VALUES('$acc_id', '$quiz_code', 
+        '$score', '$sq_id', '$timestamp')";
 
         $result = $connection->query($sql);
 

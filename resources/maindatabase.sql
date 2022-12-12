@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 12, 2022 at 07:26 AM
+-- Generation Time: Dec 12, 2022 at 10:17 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -227,12 +227,20 @@ INSERT INTO `student` (`user_id`, `lastname`, `firstname`, `history_id`, `avail_
 --
 
 CREATE TABLE `student_quiz` (
-  `acc_id` bigint(20) DEFAULT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
   `quiz_code` text DEFAULT NULL,
   `score` bigint(20) DEFAULT NULL,
   `sq_id` text DEFAULT NULL,
   `timestamp` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student_quiz`
+--
+
+INSERT INTO `student_quiz` (`user_id`, `quiz_code`, `score`, `sq_id`, `timestamp`) VALUES
+(2022001, 'tp001a', 10, NULL, NULL),
+(2022003, 'tp001a', 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
