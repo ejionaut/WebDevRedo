@@ -1,0 +1,112 @@
+@import url(./FontAndColors.css);
+@import url(./teacherModule.css);
+
+body{
+    background-color: var(--clr-background);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 3ch;
+}
+
+.Head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Head form {
+    margin-right: 2rem;
+    align-self: flex-end;
+}
+
+.Head form button {
+    width: 7rem;
+    height: 2rem;
+    border-radius: 2rem;
+    background-color: #472C4D;
+    cursor: pointer;
+    color: white;
+}
+
+.Head form button:hover {
+    background-color: #553c5b;
+}
+
+.Head form select {
+    cursor: pointer;
+}
+
+.Head form label {
+    font-size: 0.5ch;
+}
+
+.QuizList {
+    width: 100%;
+    background-color: #C8CCCC;
+    padding: 2rem;
+}
+
+.quizzes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #A5ADAE;
+    padding: 2rem;
+    border-radius: 5rem;
+    color: white;
+}
+
+.quizzes .left_Section{
+    display: flex;
+    column-gap: 2rem;
+    align-items: center;
+}
+
+.quizzes .left_Section h2 {
+    color: #BFF2BE;
+    font-size: 4ch;
+}
+
+.quizzes .right_Section {
+    margin-right: 2rem;
+}
+
+.quizzes .right_Section > * {
+    width: 10rem;
+    height: 2rem;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+
+.quizzes .right_Section > :nth-child(2), 
+.quizzes .right_Section > :nth-child(3) {
+    background-color: #472C4D;
+    color: white;
+}
+
+.quizzes .right_Section > :nth-child(2):hover, 
+.quizzes .right_Section > :nth-child(3):hover {
+    background-color: #694771;
+}
+
+.createQuiz {
+    margin-top: 2rem;
+    border-radius: 2rem;
+    font-size: 3ch;
+    font-weight: bold;
+    color: white;
+    background-color: #8DC384;
+    height: 4rem;
+    width: 20%;
+    cursor: pointer;
+}
+
+.createQuiz:hover {
+    background-color: #679160;
+}
