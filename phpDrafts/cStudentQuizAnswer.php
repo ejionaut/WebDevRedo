@@ -9,7 +9,7 @@
         $question = $_POST['question'];
         $answer = $_POST['answer'];
 
-        $query = "INSERT INTO 'student_quiz_answer'('acc_id', 'sq_id', 
+        $sql = "INSERT INTO 'student_quiz_answer'('acc_id', 'sq_id', 
         'quiz_code', 'question', 'answer') VALUES('$acc_id', '$sq_id', 
         '$quiz_code', '$question', '$answer')";
 
