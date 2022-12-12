@@ -1,0 +1,199 @@
+@import url(./FontAndColors.css);
+
+body {
+    background-color: var(--clr-background);
+    font-family: var(--fnt-Quicksand);
+
+    height: 100vh;
+    display: flex;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.Head form {
+    margin-right: 1rem;
+    align-self: flex-end;
+}
+
+.Head form button {
+    width: 7rem;
+    height: 2rem;
+    border-radius: 2rem;
+    background-color: #472C4D;
+    cursor: pointer;
+    color: white;
+}
+
+.Head form button:hover {
+    background-color: #553c5b;
+}
+
+.Head form select {
+    cursor: pointer;
+}
+
+.Head form label {
+    font-size: 1.5ch;
+    margin-right: 1rem;
+}
+
+.sidebar {
+    width: 12%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar img {
+    width: 15rem;
+}
+
+.sidebar li {
+    color: var(--clr-white);
+    font-size: 20px;
+    padding: 30px;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    cursor: pointer;
+    border-left: 0.2rem solid transparent;
+    transition:  0.17s ease-in-out;
+}
+
+.sidebar > :nth-child(1) {
+    background: var(--clr-header-purple);
+    border-bottom-right-radius: 2rem;
+    height: 80%;
+}
+
+.sidebar > :nth-child(2) {
+    background: var(--clr-header-purple);
+    border-top-right-radius: 2rem;
+    height: 15%;
+}
+
+.logout{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+}
+
+.logout img {
+    width: 30%;
+    filter: invert(100%);
+}
+
+.logout button {
+    padding: 0.5rem 3rem;
+    border-radius: 2rem;
+    background-color: rgb(195, 24, 36);
+    color:rgb(255, 255, 255);
+    border:none;
+}
+main {
+    width: 80%;
+    padding: 2rem;
+}
+
+main > :nth-child(1) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+main > :nth-child(1) > :nth-child(1) {
+    font-size: 7ch;
+    margin-bottom: 1rem;
+    color: var(--clr-font-purple);
+}
+
+.quizzes-Container {
+    max-width: 100%;
+    background-color: #C8CCCC;
+    display: flex;
+    column-gap: 2rem;
+    padding: 2rem;
+    margin-top: 0.5rem;
+}
+
+.quizzes-Container > * {
+    padding: 2rem;
+    background-color: #8684A5;
+    border-radius: 2rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.quizlet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: smaller;
+    color: white;
+}
+
+.quizlet > :nth-child(1) {
+    text-align: center;
+}
+
+.quizlet > :nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quizlet > :nth-child(2) button {
+    width: 80%;
+    height: 2rem;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    background-color: #9CCD9C;
+    border: none;
+    color: white;
+}
+
+.quizlet > :nth-child(2) button:hover {
+    background-color: #6a926a;
+    cursor: pointer;
+}
+
+.missed-quizzes {
+    margin-top: 2rem;
+    background-color: #C8CCCC;
+    padding: 2rem;
+    display: flex;
+}
+
+.missed-quizzes > :nth-child(1) {
+    margin-right: 2rem;
+    color: #4d2c35;
+}
+
+.missed-quizzes-container{
+    display: flex;
+    column-gap: 2rem;
+}
+
+.missed-quizzes-container > * {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #65212c;
+    padding: 2rem;
+    border-radius: 2rem;
+    color: white;
+    row-gap: 2rem;
+}

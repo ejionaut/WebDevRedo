@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/studentQuiz.css">
+    <title>Student Quizzes</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div>
+            <head><img src="./styles/images/logo_square.png" alt=""></head>
+            <ul>
+                <li>Home</li>
+                <li>Quizzes</li>
+                <li>History</li>
+            </ul>
+        </div>
+        <div class="logout">
+            <img src="./styles/images/studentAcc.svg" alt="">
+            <button>Logout</button>
+        </div>
+    </div>
+    <main>
+        <div class="Head">
+            <h1> Quizzes </h1>
+            <form>
+                <label class="sort"> Sort by: </label>
+                <select name="dropdown">
+                    <option value="dateCreate" selected> Date Created </option>
+                    <option value="dateCreate" selected> Date Due </option>
+                    <option value="dateCreate" selected> A-Z </option>
+                    <option value="subjectNum" selected> Subject: Numerical Methods </option>
+                    <option value="subjectTech" selected> Subject: Tech Press </option>
+                    <option value="subjectPer" selected> Subject: Personality Dev </option>
+                    <option value="subjectApp" selected> Subject: Application </option>
+                    <option value="subjectWeb" selected> Subject: Web Dev </option>
+                    <option value="subjectSoft" selected> Subject: Soft Eng </option>
+                </select>
+                <button type="submit"> Sort </button>
+            </form>
+        </div>
+        <div class="quizzes-Container">
+            <div class="quizlet">
+                <div>
+                    <h2> Subject Name </h2>
+                    <h3> Quiz name </h3>
+                </div>
+                <div>
+                    <div>
+                        <h3>Date Posted: 2022/22/1</h3>
+                        <h3>Date due: 2022/28/1</h3>
+                    </div>
+                    <button> Take Quiz! </button>
+                </div>
+            </div>
+            <div class="quizlet">
+                <div>
+                    <h2> Subject Name </h2>
+                    <h3> Quiz name </h3>
+                </div>
+                <div>
+                    <div>
+                        <h3>Date Posted: 2022/22/1</h3>
+                        <h3>Date due: 2022/28/1</h3>
+                    </div>
+                    <button> Take Quiz! </button>
+                </div>
+            </div>
+            <div class="quizlet">
+                <div>
+                    <h2> Subject Name </h2>
+                    <h3> Quiz name </h3>
+                </div>
+                <div>
+                    <div>
+                        <h3>Date Posted: 2022/22/1</h3>
+                        <h3>Date due: 2022/28/1</h3>
+                    </div>
+                    <button> Take Quiz! </button>
+                </div>
+            </div>
+        </div>
+        <div class="missed-quizzes">
+            <h2> Missed Quizzes: </h2>
+            <div class="missed-quizzes-container">
+                <div class="missed-quizlet">
+                    <div>
+                        <h2> Subject Name </h2>
+                        <h3> Quiz name </h3>
+                    </div>
+                    <div>
+                        <h3>Date due: 2022/28/1</h3>
+                    </div>
+                </div>
+                <div class="missed-quizlet">
+                    <div>
+                        <h2> Subject Name </h2>
+                        <h3> Quiz name </h3>
+                    </div>
+                    <div>
+                        <h3>Date due: 2022/28/1</h3>
+                    </div>
+                </div>
+                <div class="missed-quizlet">
+                    <div>
+                        <h2> Subject Name </h2>
+                        <h3> Quiz name </h3>
+                    </div>
+                    <div>
+                        <h3>Date due: 2022/28/1</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
