@@ -1,0 +1,85 @@
+@import url(./FontAndColors.css);
+
+body {
+    background-color: var(--clr-drk-purple);
+    color: var(--clr-white);
+    font-family: var(--fnt-Quicksand);
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar img {
+    width: 15rem;
+}
+
+.sidebar li {
+    color: var(--clr-white);
+    font-size: 20px;
+    padding: 30px;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    cursor: pointer;
+    border-left: 0.2rem solid transparent;
+    transition:  0.17s ease-in-out;
+}
+
+.sidebar > :nth-child(1) {
+    background: var(--clr-header-purple);
+    border-bottom-right-radius: 2rem;
+    height: 80%;
+}
+
+.sidebar > :nth-child(2) {
+    background: var(--clr-header-purple);
+    border-top-right-radius: 2rem;
+    height: 15%;
+}
+
+.toggle-btn {
+    position: absolute;
+    left: 105%;
+    top: 15px;
+}
+
+.logout{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+}
+
+.logout img {
+    width: 30%;
+    filter: invert(100%);
+}
+
+.logout button {
+    padding: 0.5rem 3rem;
+    border-radius: 2rem;
+    background-color: rgb(195, 24, 36);
+    color:rgb(255, 255, 255);
+    border:none;
+}
