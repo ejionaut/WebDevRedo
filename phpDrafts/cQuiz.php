@@ -12,10 +12,10 @@
         $start_quiz = $_POST['start_quiz'];
         $end_quiz = $_POST['end_quiz'];
 
-        $query = "INSERT INTO 'quiz_list'('t_quiz_code', 'q_name', 
+        $query = "INSERT INTO 'quiz_list'('quiz_code', 'q_name', 
         'q_password', 'quiz_set', 'subject_code', 
         'q_display_setting', 'start_quiz', 'end_quiz') 
-        VALUES('$t_quiz_code', '$q_name', '$q_password', '$quiz_set', 
+        VALUES('$quiz_code', '$q_name', '$q_password', '$quiz_set', 
         '$subject_code', '$q_display_setting', '$start_quiz', 
         '$end_quiz')";
 

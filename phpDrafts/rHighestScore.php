@@ -4,6 +4,6 @@
 
     $subject = $_GET['subject']
 
-    $sql = "SELECT CONCAT('firstname', ' ', 'lastname'), 
+    $sql = "SELECT CONCAT('firstname', ' ', 'lastname'), , 
     WHERE "
 ?>

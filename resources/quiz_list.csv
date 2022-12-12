@@ -1,0 +1,10 @@
+quiz_code,q_name,q_password,quiz_set,subject_code,q_display_setting,start_quiz,end_quiz
+tp001a,TechPres Prelims Quiz# 1,tp001a,tpqs001,tp,listed,,
+nm001a,NumMeth Prelims Quiz# 1,nm001a,nmqs001,nm,listed,,
+pd001a,PerDev Prelims Quiz# 1,pd001a,pdqs001,pd,listed,,
+se001a,SoftEng Prelims Quiz# 1,seqs001a,seqs001,se,listed,,
+ad001a,AppDev Prelims Quiz# 1,adqs001a,adqs001,ad,listed,,
+wd001a,WebDev Prelims Quiz# 1,wdqs001a,wdqs001,wd,unlisted,,
+,,,,,,,
+,,,,,,q_display_setting - whether or not the teacher wants to display the quiz or not,
+,,,,,,"student_list - array, list of students allowed to take the quiz",

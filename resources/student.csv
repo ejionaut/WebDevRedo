@@ -1,0 +1,11 @@
+user_id,lastname,firstname,history_id,avail_quizzes,subject_list,prof_opt,
+2022001,Johnson,Dwayne,QH0001,,"nm,tp,wd",,quizzes = available quizzes
+2022002,Wilson,Troy,QH0002,,"ad,se,nm",,subject_list - array of class codes (FK)
+2022003,Smith,Sam,QH0003,,"ad,pd,tp",,prof_opt - profile options
+2022004,Williams,Robert,QH0004,,"tp,wd,ad",,quizzes - quiz inventory
+2022005,Davis,John,QH0005,,"se,pd,tp",,
+2022006,Garcia,Giselle,QH0006,,"wd,pd,ad",,
+2022007,Jones,Indianna,QH0007,,"nm,se,pd",,
+2022008,Browne,Jake,QH0008,,"pd,se,wd",,
+2022009,Moore,Mandy,QH0009,,"ad,wd,tp",,
+2022010,Miller,Gilbert,QH0010,,"nm,tp,ad",,
