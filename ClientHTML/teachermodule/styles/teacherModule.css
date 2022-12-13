@@ -107,11 +107,6 @@ main > :nth-child(1) {
     background-color: var(--clr-chart-grey);
 }
 
-.quizzesChart {
-    width: 100%;
-    background-color: var(--clr-chart-grey);
-}
-
 @media all and (min-width:50em) {
     header li {
         cursor: pointer;
