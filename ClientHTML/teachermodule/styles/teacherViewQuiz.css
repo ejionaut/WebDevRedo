@@ -129,23 +129,3 @@ main > :nth-child(2) > :nth-child(2) > :nth-child(3) {
 .returnBTN:hover {
     background-color: #4e7341;
 }
-
-@media only screen and (max-width: 43.625em) {
-    h1{
-        text-align: left;
-    }
-    h2 {
-        text-align: left;
-    }
-    h3{
-        text-align: left;
-    }
-    main {
-        width: 100%;
-    }
-
-    main > :nth-child(1) {
-        padding: 1rem 3rem;
-        text-align: right;
-    }
-}
