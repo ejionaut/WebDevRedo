@@ -10,7 +10,7 @@
         $result = $connection->query($sql);
 
         if($result == TRUE) {
-            echo "Quiz Created."
+            echo "Quiz Created.";
         } else {
             echo "Error:" . $sql . "<br>" . $connection->error;
         }

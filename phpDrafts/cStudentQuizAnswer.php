@@ -16,7 +16,7 @@
         $result = $connection->query($sql);
 
         if($result == TRUE) {
-            echo "Student Quiz Answers updated."
+            echo "Student Quiz Answers updated.";
         } else {
             echo "Error:" . $sql . "<br>" . $connection->error;
         }

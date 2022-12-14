@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/teacherCreateQuiz.css">
     <title>View Quiz Details</title>
+    <script src="mcOrNot.js"></script>
+    <script src="submitForm.js"></script>
 </head>
 <body>
     <header>
@@ -44,18 +46,24 @@
             </section-left>
             <section-right>
                 <h2> Create Question </h2>
-                <form>
+                <form action="cQuestion.php" method="POST">
                     <label class="Question"> Question </label>
-                    <input type="text">
-                    <label class="Question"> Type of Question </label>
-                    <input type="text">
-                    <label class="Question"> Answer </label>
-                    <input type="text">
-                    <label class="Question"> Choices </label>
-                    <input type="text">
+                    <input type="text" name="question" required>
+                    <label class="Question"> Type of Question</label>
+                    <select onchange="mcOrNot(this)"name="type_of_quiz">
+                        <option value="_">--Select a type of question--</option>
+                        <option value="mc">Multiple Choice</option>
+                        <option value="iden">Identification</option>
+                        <option value="enum">Enumeration</option>
+                        <option value="tf">True or False</option>
+                    </select>
+                    <label class="Question" id="answerpart"> Answer </label>
+                    <input type="text" name="answer" required>
+                    <label class="Question" id="ifYesLabel" style="display: none;"> Choices </label>
+                    <input type="text" id="ifYesInput" style="display: none;" name="choices" required>
                     <label class="Question"> Points </label>
-                    <input type="text">
-                    <button> Next </button>
+                    <input type="text" name="points">
+                    <input type="submit" value="Next" onsubmit="submitForm()">
                 </form>
             </section-right>
         </div>
