@@ -13,7 +13,7 @@
     WHERE score = (SELECT MAX(score) FROM `student_quiz` WHERE quiz_code = '$quiz_code')
     LIMIT 1";
 
-    $averageScore = $sql = "SELECT AVG(score) as average FROM student_quiz WHERE quiz_code ='$quiz_code'";
+    $averageScore = "SELECT AVG(score) as average FROM student_quiz WHERE quiz_code ='$quiz_code'";
 
     $passed = "SELECT COUNT(CASE WHEN score >= 0.50 * (SELECT total_score FROM quiz_list WHERE quiz_code = '$quiz_code') THEN 1 END) as passed
     FROM student JOIN student_quiz on student.user_id = student_quiz.user_id
@@ -26,14 +26,18 @@
     $over = "SELECT total_Score from quiz_list
     WHERE quiz_code = '$quiz_code'";
 
+    $studentsName = "SELECT CONCAT(firstname,' ',lastname) as fullname FROM student JOIN student_quiz on student.user_id = student_quiz.user_id WHERE quiz_code ='$quiz_code'";
+
+    $missed = "SELECT (SELECT COUNT(*) FROM student) - (SELECT COUNT(*) FROM student JOIN student_quiz on student.user_id = student_quiz.user_id WHERE quiz_code = '$quiz_code') as total_studentsMissed";
+
     $passedResult = $connection->query($passed);
     $failedResult = $connection->query($failed);
     $overResult = $connection->query($over);
     $highestScoreNameResult = $connection->query($highestScoreName);
     $highestScoreResult = $connection->query($highestScoreName);
     $averageScoreResult = $connection->query($averageScore);
-
-
+    $studentsNameResult = $connection->query($studentsName);
+    $missedResult = $connection->query($missed);
 ?>
 
 <!DOCTYPE html>
@@ -58,18 +62,14 @@
             <section-left>
                 <h3> Students Completed </h3>
                 <div class="studentQuizzes">
-                    <div>
-                        <h4> John Charles</h4>
-                        <button class="viewStudentQuiz"> View </button>
-                    </div>
-                    <div>
-                        <h4> John Charles</h4>
-                        <button class="viewStudentQuiz"> View </button>
-                    </div>
-                    <div>
-                        <h4> John Charles</h4>
-                        <button class="viewStudentQuiz"> View </button>
-                    </div>
+                    <?php
+                        if ($studentsNameResult->num_rows > 0) {
+                            while ($row = $studentsNameResult->fetch_assoc()) {
+                                echo "<div><h4>" . $row['fullname'] . "</h4><br><button class='viewStudentQuiz'> View </button></div>";         
+                            }
+                        }
+                    ?>
+
                 </div>
             </section-left>
             <section-right>
@@ -174,7 +174,19 @@
                 <div>
                     <div>
                         <h3> Students Missed </h3>
-                        <h2 class="missedStudents"> 13 </h2>
+                        <h2 class="missedStudents">
+                            <?php
+                                if ($missedResult) {
+                                        
+                                    $row = mysqli_fetch_assoc($missedResult);
+                                    $missed= $row['total_students_missed'];
+
+                                    echo $missed;
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+                                }
+                            ?>
+                        </h2>
                     </div>
                     <div>
                         <h3> Students Completed </h3>
