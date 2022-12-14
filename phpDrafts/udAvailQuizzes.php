@@ -1,13 +1,11 @@
 <?php
-    // still needs fixing
-
     include "config.php";
 
     if (isset($_POST['udAvailQuizzes'])) {
         // collect values of input field
-        $avail_quizzes = $_POST['avail_quizzes'];
+        $quiz_code = $_POST['quiz_code'];
 
-        $query = "UPDATE 'student' SET 'avail_quizzes' WHERE 'subject_list' LIKE '%%'";
+        $sql = "UPDATE 'student' SET 'avail_quizzes' = CONCAT('avail_quizzes', '$quiz_code')";
 
         $result = $connection->query($sql);
 

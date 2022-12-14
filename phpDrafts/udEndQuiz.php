@@ -6,7 +6,7 @@
         $end_quiz = $_POST['end_quiz'];
         $quiz_code = $_POST['quiz_code'];
 
-        $query = "UPDATE 'quiz_list' SET 'end_quiz'='$end_quiz' WHERE 'quiz_code'='$quiz_code'";
+        $sql = "UPDATE 'quiz_list' SET 'end_quiz'='$end_quiz' WHERE 'quiz_code'='$quiz_code'";
 
         $result = $connection->query($sql);
 

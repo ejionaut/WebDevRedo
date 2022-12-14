@@ -9,7 +9,7 @@
         $sq_id = $_POST['sq_id'];
         $timestamp = $_POST['timestamp'];
 
-        $query = "INSERT INTO 'student_quiz'('acc_id', 'quiz_code', 
+        $sql = "INSERT INTO 'student_quiz'('acc_id', 'quiz_code', 
         'score', 'sq_id', 'timestamp') VALUES('$acc_id', '$quiz_code', 
         '$score', '$sq_id', '$timestamp')";
 

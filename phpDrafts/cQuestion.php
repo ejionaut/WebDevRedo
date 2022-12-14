@@ -10,7 +10,7 @@
         $answer = $_POST['answer'];
         $points = $_POST['points'];
 
-        $query = "INSERT INTO 'quiz_inventory'('quiz_set', 
+        $sql = "INSERT INTO 'quiz_inventory'('quiz_set', 
         'type_of_quiz', 'question', 'choices', 'answer', 'points') 
         VALUES('$quiz_set', '$type_of_quiz', '$question', '$choices', 
         '$answer', '$points')";
