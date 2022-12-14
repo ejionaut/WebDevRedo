@@ -179,3 +179,85 @@ main > :nth-child(1) {
         flex-direction: column;
     }
 }
+
+/* Mobile View */
+@media only screen and (max-width: 43.625cm) {
+    main {
+        padding: 2rem;
+    }
+
+    .sidebar {
+        width: 280px;
+        height: 62.5rem;
+    }
+
+    .sidebar img {
+        width: 10rem;
+    }
+
+    .sidebar li {
+        font-size: 30px;
+        padding: 50px;
+    }
+
+    .logout{
+        margin-top: 3rem;
+    }
+
+    .logout img {
+        width: 45%;
+    }
+
+    main > :nth-child(1) {
+        font-size: 4ch;
+    }
+
+    .stats {
+        display: grid;
+        width: 50rem;
+        height: 45rem;
+        margin-top: 1.5rem;
+        grid-template-areas:
+        "date"
+        "time"
+        "todo"
+        "recent"
+        "notice"
+    ;
+        margin-inline: auto;
+    }
+
+    .stats > :nth-child(1) {
+        width: 60%;
+        padding: 1rem 1.5rem;
+        column-gap: 1.5rem;
+    }
+
+    .stats > :nth-child(1) > * {
+        padding: 1rem 1rem;
+    }
+
+    .stats > :nth-child(2){
+        padding: 1rem;
+        width: 60%;
+    }
+
+    .stats > :nth-child(3){
+        padding: 1.5rem;
+        width: 60%;
+        height: 70%;
+        margin-bottom: 1rem;
+    }
+
+    .stats > :nth-child(4) {
+        padding: 1.5rem;
+        width: 60%;
+    }
+
+    .stats > :nth-child(5) {
+        grid-area: notice;
+        width: 60%;
+        height: 13rem;
+        padding: 1.5rem;
+    }
+}
