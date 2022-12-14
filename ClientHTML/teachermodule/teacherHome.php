@@ -1,3 +1,18 @@
+<?php 
+
+include "config.php";
+
+$studentsName = "SELECT concat(firstname,' ',lastname) as fullname from student";
+$countStudents = "SELECT COUNT(*) as numberOfStudents FROM student";
+$countQuizList = "SELECT COUNT(*) as numberOfQuiz FROM quiz_list";
+$countCompletedQuiz = "SELECT COUNT(*) as numberOfCompletedQuiz FROM student_quiz";
+
+$studentsNameResult = $connection->query($studentsName);
+$countStudentResult = $connection->query($countStudents);
+$countQuizListResult = $connection->query($countQuizList);
+$countCompletedQuizResult = $connection->query($countCompletedQuiz);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,15 +37,58 @@
             <div class="statbox">
                 <diV class="noStudents">
                     <h2> Number of Students </h2>
-                    <h1 class="numberStundets"> </h2>
+                    <h1 class="numberStundets"><?php
+                        if ($countStudentResult) {
+                            // Fetch the result as an associative array
+                            $row = mysqli_fetch_assoc($countStudentResult);
+                        
+                            // Access the value of the COUNT function using the array key
+                            // associated with the column that contains the function
+                            $countStudents = $row['numberOfStudents'];
+                        
+                            // Print the value of the COUNT function
+                            echo $countStudents;
+                        } else {
+                            echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+                        }
+                    ?>
+                    </h2>
                 </diV>
                 <diV class="noQuizzes">
                     <h2> Number of Quizzes </h2>
-                    <h1 class="numberStundets"> 123 </h2>
+                    <h1 class="numberStundets"> <?php
+                        if ($countQuizListResult) {
+                            // Fetch the result as an associative array
+                            $row = mysqli_fetch_assoc($countQuizListResult);
+                        
+                            // Access the value of the COUNT function using the array key
+                            // associated with the column that contains the function
+                            $countQuizList = $row['numberOfQuiz'];
+                        
+                            // Print the value of the COUNT function
+                            echo $countQuizList;
+                        } else {
+                            echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+                        }
+                    ?></h2>
                 </diV>
                 <diV class="noCQuizzes">
                     <h2> Number of Completed Quizzes </h2>
-                    <h1 class="numberStundets"> 89 </h2>
+                    <h1 class="numberStundets"> <?php
+                        if ($countCompletedQuizResult) {
+                            // Fetch the result as an associative array
+                            $row = mysqli_fetch_assoc($countCompletedQuizResult);
+                        
+                            // Access the value of the COUNT function using the array key
+                            // associated with the column that contains the function
+                            $countCompletedQuiz = $row['numberOfCompletedQuiz'];
+                        
+                            // Print the value of the COUNT function
+                            echo $countCompletedQuiz;
+                        } else {
+                            echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+                        }
+                    ?> </h2>
                 </diV>
             </div>
             <div class="statbox">
@@ -52,7 +110,22 @@
             <div class="statbox">
                 <h2> Students </h2>
                 <div class="listOfStudents">
-                    <h3> John Snow </h3>
+                    <h3> 
+                        <?php
+
+                            if ($studentsNameResult->num_rows > 0) {
+
+                                while ($row = $studentsNameResult->fetch_assoc()) {
+
+                            ?>
+                                    <?php echo $row['fullname']; ?><br>                 
+
+                            <?php       }
+
+                            }
+
+                        ?>    
+                    </h3>
                 </div>
             </div>
         </div>
