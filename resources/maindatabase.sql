@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `accounts`
 --
 
+DROP TABLE IF EXISTS `accounts`;
 CREATE TABLE `accounts` (
   `acc_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
@@ -55,6 +56,7 @@ INSERT INTO `accounts` (`acc_id`, `user_id`, `password`) VALUES
 -- Table structure for table `history`
 --
 
+DROP TABLE IF EXISTS `history`;
 CREATE TABLE `history` (
   `history_id` text DEFAULT NULL,
   `sq_array` text DEFAULT NULL
@@ -82,6 +84,7 @@ INSERT INTO `history` (`history_id`, `sq_array`) VALUES
 -- Table structure for table `quiz_inventory`
 --
 
+DROP TABLE IF EXISTS `quiz_inventory`;
 CREATE TABLE `quiz_inventory` (
   `quiz_set` text DEFAULT NULL,
   `type_of_quiz` text DEFAULT NULL,
@@ -163,6 +166,7 @@ INSERT INTO `quiz_inventory` (`quiz_set`, `type_of_quiz`, `question`, `choices`,
 -- Table structure for table `quiz_list`
 --
 
+DROP TABLE IF EXISTS `quiz_list`;
 CREATE TABLE `quiz_list` (
   `quiz_code` text DEFAULT NULL,
   `q_name` text DEFAULT NULL,
@@ -195,6 +199,7 @@ INSERT INTO `quiz_list` (`quiz_code`, `q_name`, `q_password`, `quiz_set`, `subje
 -- Table structure for table `student`
 --
 
+DROP TABLE IF EXISTS `student`;
 CREATE TABLE `student` (
   `user_id` int(11) DEFAULT NULL,
   `lastname` text DEFAULT NULL,
@@ -226,6 +231,7 @@ INSERT INTO `student` (`user_id`, `lastname`, `firstname`, `history_id`, `avail_
 -- Table structure for table `student_quiz`
 --
 
+DROP TABLE IF EXISTS `student_quiz`;
 CREATE TABLE `student_quiz` (
   `user_id` bigint(20) DEFAULT NULL,
   `quiz_code` text DEFAULT NULL,
@@ -248,6 +254,7 @@ INSERT INTO `student_quiz` (`user_id`, `quiz_code`, `score`, `sq_id`, `timestamp
 -- Table structure for table `student_quiz_answer`
 --
 
+DROP TABLE IF EXISTS `student_quiz_answer`;
 CREATE TABLE `student_quiz_answer` (
   `acc_id` bigint(20) DEFAULT NULL,
   `sq_id` text DEFAULT NULL,
