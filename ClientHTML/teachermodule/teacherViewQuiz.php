@@ -7,7 +7,7 @@
     FROM student JOIN student_quiz on student.user_id = student_quiz.user_id
     WHERE score = (SELECT MAX(score) FROM `student_quiz` WHERE quiz_code = '$quiz_code')
     LIMIT 1";
-    
+
     $highestScore = "SELECT CONCAT(student.firstname, ' ', student.lastname) as fullname, student_quiz.score as score
     FROM student JOIN student_quiz on student.user_id = student_quiz.user_id
     WHERE score = (SELECT MAX(score) FROM `student_quiz` WHERE quiz_code = '$quiz_code')
@@ -26,6 +26,12 @@
     $over = "SELECT total_Score from quiz_list
     WHERE quiz_code = '$quiz_code'";
 
+
+    $studentsCompleted = "SELECT COUNT(student_quiz.user_id) as students_Completed FROM student_quiz";
+    $studentsMissed = "SELECT (SELECT COUNT(student.user_id) FROM student) - (SELECT COUNT(student_quiz.user_id) FROM student_quiz) as students_Missed";
+
+    $studentsCompletedResult = $connection->query($studentsCompleted);
+    $studentsMissedResult = $connection->query($studentsMissed);
     $passedResult = $connection->query($passed);
     $failedResult = $connection->query($failed);
     $overResult = $connection->query($over);
@@ -174,11 +180,35 @@
                 <div>
                     <div>
                         <h3> Students Missed </h3>
-                        <h2 class="missedStudents"> 13 </h2>
+                        <h2 class="missedStudents"> 
+                            <?php
+                                    if ($studentsCompletedResult) {
+                                        
+                                        $row = mysqli_fetch_assoc($studentsCompletedResult);
+                                        $studentsCompleted= $row['students_Completed'];
+                                    
+                                        echo $studentsCompleted;
+                                    } else {
+                                        echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+                                    }
+                            ?>  
+                        </h2>
                     </div>
                     <div>
                         <h3> Students Completed </h3>
-                        <h2 class="missedStudents"> 22 </h2>
+                        <h2 class="missedStudents">
+                            <?php
+                                if ($studentsMissedResult) {
+                                    
+                                    $row = mysqli_fetch_assoc($studentsMissedResult);
+                                    $studentsMissed= $row['students_Missed'];
+                                
+                                    echo $studentsMissed;
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+                                }
+                            ?>  
+                        </h2>
                     </div>
                     <div>
                         <h3> Late Submissions </h3>
