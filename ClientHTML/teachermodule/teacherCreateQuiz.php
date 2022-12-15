@@ -2,20 +2,31 @@
     include "config.php";
 
     if (isset($_POST['submit'])) {
-        // collect values of input field
-        $quiz_code = $_POST['quiz_code'];
+        // collect names of input field
+        $type_of_subject = $_POST['type_of_subject'];
         $type_of_quiz = $_POST['type_of_quiz'];
         $question = $_POST['question'];
         $choices = $_POST['choices'];
         $answer = $_POST['answer'];
         $points = $_POST['points'];
+        
+        $sqlCreate = "INSERT INTO `quiz_inventory`(`type_of_subject`,`type_of_quiz`, `question`, `choices`, `answer`, `points`) 
+        VALUES ('$type_of_subject', '$type_of_quiz', '$question','$choices', '$answer', '$points')";
+       
+        $sqlCreateResult =  $connection->query($sqlCreate);
 
-        $st = $connection->prepare("INSERT INTO quiz_inventory(type_of_quiz, question, choices, answer, points) VALUES(?, ?, ?, ?, ?, ?)");
-        $st->bind_param('ssssss', $quiz_code, $type_of_quiz, $question, $choices, $answer, $points);
-        $st->execute();
+        if ($sqlCreateResult == TRUE) {
 
-        echo "gumana na besh";
-        $st->close();
+            echo "New record created successfully.";
+      
+          }else{
+      
+            echo "Error:". $sqlCreate . "<br>". $connection->error;
+      
+          } 
+      
+          $connection->close(); 
+
 
     }
 
@@ -64,15 +75,23 @@
             <section-right>
                 <h2> Create Question </h2>
                 <form action="" method="POST">
+                    <label class="type_of_subject">Subject</label>
+                    <select name="subject">
+                        <option name="_">--Select subject--</option>
+                        <option name="tpqs001" value="tpqs001">Technolgy Assisted Presentation and Communication</option>
+                        <option name="nmqs001" value="nmqs001">Numerical Methods</option>
+                        <option name="pdqs001" value="pdqs001">Personal Development</option>
+                        <option name="wdqs001" value="wdqs001">Web Development</option>
+                    </select>
                     <label class="Question"> Question </label>
                     <input type="text" name="question" id="question" required>
                     <label class="Question"> Type of Question</label>
                     <select onchange="mcOrNot(this)"name="type_of_quiz">
-                        <option value="_">--Select a type of question--</option>
-                        <option value="mc">Multiple Choice</option>
-                        <option value="iden">Identification</option>
-                        <option value="enum">Enumeration</option>
-                        <option value="tf">True or False</option>
+                        <option name="_">--Select a type of question--</option>
+                        <option name="mc" value="mc">Multiple Choice</option>
+                        <option name="iden" value="iden">Identification</option>
+                        <option name="enum" value="enum">Enumeration</option>
+                        <option name="tf" value="tf">True or False</option>
                     </select>
                     <label class="Question" id="answerpart"> Answer </label>
                     <input type="text" name="answer" id="answer"required>
@@ -84,7 +103,7 @@
                 </form>
             </section-right>
         </div>
-        <button class="returnBTN"> Submit </button>
+        <button class="returnBTN" name="submit" value="submit"> Submit </button>
         <button class="cancelBTN"> Cancel </button>
     </main>
 </body>
