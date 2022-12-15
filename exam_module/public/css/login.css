@@ -24,7 +24,7 @@ form > :nth-child(2){
 
 .login_btn {
     width: 100%;
-    background-color: rgba(55, 118, 160, 0.562);
+    background-color: rgb(55, 118, 160);
     border: none;
     border-radius: 2rem;
     padding: 0.5rem;
@@ -49,6 +49,7 @@ main{
     align-items: center;
 
     width: 50%;
+    height: 60%;
     padding: 4rem 10rem;
     box-shadow: 1rem 1.5rem 2rem lightblue;
     position: relative;
@@ -70,6 +71,10 @@ main{
     font-size: 2ch;
 }
 
+#error_message_text{
+    color: rgb(224, 52, 52);
+    margin-bottom: 0.6rem;
+}
 
 @keyframes rotate {
     0% {
@@ -88,7 +93,7 @@ main{
     }
 
     .login_btn:hover {
-        background-color: var(--clr-hover-lgt-blue);
+        background-color: rgba(40, 86, 117, 0.562);
     }    
 
     input:focus {

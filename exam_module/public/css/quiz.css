@@ -1,0 +1,43 @@
+@import url(./FontAndColors.css);
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--fnt-roboto-light);
+}
+
+.quiz_content{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(97, 46, 102);
+}
+
+form {
+     background-color: rgb(243, 243, 243);
+     padding: 2rem;
+}
+
+form > * {
+    margin-bottom: 2rem;
+}
+
+form > * > :nth-child(3) {
+    background-color: rgb(143, 143, 143);
+    color: white;
+}
+
+.submit_btn {
+    text-align: center;
+    padding: 0.5rem;
+    background-color: rgb(87, 190, 104);
+    border: none;
+    color: white;
+    width: 20%;
+    border-radius: 2rem;
+}
+
+.submit_btn:hover{
+    background-color: rgb(60, 131, 72);
+}
