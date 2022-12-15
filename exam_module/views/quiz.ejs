@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./style/form_style.css">
-    
+    <link rel="stylesheet" href="/css/quiz.css">
     <title>Test Form</title>
 </head>
 <body id="form">
@@ -14,8 +13,9 @@
         <!-- Include a header here!!! -->
     </header>
     <main>
-        <div class="content">
-            <form id="test" autocomplete="off">
+        <div class="quiz_content">
+            <form action="/result" method="POST" autocomplete="off">
+                <button class="submit_btn" type="submit">Submit</button>
                 <% for(i = 0; i < quizData.length; i++) { %>
                     <% switch(quizData[i].type_of_quiz) {
                         case "mc": %>
@@ -45,7 +45,7 @@
                     <% break; 
                     } %>
                 <% } %>
-                <button id="submit_btn" type="submit">Submit</button>
+                <button class="submit_btn" type="submit">Submit</button>
             </form>
         </div>
     </main>

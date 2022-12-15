@@ -2,7 +2,6 @@
     <p class="no"><%= qNumber%></p>
     <p class="question"><%= question%></p>
     <fieldset class="enum_input_container">
-        <input type="text" class="enum_input" placeholder="Separate your answers with ','(e.g. item1,item2,item3). Otherwise, your answers will not be credited" required/>
+        <input type="text" name="<%- question%>" class="enum_input" placeholder="Separate your answers with ','(e.g. item1,item2,item3). Otherwise, your answers will not be credited" required/>
     </fieldset>
-    <input type="hidden" name="ans" id="ans" class="ans"/>
 </div>

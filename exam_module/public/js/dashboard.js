@@ -5,7 +5,7 @@ var studName = ""
 
 const studDashboard = ((req, res) => {
     if(req.session.loggedIn){
-        const q = "SELECT q_name FROM quizzes WHERE q_display_setting = \"listed\""
+        const q = "SELECT q_name FROM quiz_list WHERE q_display_setting = \"listed\""
 
         db.query(q, (err, result) => {
             result = JSON.parse(JSON.stringify(result))
@@ -43,7 +43,7 @@ async function populateQuizzes(quizzes){
 // Gets the name of the logged in user
 function getName(userid){
     const promise = new Promise((resolve, reject) => {
-        const q = "SELECT lastname, firstname FROM students WHERE user_id = ?"
+        const q = "SELECT lastname, firstname FROM student WHERE user_id = ?"
     
         db.query(q, [userid], (err, result) => {
             result = JSON.parse(JSON.stringify(result))[0]
@@ -52,6 +52,13 @@ function getName(userid){
         })
     })
     return promise
+}
+
+// Gets the history of quizzes
+function getHistory(userid){
+    const promise = new Promise((resolve, reject) => {
+        const q = "SELECT "
+    })
 }
 
 module.exports = {

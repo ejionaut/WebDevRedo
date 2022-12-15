@@ -9,20 +9,19 @@
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-    <main class="Main_Section">
-        <form action="/login" method="post" class="Main_Section">
-            <div id="error_message" class="error_message">
+    <main>
+        <form action="/login" method="post">
+            <div id="error_message">
                 <h1 id="error_message_text">
                     <%- errMessage %>
                 </h1>
             </div>
-            <img class="login_logo" src="styles/images/logo_square.png" alt="" />
-            <div class="input_section">
-                <div class="username_section">
+            <div>
+                <div>
                     <label class="username_label"> User ID: </label>
                     <input type="text" name="userid" required>
                 </div>
-                <div class="password_section">
+                <div>
                     <label class="password_label"> Password: </label>
                     <input type="password" name="password" required>
                 </div>
