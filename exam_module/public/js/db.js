@@ -4,7 +4,7 @@ const db = mysql.createConnection({
     user: 'root',
     host: 'localhost',
     password: '',
-    database: 'maindatabase2'
+    database: 'newschema'
 })
 
 module.exports = db

@@ -5,18 +5,15 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Student Quiz Page</title>
-
-        <link rel="stylesheet" href="/css/studentModule.css">
+        <link rel="stylesheet" href="/css/dashboard.css">
     </head>
 
     <body>
         <header className="Header_Section">
-            <img className="studentLOGO" src="styles/images/logo_square.png" alt="" />
+            <img className="studentLOGO" src="css/images/logo_square.png" alt="" />
             <div className="header__greet">
-                <h1 className="greetingTXT"> <%= studentName%>, Hello! </h1>
+                <h1 className="greetingTXT"> <span className="studentName"><%= studentName%>,</span> Hello! </h1>
                 <div className="header__buttons">
-                    <button className="buttons">Options</button>
                     <button className="buttons">Log out</button>
                 </div>
             </div>

@@ -1,0 +1,153 @@
+@import url(./FontAndColors.css);
+
+*{
+    margin: 0;
+    border: 0;
+    display: block;
+    transition: background-color 0.17s ease-in-out;
+}
+
+span {
+    color: rgb(134, 218, 221);
+}
+
+body {
+    background-color: var(--clr-background);
+}
+
+header {
+    background-color: var(--clr-header-purple);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header > :nth-child(1) {
+    width: max(13%, 8rem);
+}
+
+header > :nth-child(2){
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: max(1ch, 10%);
+    margin-right: 2rem;
+    column-gap: 2rem;
+}
+
+
+header > :nth-child(2) > :nth-child(2) > button{
+    width: 6rem;
+    padding: 0.4rem;
+    border-radius: 2rem;
+    background-color: rgb(49, 129, 182);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+header > :nth-child(2) > :nth-child(2) > button:hover {
+    background-color: rgb(94, 180, 214);
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+    padding: 2rem;
+}
+
+main > :nth-child(1) {
+    width: 80%;
+    background-color: #422546;
+}
+
+main > :nth-child(1) > :nth-child(1) {
+    padding: 3rem;
+    display: grid;
+    flex-direction: column;
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+
+main > :nth-child(1) > :nth-child(1) > *{
+    height: 5rem;
+    background-color: #6f4aa0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+main > :nth-child(1) > :nth-child(1) > * :is(label) {
+    color: white;
+    font-family: var(--fnt-Raleway);
+}
+
+main > :nth-child(1) > :nth-child(1) > * :is(input) {
+    margin: 0 auto;
+    width: 60%;
+    height: 2rem;
+    border-radius: 2rem;
+    background-color: #76cc84;
+    color: white;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+main > :nth-child(1) > :nth-child(1) > *:is(input):hover {
+    background-color: #76cc84;
+}
+
+main > :nth-child(2) {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #422546;
+    padding: 2rem;
+}
+
+main > :nth-child(2) > :nth-child(1){
+    height: 80%;
+}
+
+main > :nth-child(2) > :nth-child(2){
+    width: 100%;
+}
+
+main > :nth-child(2) > :nth-child(2) > * {
+    width: 60%;
+    padding: 0.4rem;
+    border-radius: 2rem;
+    margin: 0 auto;
+    background-color: #76cc84;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 0.3rem;
+}
+
+main > :nth-child(2) > :nth-child(2) > *:hover {
+    background-color: #52a160;
+}
+
+@media screen and (max-width: 450px) {
+    body {
+        width: 100%;
+    }
+    main {
+        flex-direction: column;
+    }
+
+    main > :nth-child(1) {
+        width: 100%;
+    }
+    main > :nth-child(1) > :nth-child(1){
+        display: flex;
+    }
+
+    main > :nth-child(2) {
+        width: inherit;
+    }
+}
+
