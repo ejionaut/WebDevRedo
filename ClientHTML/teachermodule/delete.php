@@ -16,7 +16,7 @@ if (isset($_GET['question'])) {
 
     }else{
 
-        echo "Error:" . $sql . "<br>" . $conn->error;
+        echo "Error:" . $sql . "<br>" . $connection->error;
 
     }
 

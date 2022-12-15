@@ -47,36 +47,39 @@ include "config.php";
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles/teacherCreateQuiz.css">
         <title>Create Quiz</title>
 
         <link rel="stylesheet" href="./styles/teacherCreateQuizzes.css">
     </head>
 
 <body>
-  <h1>Create Quiz</h1>
+  <header> Quiz Creator </header>
+  <main>
+  <h2>Create Quiz</h2>
 
-  <form action="" method="POST">
+  <div>
+    <section-left>
+      <h3> Current Questions </h3>
+                <div class="studentQuizzes">
+                    <?php
+                        if ($quizQuestionsResults->num_rows > 0) {
+                            while ($row = $quizQuestionsResults->fetch_assoc()) {
+                                echo "<div><h4>" . $row['question'] . "</h4><div><button class='editQuestion' onclick='editQuestion()'> edit </button><button class='deleteQuestion'> delete </button></div></div>";
+                            }
+                        }
+                    ?>
+                </div>
+    </section-left>
+    <section-right>
+    <form action="" method="POST">
     <fieldset>
+
+
+
+
       <label>Type of Subject:</label>
-      
-      <input type="text" name="type_of_subject">
-
-<<<<<<< HEAD
-      <label>Type of Quiz:</label>
-      <input type="text" name="type_of_quiz">
-            
-      <label>Question:</label>
-      <input type="text" name="question">
-=======
-<form action="" method="POST">
-
-  <fieldset>
-
-    <legend>Personal information:</legend>
-
-    Type of Subject:<br>
-
-    <select name="quiz_set">
+      <select name="quiz_set">
                         <option name="_">--Select subject--</option>
                         <option name="tpqs001" value="tpqs001">Technolgy Assisted Presentation and Communication</option>
                         <option name="nmqs001" value="nmqs001">Numerical Methods</option>
@@ -89,7 +92,7 @@ include "config.php";
     <br>
 
 
-    Type of Quiz:<br>
+    <label>Type of Quiz:</label>
 
     <select onchange="mcOrNot(this)" name="type_of_quiz">
                         <option name="_">--Select a type of question--</option>
@@ -100,7 +103,6 @@ include "config.php";
                     </select>
 
     <br>
->>>>>>> dbae89b0a04400b7f57116dec82750c0ef06e36c
     
       <label>Choices:</label>
       <input type="text" name="choices">
@@ -116,7 +118,8 @@ include "config.php";
     </fieldset>
 
   </form>
-
+    </section-right>
+  </div>
 </body>
 
 </html>
