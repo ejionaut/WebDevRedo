@@ -1,35 +1,62 @@
-<?php
+<?php 
     include "config.php";
 
     if (isset($_POST['submit'])) {
-        // collect names of input field
-        $type_of_subject = $_POST['type_of_subject'];
+        $quiz_code = $_POST['quiz_code'];
+
         $type_of_quiz = $_POST['type_of_quiz'];
+
         $question = $_POST['question'];
+
         $choices = $_POST['choices'];
+
         $answer = $_POST['answer'];
-        $points = $_POST['points'];
-        
-        $sqlCreate = "INSERT INTO `quiz_inventory`(`type_of_subject`,`type_of_quiz`, `question`, `choices`, `answer`, `points`) 
-        VALUES ('$type_of_subject', '$type_of_quiz', '$question','$choices', '$answer', '$points')";
-       
-        $sqlCreateResult =  $connection->query($sqlCreate);
 
-        if ($sqlCreateResult == TRUE) {
+        $points = $_POST['points']; 
 
-            echo "New record created successfully.";
-      
-          }else{
-      
-            echo "Error:". $sqlCreate . "<br>". $connection->error;
-      
-          } 
-      
-          $connection->close(); 
+        $sql = "UPDATE quiz_inventory SET type_of_quiz = '$type_of_quiz', question = '$question', choices = '$choices', answer = '$answer', points = '$points'"; 
 
+        $result = $connection->query($sql); 
+
+        if ($result == TRUE) {
+
+            echo "Record updated successfully.";
+
+        }else{
+
+            echo "Error:" . $sql . "<br>" . $connection->error;
+
+        }
 
     }
 
+    if (isset($_GET['question'])) {
+
+        $question = $_GET['question'];
+
+        $sql = "SELECT * FROM quiz_inventory WHERE question='$question'";
+
+        $result = $connection->query($sql);
+
+        if ($result->num_rows > 0) {
+
+            while ($row = $result->fetch_assoc()) {
+
+                $quiz_code = $row['quiz_code'];
+
+                $type_of_quiz = $row['type_of_quiz'];
+
+                $question = $row['question'];
+
+                $choices = $row['choices'];
+
+                $answer = $row['answer'];
+
+                $points = $row['points']; 
+
+            }
+        }
+    }
     $quiz_code = "tp001a";
 
     $quizQuestions = "SELECT question
@@ -50,6 +77,7 @@
     <script src="mcOrNot.js"></script>
     <script src="submitForm.js"></script>
     <script src="editQuestion.js"></script>
+    <script src="deleteQuestion.js"></script>
 </head>
 <body>
     <header>
@@ -66,7 +94,7 @@
                     <?php
                         if ($quizQuestionsResults->num_rows > 0) {
                             while ($row = $quizQuestionsResults->fetch_assoc()) {
-                                echo "<div><h4>" . $row['question'] . "</h4><div><button class='editQuestion' onclick='editQuestion()'> edit </button><button class='deleteQuestion'> delete </button></div></div>";
+                                echo "<div><h4>" . $row['question'] . "</h4><div><button class='editQuestion' name = 'edit' onclick='editQuestion(this)'> edit </button><button class='deleteQuestion' onclick='deleteQuestion> delete </button></div></div>";
                             }
                         }
                     ?>
@@ -75,23 +103,15 @@
             <section-right>
                 <h2> Create Question </h2>
                 <form action="" method="POST">
-                    <label class="type_of_subject">Subject</label>
-                    <select name="subject">
-                        <option name="_">--Select subject--</option>
-                        <option name="tpqs001" value="tpqs001">Technolgy Assisted Presentation and Communication</option>
-                        <option name="nmqs001" value="nmqs001">Numerical Methods</option>
-                        <option name="pdqs001" value="pdqs001">Personal Development</option>
-                        <option name="wdqs001" value="wdqs001">Web Development</option>
-                    </select>
                     <label class="Question"> Question </label>
                     <input type="text" name="question" id="question" required>
                     <label class="Question"> Type of Question</label>
                     <select onchange="mcOrNot(this)"name="type_of_quiz">
-                        <option name="_">--Select a type of question--</option>
-                        <option name="mc" value="mc">Multiple Choice</option>
-                        <option name="iden" value="iden">Identification</option>
-                        <option name="enum" value="enum">Enumeration</option>
-                        <option name="tf" value="tf">True or False</option>
+                        <option value="_">--Select a type of question--</option>
+                        <option value="mc">Multiple Choice</option>
+                        <option value="iden">Identification</option>
+                        <option value="enum">Enumeration</option>
+                        <option value="tf">True or False</option>
                     </select>
                     <label class="Question" id="answerpart"> Answer </label>
                     <input type="text" name="answer" id="answer"required>
@@ -103,7 +123,7 @@
                 </form>
             </section-right>
         </div>
-        <button class="returnBTN" name="submit" value="submit"> Submit </button>
+        <button class="returnBTN"> Submit </button>
         <button class="cancelBTN"> Cancel </button>
     </main>
 </body>
