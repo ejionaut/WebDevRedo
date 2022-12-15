@@ -54,68 +54,41 @@ include "config.php";
 
 <body>
   <h1>Create Quiz</h1>
-
   <form action="" method="POST">
     <fieldset>
       <label>Type of Subject:</label>
-      
-      <input type="text" name="type_of_subject">
+      <select name="quiz_set">
+                          <option name="_">--Select subject--</option>
+                          <option name="tpqs001" value="tpqs001">Technolgy Assisted Presentation and Communication</option>
+                          <option name="nmqs001" value="nmqs001">Numerical Methods</option>
+                          <option name="pdqs001" value="pdqs001">Personal Development</option>
+                          <option name="wdqs001" value="wdqs001">Web Development</option>
+                          <option name="seqs001" value="seqs001">Software Engineering</option>
+                          <option name="adqs001" value="adqs001">Application Development</option>
+                      </select>
 
-<<<<<<< HEAD
       <label>Type of Quiz:</label>
-      <input type="text" name="type_of_quiz">
-            
-      <label>Question:</label>
-      <input type="text" name="question">
-=======
-<form action="" method="POST">
+      <select onchange="mcOrNot(this)" name="type_of_quiz">
+                          <option name="_">--Select a type of question--</option>
+                          <option name="mc" value="mc">Multiple Choice</option>
+                          <option name="iden" value="iden">Identification</option>
+                          <option name="enum" value="enum">Enumeration</option>
+                          <option name="tf" value="tf">True or False</option>
+                      </select>
 
-  <fieldset>
+        <label>Choices:</label>
+        <input type="text" name="choices">
 
-    <legend>Personal information:</legend>
+        <label>Answer:</label>
+        <input type="text" name="answer">
 
-    Type of Subject:<br>
+        <label>Points:</label>
+        <input type="text" name="points">
 
-    <select name="quiz_set">
-                        <option name="_">--Select subject--</option>
-                        <option name="tpqs001" value="tpqs001">Technolgy Assisted Presentation and Communication</option>
-                        <option name="nmqs001" value="nmqs001">Numerical Methods</option>
-                        <option name="pdqs001" value="pdqs001">Personal Development</option>
-                        <option name="wdqs001" value="wdqs001">Web Development</option>
-                        <option name="seqs001" value="seqs001">Software Engineering</option>
-                        <option name="adqs001" value="adqs001">Application Development</option>
-                    </select>
+        <input type="submit" name="submit" value="submit">
+      </fieldset>
 
-    <br>
-
-
-    Type of Quiz:<br>
-
-    <select onchange="mcOrNot(this)" name="type_of_quiz">
-                        <option name="_">--Select a type of question--</option>
-                        <option name="mc" value="mc">Multiple Choice</option>
-                        <option name="iden" value="iden">Identification</option>
-                        <option name="enum" value="enum">Enumeration</option>
-                        <option name="tf" value="tf">True or False</option>
-                    </select>
-
-    <br>
->>>>>>> dbae89b0a04400b7f57116dec82750c0ef06e36c
-    
-      <label>Choices:</label>
-      <input type="text" name="choices">
-
-      <label>Answer:</label>
-      <input type="text" name="answer">
-
-      <label>Points:</label>
-      <input type="text" name="points">
-
-      <input type="submit" name="submit" value="submit">
-
-    </fieldset>
-
-  </form>
+    </form>
 
 </body>
 

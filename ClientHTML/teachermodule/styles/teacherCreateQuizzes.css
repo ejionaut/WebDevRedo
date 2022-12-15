@@ -20,7 +20,7 @@ main {
 
 h1 {
     font-size: 5ch;
-    background-color: #472C4D;
+    background-color: #391042;
     padding: 1.5rem;
     color: white;
 }
@@ -29,6 +29,11 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
 }
 
 form > :nth-child(1) {
@@ -47,16 +52,19 @@ form > :nth-child(1) >*:is(label) {
 }
 
 form > :nth-child(1) >*:is(input) {
-    width: 70%;
+    width: 100%;
     margin-bottom: 0.5rem;
 }
 
-form > :nth-child(1) > :last-child {
+fieldset > input[type="submit"] {
+    background-color:rgb(71, 173, 85) ;
+    margin-top: 2rem;
+    padding: 1rem;
     width: 30%;
-    padding: 0.3rem 0.9rem;
-    margin: 0.5rem 0;
-    border-radius: 2rem;
-    background-color: #2f7a4c;
+    margin: 0 auto;
     color: white;
+    border-radius: 2rem;
     font-weight: bold;
 }
+
+
