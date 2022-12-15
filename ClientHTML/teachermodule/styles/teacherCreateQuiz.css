@@ -100,11 +100,12 @@ form {
     row-gap: 0.3rem;
 }
 
-form > :is(input) {
+form > :is(input), :is(select)  {
     margin-bottom: 1.2rem;
 }
 
-form button {
+
+input[type=submit] {
     width: 30%;
     margin-left: auto;
     height: 2rem;

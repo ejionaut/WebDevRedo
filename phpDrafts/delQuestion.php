@@ -11,7 +11,7 @@
         if ($result == TRUE) {
             echo "Question deleted successfully.";
         }else{
-            echo "Error:" . $sql . "<br>" . $conn->error;
+            echo "Error:" . $sql . "<br>" . $connection->error;
         }
     } 
 ?>
