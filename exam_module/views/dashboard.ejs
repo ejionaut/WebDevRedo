@@ -34,7 +34,12 @@
             </div>
             <div className="container_right">
                 <div className="display_history">
-
+                    <% studentHistory.forEach(function(data) { %>
+                        <div>
+                            <p><% data.quiz_code%></p>
+                            <p><% data.score%></p>
+                        </div>
+                    <% }) %>
                 </div>
                 <div className="buttons_right_container">
                     <button> Refresh </button>

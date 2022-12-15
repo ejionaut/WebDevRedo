@@ -1,11 +1,21 @@
 const db = require("./db")
 
 var questionnaire = []
-var chosenQuiz = ""
+var chosenQuiz = []
 
 const postQuiz = ((req, res) => {
     if(req.session.loggedIn){
-        chosenQuiz = req.body.quiz_name
+        // chosenQuiz = req.body.quiz_name
+        if(chosenQuiz.length){
+            chosenQuiz = []
+        }
+        getQCode(req.body.quiz_name)
+            .then((data) => {
+                data = JSON.parse(JSON.stringify(data))
+                // let quiz_code = data[0].quiz_code
+                chosenQuiz.push(data[0].quiz_code, req.body.quiz_name)
+            })
+
         res.redirect("/take_quiz")
     }else{
         res.redirect("/login")
@@ -41,9 +51,9 @@ const result = ((req, res) => {
     if(req.session.loggedIn){
         checkAnswers(req.body)
             .then((data) => {
-                console.log(data)
+                saveAnswers(req.session.userid, data)
+                res.redirect("/dashboard")
             })
-        
     }else{
         res.redirect("/login")
     }
@@ -54,7 +64,7 @@ function getQuestionnaires(){
         const q = "SELECT * FROM quiz_inventory WHERE quiz_set = " +
         "(SELECT quiz_set FROM quiz_list WHERE q_name = ?)"
     
-        db.query(q, [chosenQuiz], (err, result) => {
+        db.query(q, [chosenQuiz[1]], (err, result) => {
             result = JSON.parse(JSON.stringify(result))
             resolve(result)
             reject(err)
@@ -63,8 +73,9 @@ function getQuestionnaires(){
     return promise
 }
 
-function saveAnswers(userid, answers){
-    const q = "INSERT INTO "
+function saveAnswers(userid, score){
+    const q = "INSERT INTO student_quiz (user_id, quiz_code, score) VALUES (?, ?, ?)"
+    db.query(q, [userid, chosenQuiz[0], score])
 }
 
 function checkAnswers(answers){
@@ -77,6 +88,18 @@ function checkAnswers(answers){
             }
         }
         resolve(points)
+    })
+    return promise
+}
+
+function getQCode(quiz_name){
+    const promise = new Promise((resolve, reject) => {
+        const q = "SELECT quiz_code FROM quiz_list WHERE q_name = ?"
+
+        db.query(q, [quiz_name], (err, result) => {
+            resolve(result)
+            reject(err)
+        })
     })
     return promise
 }
