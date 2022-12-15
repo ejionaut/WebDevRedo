@@ -1,0 +1,11 @@
+@import url(./FontAndColors.css);
+@import url(./teacherModule.css);
+
+body{
+    background-color: var(--clr-background);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
