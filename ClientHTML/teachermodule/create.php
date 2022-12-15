@@ -30,6 +30,14 @@ include "config.php";
 
   }
 
+  $quiz_code = "tp001a";
+
+    $quizQuestions = "SELECT question
+    FROM quiz_inventory JOIN quiz_list ON quiz_inventory.quiz_set = quiz_list.quiz_set
+    WHERE quiz_code = '$quiz_code'";
+
+    $quizQuestionsResults = $connection->query($quizQuestions);
+
 ?>
 
 
@@ -57,14 +65,28 @@ include "config.php";
 
     Type of Subject:<br>
 
-    <input type="text" name="quiz_set">
+    <select name="quiz_set">
+                        <option name="_">--Select subject--</option>
+                        <option name="tpqs001" value="tpqs001">Technolgy Assisted Presentation and Communication</option>
+                        <option name="nmqs001" value="nmqs001">Numerical Methods</option>
+                        <option name="pdqs001" value="pdqs001">Personal Development</option>
+                        <option name="wdqs001" value="wdqs001">Web Development</option>
+                        <option name="seqs001" value="seqs001">Software Engineering</option>
+                        <option name="adqs001" value="adqs001">Application Development</option>
+                    </select>
 
     <br>
 
 
     Type of Quiz:<br>
 
-    <input type="text" name="type_of_quiz">
+    <select onchange="mcOrNot(this)" name="type_of_quiz">
+                        <option name="_">--Select a type of question--</option>
+                        <option name="mc" value="mc">Multiple Choice</option>
+                        <option name="iden" value="iden">Identification</option>
+                        <option name="enum" value="enum">Enumeration</option>
+                        <option name="tf" value="tf">True or False</option>
+                    </select>
 
     <br>
     
