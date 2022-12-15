@@ -43,7 +43,6 @@
     $highestScoreResult = $connection->query($highestScoreName);
     $averageScoreResult = $connection->query($averageScore);
     $studentsNameResult = $connection->query($studentsName);
-    $missedResult = $connection->query($missed);
 ?>
 
 <!DOCTYPE html>
