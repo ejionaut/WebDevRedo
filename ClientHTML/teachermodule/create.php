@@ -107,15 +107,14 @@ include "config.php";
       <label>Choices:</label>
       <input type="text" name="choices">
 
-      <label>Answer:</label>
-      <input type="text" name="answer">
+        <label>Answer:</label>
+        <input type="text" name="answer">
 
-      <label>Points:</label>
-      <input type="text" name="points">
+        <label>Points:</label>
+        <input type="text" name="points">
 
-      <input type="submit" name="submit" value="submit">
-
-    </fieldset>
+        <input type="submit" name="submit" value="submit">
+      </fieldset>
 
   </form>
     </section-right>
