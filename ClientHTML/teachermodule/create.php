@@ -35,7 +35,6 @@ include "config.php";
 
 ?>
 
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -49,59 +48,34 @@ include "config.php";
     </head>
 
 <body>
+  <h1>Create Quiz</h1>
 
-<h2>Create Quiz</h2>
+  <form action="" method="POST">
+    <fieldset>
+      <label>Type of Subject:</label>
+      
+      <input type="text" name="type_of_subject">
 
-<form action="" method="POST">
-
-  <fieldset>
-
-    <legend>Personal information:</legend>
-
-    Type of Subject:<br>
-
-    <input type="text" name="type_of_subject">
-
-    <br>
-
-
-    Type of Quiz:<br>
-
-    <input type="text" name="type_of_quiz">
-
-    <br>
+      <label>Type of Quiz:</label>
+      <input type="text" name="type_of_quiz">
+            
+      <label>Question:</label>
+      <input type="text" name="question">
     
-    Question:<br>
+      <label>Choices:</label>
+      <input type="text" name="choices">
 
-    <input type="text" name="question">
+      <label>Answer:</label>
+      <input type="text" name="answer">
 
-    <br>
+      <label>Points:</label>
+      <input type="text" name="points">
 
-    Choices:<br>
+      <input type="submit" name="submit" value="submit">
 
-    <input type="text" name="choices">
+    </fieldset>
 
-    <br>
-
-    Answer:<br>
-
-    <input type="text" name="answer">
-
-    <br>
-
-    Points:<br>
-
-    <input type="text" name="points">
-
-    <br>
-
-    <br><br>
-
-    <input type="submit" name="submit" value="submit">
-
-  </fieldset>
-
-</form>
+  </form>
 
 </body>
 
