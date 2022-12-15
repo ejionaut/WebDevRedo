@@ -1,24 +1,62 @@
-<?php
+<?php 
     include "config.php";
 
     if (isset($_POST['submit'])) {
-        // collect values of input field
         $quiz_code = $_POST['quiz_code'];
+
         $type_of_quiz = $_POST['type_of_quiz'];
+
         $question = $_POST['question'];
+
         $choices = $_POST['choices'];
+
         $answer = $_POST['answer'];
-        $points = $_POST['points'];
 
-        $st = $connection->prepare("INSERT INTO quiz_inventory(type_of_quiz, question, choices, answer, points) VALUES(?, ?, ?, ?, ?, ?)");
-        $st->bind_param('ssssss', $quiz_code, $type_of_quiz, $question, $choices, $answer, $points);
-        $st->execute();
+        $points = $_POST['points']; 
 
-        echo "gumana na besh";
-        $st->close();
+        $sql = "UPDATE quiz_inventory SET type_of_quiz = '$type_of_quiz', question = '$question', choices = '$choices', answer = '$answer', points = '$points'"; 
+
+        $result = $connection->query($sql); 
+
+        if ($result == TRUE) {
+
+            echo "Record updated successfully.";
+
+        }else{
+
+            echo "Error:" . $sql . "<br>" . $connection->error;
+
+        }
 
     }
 
+    if (isset($_GET['question'])) {
+
+        $question = $_GET['question'];
+
+        $sql = "SELECT * FROM quiz_inventory WHERE question='$question'";
+
+        $result = $connection->query($sql);
+
+        if ($result->num_rows > 0) {
+
+            while ($row = $result->fetch_assoc()) {
+
+                $quiz_code = $row['quiz_code'];
+
+                $type_of_quiz = $row['type_of_quiz'];
+
+                $question = $row['question'];
+
+                $choices = $row['choices'];
+
+                $answer = $row['answer'];
+
+                $points = $row['points']; 
+
+            }
+        }
+    }
     $quiz_code = "tp001a";
 
     $quizQuestions = "SELECT question
@@ -39,6 +77,7 @@
     <script src="mcOrNot.js"></script>
     <script src="submitForm.js"></script>
     <script src="editQuestion.js"></script>
+    <script src="deleteQuestion.js"></script>
 </head>
 <body>
     <header>
@@ -55,7 +94,7 @@
                     <?php
                         if ($quizQuestionsResults->num_rows > 0) {
                             while ($row = $quizQuestionsResults->fetch_assoc()) {
-                                echo "<div><h4>" . $row['question'] . "</h4><div><button class='editQuestion' onclick='editQuestion()'> edit </button><button class='deleteQuestion'> delete </button></div></div>";
+                                echo "<div><h4>" . $row['question'] . "</h4><div><button class='editQuestion' name = 'edit' onclick='editQuestion(this)'> edit </button><button class='deleteQuestion' onclick='deleteQuestion> delete </button></div></div>";
                             }
                         }
                     ?>

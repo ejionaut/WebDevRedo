@@ -30,7 +30,6 @@
 
     $missed = "SELECT (SELECT COUNT(*) FROM student) - (SELECT COUNT(*) FROM student JOIN student_quiz on student.user_id = student_quiz.user_id WHERE quiz_code = '$quiz_code') as total_studentsMissed";
 
-
     $studentsCompleted = "SELECT COUNT(student_quiz.user_id) as students_Completed FROM student_quiz";
     $studentsMissed = "SELECT (SELECT COUNT(student.user_id) FROM student) - (SELECT COUNT(student_quiz.user_id) FROM student_quiz) as students_Missed";
 
@@ -74,7 +73,6 @@
                             }
                         }
                     ?>
-
                 </div>
             </section-left>
             <section-right>
