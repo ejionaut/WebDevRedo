@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(97, 46, 102);
+    background-color: rgb(34, 65, 87);
 }
 
 form {
@@ -24,7 +24,7 @@ form > * {
 }
 
 form > * > :nth-child(3) {
-    background-color: rgb(143, 143, 143);
+    background-color: rgb(101, 101, 101);
     color: white;
 }
 
@@ -40,4 +40,20 @@ form > * > :nth-child(3) {
 
 .submit_btn:hover{
     background-color: rgb(60, 131, 72);
+}
+
+.choice_container {
+    display: flex;
+    flex-direction: row;
+}
+.choice_container > label {
+    margin-right: 2rem;
+}
+
+.iden_input {
+    width: 50%;
+}
+
+.enum_input {
+    width: 100%;
 }
