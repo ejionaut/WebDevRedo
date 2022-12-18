@@ -4,15 +4,15 @@
     session_start();
 
     if (isset($_POST['submitCQuestion'])) {
-        $quiz_set = $_SESSION['quiz_set'];
+        $quiz_code = $_SESSION['quiz_code'];
         $type_of_quiz = $_POST['type_of_quiz'];
         $question = $_POST['question'];
         $choices = $_POST['choices'];
         $answer = $_POST['answer'];
         $points = $_POST['points'];
 
-        $sqlCreate = "INSERT INTO `quiz_inventory`(`quiz_set`,`type_of_quiz`, `question`, `choices`, `answer`, `points`) 
-        VALUES ('$quiz_set', '$type_of_quiz', '$question','$choices', '$answer', '$points')";
+        $sqlCreate = "INSERT INTO `quiz_inventory`(`quiz_code`,`type_of_quiz`, `question`, `choices`, `answer`, `points`) 
+        VALUES ('$quiz_code', '$type_of_quiz', '$question','$choices', '$answer', '$points')";
 
         $sqlCreateResult =  $connection->query($sqlCreate);
 
@@ -27,7 +27,7 @@
 
     $quizQuestions = "SELECT question
     FROM quiz_inventory 
-    WHERE quiz_set = '$quiz_set'";
+    WHERE quiz_code = '$quiz_code'";
 
     $quizQuestionsResults = $connection->query($quizQuestions);
 
