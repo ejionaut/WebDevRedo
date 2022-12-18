@@ -68,7 +68,8 @@ function getHistory(userid){
                 result = JSON.parse(JSON.stringify(result))
             }else{
                 result = [{
-                    quiz_code: "No history yet"
+                    quiz_code: 0,
+                    quiz_name: "No history yet"
                 }]
             }
             resolve(result)
@@ -96,25 +97,34 @@ function populateHistory(historyData){
     if(history.length){
         history = []
     }
-    historyData.forEach(async(datum) => {
-        let quiz_name
-        let over
-        getQuizName(datum.quiz_code)
-            .then((data) => {
-                quiz_name = data
-        });
-        await getOverAll(datum.quiz_code)
-            .then((data) => {
-                over = data
 
-        });
+    if(historyData[0].quiz_code == 0){
         history.push({
-            quiz_code: datum.quiz_code,
-            score: datum.score,
-            quiz_name: quiz_name,
-            over: over
+            quiz_code: historyData[0].quiz_code,
+            quiz_name: historyData[0].quiz_name
         })
-    })
+    }else{
+        historyData.forEach(async(datum) => {
+            let quiz_name
+            let over
+    
+            getQuizName(datum.quiz_code)
+                .then((data) => {
+                    quiz_name = data
+            });
+            await getOverAll(datum.quiz_code)
+                .then((data) => {
+                    over = data
+    
+            });
+            history.push({
+                quiz_code: datum.quiz_code,
+                score: datum.score,
+                quiz_name: quiz_name,
+                over: over
+            })
+        })
+    }
 }
 
 // Gets the name of the logged in user
