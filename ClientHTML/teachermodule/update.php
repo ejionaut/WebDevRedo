@@ -4,15 +4,15 @@ include "config.php";
 
   if (isset($_POST['submit'])) {
 
-    $type_of_subject = $_POST['type_of_subject'];
+    $quiz_set = $_POST['quiz_set'];
     $type_of_quiz = $_POST['type_of_quiz'];
     $question = $_POST['question'];
     $choices = $_POST['choices'];
     $answer = $_POST['answer'];
     $points = $_POST['points'];
 
-    $sqlUpdate = "INSERT INTO `quiz_inventory`(`type_of_subject`,`type_of_quiz`, `question`, `choices`, `answer`, `points`) 
-    VALUES ('$type_of_subject', '$type_of_quiz', '$question','$choices', '$answer', '$points')
+    $sqlUpdate = "INSERT INTO `quiz_inventory`(`quiz_set`,`type_of_quiz`, `question`, `choices`, `answer`, `points`) 
+    VALUES ('$quiz_set', '$type_of_quiz', '$question','$choices', '$answer', '$points')
     WHERE `question` = '$question'";
 
 
@@ -35,7 +35,7 @@ include "config.php";
 
   }
 
-  if (isset($_GET['questions'])) {
+  if (isset($_GET['question'])) {
 
     $question = $_GET['question']; 
 
@@ -47,7 +47,7 @@ include "config.php";
 
         while ($row = $result->fetch_assoc()) {
 
-                $type_of_subject = $row['type_of_subject'];
+                $quiz_set = $row['quiz_set'];
                 $type_of_quiz = $row['type_of_quiz'];
                 $question = $row['question'];
                 $choices = $row['choices'];
@@ -67,7 +67,7 @@ include "config.php";
 
             Type of Subject:<br>
 
-            <input type="text" name="type_of_subject" value="<?php echo $type_of_subject; ?>">
+            <input type="text" name="quiz_set" value="<?php echo $quiz_set; ?>">
 
             <br>
 

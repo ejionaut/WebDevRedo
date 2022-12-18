@@ -5,5 +5,6 @@ function mcOrNot(that) {
     } else {
         document.getElementById("ifYesLabel").style.display = "none";
         document.getElementById("ifYesInput").style.display = "none";
+        document.getElementById("ifYesInput").value = "";
     }
 }
