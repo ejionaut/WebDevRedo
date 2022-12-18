@@ -1,10 +1,9 @@
 <?php 
 
-include "config.php";
+    include "config.php";
+    include "cQuiz.php";
 
-    if (isset($_POST['submit'])) {
-
-        $quiz_set = $_POST['quiz_set'];
+    if (isset($_POST['submitCQuestion'])) {
         $type_of_quiz = $_POST['type_of_quiz'];
         $question = $_POST['question'];
         $choices = $_POST['choices'];
@@ -32,4 +31,6 @@ include "config.php";
     WHERE quiz_code = '$quiz_code'";
 
     $quizQuestionsResults = $connection->query($quizQuestions);
+
+    // header('Location: teacherCreateQuestions.php');
 ?>

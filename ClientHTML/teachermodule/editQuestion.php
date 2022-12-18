@@ -106,7 +106,7 @@
                     <label class="Question"> Question </label>
                     <input type="text" name="question" id="question" required>
                     <label class="Question"> Type of Question</label>
-                    <select onchange="mcOrNot(this)"name="type_of_quiz">
+                    <select onchange="mcOrNot(this)"name="type_of_quiz" value="">
                         <option value="_">--Select a type of question--</option>
                         <option value="mc">Multiple Choice</option>
                         <option value="iden">Identification</option>
