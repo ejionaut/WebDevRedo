@@ -1,9 +1,11 @@
 <?php
-    include "config.php";
+include "config.php";
 
-    $sql = "SELECT * FROM `quiz_list` WHERE subject_code = 'nm'";
+$dropdown = $_POST['dropdown'];
 
-    $result = $connection->query($sql);
+$sql = "SELECT * FROM `quiz_list` WHERE `quiz_set` LIKE 'nmqs%'";
+
+$result = mysqli_query($connection, $sql);
 ?>
 
 
