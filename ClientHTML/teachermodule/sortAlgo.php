@@ -46,10 +46,10 @@
         echo "<h3 class='dateQuiz'> Date Due: " . $row['end_quiz'] . "</h2>";
         echo "</div>";
         echo "<div class='right_Section'>";
-
         echo "<button class='listUnlist'> Unlist </button>";
-        echo "<button class='View'> View </button>";
+        echo "<button class='Manage'> Manage </button>";
         echo "<button class='Edit'> Edit </button>";
+        echo "<button class='Delete'> Delete </button>";
         echo "</div>";
     }
 ?>

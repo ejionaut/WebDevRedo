@@ -7,16 +7,16 @@ var studName = ""
 
 const studDashboard = (async (req, res) => {
     if(req.session.loggedIn){
-        await getAvailQuizzes()
-            .then((quizData) => {
-                populateAvailQuizzes(quizData)
-            })
-            .catch((err) => {
-                //console.log(err)
-            })
         await getHistory(req.session.userid)
             .then((historyData) => {
                 populateHistory(historyData)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        await getAvailQuizzes()
+            .then((quizData) => {
+                populateAvailQuizzes(quizData)
             })
             .catch((err) => {
                 console.log(err)
@@ -29,9 +29,8 @@ const studDashboard = (async (req, res) => {
                 studName = name
             })
             .catch((err) => {
-                //console.log(err)
+                console.log(err)
             })
-        console.log(history)
         res.render("dashboard", {
             availQuizzes: availQuizzes,
             studentName: studName,
@@ -80,13 +79,16 @@ function getHistory(userid){
 }
 
 // Populates the availQuizzes variable with the available quizzes
+// disregarding the ones that the students already taken
 async function populateAvailQuizzes(quizData){
     if(availQuizzes.length){
         availQuizzes = []
     }
-    await quizData.forEach(quiz => {
-        availQuizzes.push(quiz)
-    });
+    let quizHistory = history.map(quiz => quiz.quiz_name)
+    availQuizzes = quizData.filter(quiz => {
+        if(! quizHistory.includes(quiz.q_name))
+            return quiz
+    })
 }
 
 // Populates the history variable with the history of quizzes of the student

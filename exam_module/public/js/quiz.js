@@ -3,6 +3,7 @@ const db = require("./db")
 var questionnaire = []
 var chosenQuiz = []
 
+// Function for validating what questionnaire has been chosen
 const postQuiz = ((req, res) => {
     if(req.session.loggedIn){
         // chosenQuiz = req.body.quiz_name
@@ -12,7 +13,6 @@ const postQuiz = ((req, res) => {
         getQCode(req.body.quiz_name)
             .then((data) => {
                 data = JSON.parse(JSON.stringify(data))
-                // let quiz_code = data[0].quiz_code
                 chosenQuiz.push(data[0].quiz_code, req.body.quiz_name)
             })
 
@@ -22,6 +22,7 @@ const postQuiz = ((req, res) => {
     }
 })
 
+// Loads needed data in the generated quiz page
 const generateQuizPage = ((req, res) => {
     if(req.session.loggedIn){
         getQuestionnaires()
@@ -47,6 +48,7 @@ const generateQuizPage = ((req, res) => {
     }
 })
 
+// Fetches the students answers
 const result = ((req, res) => {
     if(req.session.loggedIn){
         checkAnswers(req.body)
@@ -59,6 +61,7 @@ const result = ((req, res) => {
     }
 })
 
+// Fetches the questionnaires
 function getQuestionnaires(){
     const promise = new Promise((resolve, reject) => {
         const q = "SELECT * FROM quiz_inventory WHERE quiz_code = " +
@@ -83,12 +86,14 @@ function saveResult(userid, score){
     })
 }
 
+// Saves student's answers
 function saveAnswers(answerData){
     const promise = new Promise((resolve, reject) => {
         const q = "INSERT INTO student_quiz_answer ()"
     })
 }
 
+// Checks student's answers
 function checkAnswers(answers){
     const promise = new Promise((resolve, reject) => {
         var points = 0
@@ -103,6 +108,7 @@ function checkAnswers(answers){
     return promise
 }
 
+// Fetches and returns the quiz code of a given quiz name
 function getQCode(quiz_name){
     const promise = new Promise((resolve, reject) => {
         const q = "SELECT quiz_code FROM quiz_list WHERE q_name = ?"
@@ -114,8 +120,6 @@ function getQCode(quiz_name){
     })
     return promise
 }
-
-//function getStudentQuizCode()
 
 module.exports = {
     postQuiz: postQuiz,
