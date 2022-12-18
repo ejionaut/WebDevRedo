@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./styles/teacherCreateQuiz.css">
     <title>View Quiz Details</title>
     <script src="mcOrNot.js"></script>
-    <script src="submitForm.js"></script>
+    <script src="showQuestions.js"></script>
 </head>
 <body>
     <header>
@@ -20,8 +20,8 @@
         <div>
             <section-left>
                 <h3> Current Questions </h3>
-                <div class="studentQuizzes">
-                    
+                <div class="quizQuestions" id="quizQuestions">
+
                 </div>
             </section-left>
             <section-right>
@@ -45,7 +45,7 @@
                         <label class="Question" id="points"> Points </label> 
                         <input type="text" name="points" id="points"> 
                     </fieldset>
-                    <input type="submit" value="Next" name="submitCQuestion" id="submitForm">
+                    <input type="submit" value="Next" name="submitCQuestion" id="submitForm" onclick="showQuestions();">
                     <input type="reset" value="Reset">
                 </form>
                 <iframe name="hiddenFrame" style="display: none;"></iframe>

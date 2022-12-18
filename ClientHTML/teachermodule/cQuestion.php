@@ -26,8 +26,8 @@
     }
 
     $quizQuestions = "SELECT question
-    FROM quiz_inventory JOIN quiz_list ON quiz_inventory.quiz_set = quiz_list.quiz_set
-    WHERE quiz_code = '$quiz_code'";
+    FROM quiz_inventory 
+    WHERE quiz_set = '$quiz_set'";
 
     $quizQuestionsResults = $connection->query($quizQuestions);
 
