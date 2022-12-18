@@ -11,8 +11,14 @@ span {
     color: rgb(134, 218, 221);
 }
 
+html, body {
+    min-height: 100%;
+}
+
 body {
     background-color: var(--clr-background);
+    width: 100vw;
+    height: 100vh;
 }
 
 header {
@@ -30,14 +36,15 @@ header > :nth-child(2){
     display: flex;
     align-items: center;
     color: white;
-    font-size: max(1ch, 10%);
+    font-size: max(2ch, 10%);
+    font-family: var(--fnt-Quicksand);
     margin-right: 2rem;
     column-gap: 2rem;
 }
 
 
 header > :nth-child(2) > :nth-child(2) > button{
-    width: 6rem;
+    width: 9rem;
     padding: 0.4rem;
     border-radius: 2rem;
     background-color: rgb(49, 129, 182);
@@ -65,7 +72,7 @@ main > :nth-child(1) {
 main > :nth-child(1) > :nth-child(1) {
     padding: 3rem;
     display: grid;
-    flex-direction: column;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 2rem;
     row-gap: 2rem;
 }
@@ -78,6 +85,7 @@ main > :nth-child(1) > :nth-child(1) > *{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 0.5rem;
 }
 main > :nth-child(1) > :nth-child(1) > * :is(label) {
     color: white;
@@ -117,7 +125,7 @@ main > :nth-child(2) > :nth-child(2){
 }
 
 main > :nth-child(2) > :nth-child(2) > * {
-    width: 60%;
+    width: 15rem;
     padding: 0.4rem;
     border-radius: 2rem;
     margin: 0 auto;
@@ -131,23 +139,170 @@ main > :nth-child(2) > :nth-child(2) > *:hover {
     background-color: #52a160;
 }
 
-@media screen and (max-width: 450px) {
+main > :nth-child(2) > :nth-child(1) {
+    background-color: #6f4aa0;
+    height: 80%;
+}
+
+footer {
+    background-color: var(--clr-footer);
+    display: grid;
+    grid-template-columns: 20rem 1fr 20rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+footer h3 {
+    color: white;
+    font-family: var(--fnt-footer-names);
+    font-size: 5ch;
+}
+
+.footer__socials{
+    position: relative;
+}
+
+.socials,
+.group__mates{
+    transition: 0.3s color ease-in;
+    cursor: pointer;
+}
+
+.footer__socials::before {
+    content: "hello!";
+    position: absolute;
+    top: -2.2rem;
+    right: -5rem;
+    border: 0.2rem solid white;
+    border-radius: 50%;
+    width: 5rem;
+    padding-left: 1rem;
+    font-size: 1.5ch;
+}
+
+.socials:hover {
+    color: var(--clr-Hover);
+}
+
+.footer__mid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo__container img {
+    width: 10%;
+}
+
+.group__mates {
+    font-size: 3ch;
+    color: white;
+    font-family: var(--fnt-footer-names);
+}
+
+.members{
+    margin: 2rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer div img {
+    width: 70%;
+    transition: 0.6s all;
+}
+ 
+footer div img:hover {
+    transform: rotate(-45deg);
+}
+
+.group__mates:hover {
+    color: var(--clr-Hover);
+    cursor: pointer;
+ }
+
+@media screen and (max-width: 1100px){
     body {
         width: 100%;
     }
-    main {
-        flex-direction: column;
+
+    header > :nth-child(2) {
+        font-size: max(1.5ch, 10%);
     }
+
+    main {
+        flex-direction: column-reverse;
+        row-gap: 0.2rem;
+    }
+
+    
 
     main > :nth-child(1) {
         width: 100%;
-    }
-    main > :nth-child(1) > :nth-child(1){
-        display: flex;
     }
 
     main > :nth-child(2) {
         width: inherit;
     }
+
+    main > :nth-child(2) > :nth-child(2) > * {
+        width: 10rem;
+    }
+
+    main > :nth-child(1) > :nth-child(1) > *:is(type="submit"){
+        width: 8rem;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: small;
+        height: auto;
+        position: relative;
+    }
+
+    footer > :nth-child(1) {
+        width: 5rem;
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 900px){
+
+    header > :nth-child(2) {
+        font-size: max(1ch, 10%);
+    }
+
+    main > :nth-child(1) > :nth-child(1){
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    header > :nth-child(2) > :nth-child(2) > button {
+        width: 6rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    main > :nth-child(1) > :nth-child(1){
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    main > :nth-child(1) > :nth-child(1){
+        grid-template-columns: 1fr;
+    }
+
 }
 
