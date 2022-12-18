@@ -1,6 +1,8 @@
 <?php
     include "config.php";
 
+    session_start();
+
     if (isset($_POST['submitCQuiz'])) {
         // collect values of input field
         
@@ -8,21 +10,22 @@
         $query = "SELECT quiz_set FROM quiz_list WHERE quiz_set LIKE '%$code%' ORDER BY quiz_set DESC LIMIT 1;";
         $queryResult = $connection->query($query);
 
+        $_SESSION['quiz_set'] = "";
+
         while ($row = mysqli_fetch_array($queryResult)) {
             $quiz_set = ++$row['quiz_set'];
         }
 
-    
+        $_SESSION['quiz_set'] = $quiz_set;
+
         $subject_code = trim($code, "qs");
 
         $today = date("m/d/Y");
         $start_quiz = date("m/d/Y", strtotime($_POST['start_quiz']));
         if ($today == $start_quiz) {
             $q_display_setting = "listed";
-            echo "listed";
         } else {
             $q_display_setting = "unlisted";
-            echo "unlisted";
         }
     
         $q_name = $_POST['q_name'];

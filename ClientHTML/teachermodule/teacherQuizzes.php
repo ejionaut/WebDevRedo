@@ -44,10 +44,14 @@
         </div>
         <div class="QuizList">
             <div class="quizzes" id="quizzes">
-                    
+                
             </div>
         </div>
-        <button class="createQuiz"> Create Quiz </button>
+        <form action="teacherCreateQuiz.php" method="POST">
+            <button class="createQuiz"> Create Quiz </button>
+        </form>
+
+        
     </main>
 </body>
 </html>

@@ -1,9 +1,10 @@
-<?php 
-
+<?php
     include "config.php";
-    include "cQuiz.php";
+
+    session_start();
 
     if (isset($_POST['submitCQuestion'])) {
+        $quiz_set = $_SESSION['quiz_set'];
         $type_of_quiz = $_POST['type_of_quiz'];
         $question = $_POST['question'];
         $choices = $_POST['choices'];
@@ -23,8 +24,6 @@
 
         $connection->close(); 
     }
-
-    $quiz_code = "tp001a";
 
     $quizQuestions = "SELECT question
     FROM quiz_inventory JOIN quiz_list ON quiz_inventory.quiz_set = quiz_list.quiz_set
