@@ -4,7 +4,7 @@
     $sql = "";
 
     if (isset($_GET['dropdown']) && $_GET['dropdown'] == 'dateCreated') {
-        $sql = "SELECT * FROM `quiz_list` ORDER BY `quiz_list`.`start_quiz` ASC";
+        $sql = "SELECT * FROM `quiz_list` ORDER BY `quiz_list`.`start_date` ASC";
 
     } elseif (isset($_GET['dropdown']) && $_GET['dropdown'] == 'listed') {
         $sql = "SELECT * FROM `quiz_list` WHERE `q_display_setting` = 'listed'";
@@ -31,7 +31,7 @@
         $sql = "SELECT * FROM `quiz_list` WHERE `quiz_code` LIKE 'seqs%'";
 
     } else {
-        $sql = "SELECT * FROM `quiz_list` ORDER by `subject_code` ASC";
+        $sql = "SELECT * FROM `quiz_list` ORDER by `q_name` ASC";
 
     }
 
@@ -42,8 +42,8 @@
         echo "<h2 class='Subject'>" . $row['q_name'] . "</h2>";
         echo "<h3 class='Quiz_title'>" . $row['q_name'] . "</h3>";
         echo "<div class='date'>";
-        echo "<h3 class='datePosted'> Date Posted: " . $row['start_quiz'] . "</h2>";
-        echo "<h3 class='dateQuiz'> Date Due: " . $row['end_quiz'] . "</h2>";
+        echo "<h3 class='datePosted'> Date Posted: " . $row['start_date'] . "</h2>";
+        echo "<h3 class='dateQuiz'> Date Due: " . $row['end_date'] . "</h2>";
         echo "</div>";
         echo "<div class='right_Section'>";
         echo "<button class='listUnlist'> Unlist </button>";
