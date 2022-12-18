@@ -21,8 +21,8 @@
         $subject_code = trim($code, "qs");
 
         $today = date("m/d/Y");
-        $start_quiz = date("m/d/Y", strtotime($_POST['start_quiz']));
-        if ($today == $start_quiz) {
+        $start_date = date("m/d/Y", strtotime($_POST['start_date']));
+        if ($today == $start_date) {
             $q_display_setting = "listed";
         } else {
             $q_display_setting = "unlisted";
@@ -31,9 +31,9 @@
         $q_name = $_POST['q_name'];
         $q_password = $_POST['q_password'];
         $q_display_setting = $_POST['q_display_setting'];
-        $start_quiz = $_POST['start_quiz'];
-        $end_quiz = $_POST['end_quiz'];
-        $sql = "INSERT INTO `quiz_list`(`q_name`, `q_password`, `quiz_code`, `q_display_setting`) VALUES('$q_name', '$q_password', '$quiz_code', '$q_display_setting')";
+        $start_date = $_POST['start_date'];
+        $end_date = $_POST['end_date'];
+        $sql = "INSERT INTO `quiz_list`(`q_name`, `q_password`, `quiz_code`, `q_display_setting`, `start_date`, `end_date`) VALUES('$q_name', '$q_password', '$quiz_code', '$q_display_setting', '$start_date', '$end_date')";
         $result = $connection->query($sql);
         if($result == TRUE) {
             echo "<script>alert('Quiz Created.')</script>";

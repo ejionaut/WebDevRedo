@@ -28,7 +28,7 @@ $countCompletedQuizResult = $connection->query($countCompletedQuiz);
         <img src="./styles/images/logo_square.png" alt="">
         <ul>
             <li>Home</li>
-            <li>Quizzes</li>
+            <li><a href="teacherQuizzes.php" style="text-decoration: none; color: white;">Quizzes</a></li>
         </ul>
     </header>
     <main>
