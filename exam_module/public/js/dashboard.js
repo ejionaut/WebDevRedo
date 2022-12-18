@@ -31,6 +31,7 @@ const studDashboard = (async (req, res) => {
             .catch((err) => {
                 //console.log(err)
             })
+        console.log(history)
         res.render("dashboard", {
             availQuizzes: availQuizzes,
             studentName: studName,
@@ -66,7 +67,6 @@ function getHistory(userid){
         db.query(q, [userid], (err, result) => {
             if(result.length){
                 result = JSON.parse(JSON.stringify(result))
-                console.log(result)
             }else{
                 result = [{
                     quiz_code: "No history yet"
@@ -90,17 +90,26 @@ async function populateAvailQuizzes(quizData){
 }
 
 // Populates the history variable with the history of quizzes of the student
-async function populateHistory(historyData){
+function populateHistory(historyData){
     if(history.length){
         history = []
     }
-    await historyData.forEach((datum) => {
-        let quiz_name = getQuizName(datum.quiz_code).then(data => {return data})
-        let over = getOverAll(datum.quiz_code).then(data => {return data})
+    historyData.forEach(async(datum) => {
+        let quiz_name
+        let over
+        getQuizName(datum.quiz_code)
+            .then((data) => {
+                quiz_name = data
+        });
+        await getOverAll(datum.quiz_code)
+            .then((data) => {
+                over = data
+
+        });
         history.push({
-            quiz_name: quiz_name,
             quiz_code: datum.quiz_code,
             score: datum.score,
+            quiz_name: quiz_name,
             over: over
         })
     })
@@ -120,9 +129,9 @@ function getName(userid){
     return promise
 }
 
-// Fetches the quiz name of a given question code (q_code)
-function fetchQuizName(q_code){
-    const promise = new Promise((resolve, reject) =>{
+// Fetches and returns the quiz name of a given quiz code (q_code)
+function getQuizName(q_code){
+    const promise = new Promise((resolve, reject) => {
         const q = "SELECT q_name FROM quiz_list WHERE quiz_code = ?"
 
         db.query(q, [q_code], (err, result) => {
@@ -134,17 +143,8 @@ function fetchQuizName(q_code){
     return promise
 }
 
-// Returns the quiz name of a given question code (q_code)
-async function getQuizName(q_code){
-    await fetchQuizName(q_code)
-        .then(data => {
-            console.log(data)
-            return data
-        })
-}
-
-// Fetches the perfect score of a given question code (q_code)
-function fetchOverAll(q_code){
+// Fetches and returns the perfect score of a given quiz code (q_code)
+function getOverAll(q_code){
     const promise = new Promise((resolve, reject) => {
         const q = "SELECT SUM(points) AS tot_score FROM quiz_inventory WHERE quiz_code = ?"
 
@@ -155,15 +155,6 @@ function fetchOverAll(q_code){
         })
     })
     return promise
-}
-
-// Returns the perfect score of a given question code (q_code)
-async function getOverAll(q_code){
-    await fetchOverAll(q_code)
-        .then(data => {
-            console.log(data)
-            return data
-        })
 }
 
 module.exports = {

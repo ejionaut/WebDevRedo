@@ -61,8 +61,8 @@ const result = ((req, res) => {
 
 function getQuestionnaires(){
     const promise = new Promise((resolve, reject) => {
-        const q = "SELECT * FROM quiz_inventory WHERE quiz_set = " +
-        "(SELECT quiz_set FROM quiz_list WHERE q_name = ?)"
+        const q = "SELECT * FROM quiz_inventory WHERE quiz_code = " +
+        "(SELECT quiz_code FROM quiz_list WHERE q_name = ?)"
     
         db.query(q, [chosenQuiz[1]], (err, result) => {
             result = JSON.parse(JSON.stringify(result))
