@@ -1,51 +1,56 @@
 <?php
+    include "config.php";
 
- include "config.php";
-$sort_column = $_POST['dropdown'];
+    $dropdown = $_POST['dropdown'];
 
-$sql = "SELECT * FROM 'quiz_list'";
+    $sql = "";
 
+    if (isset($_GET['dropdown']) && $_GET['dropdown'] == 'dateCreated') {
+        $sql = "SELECT * FROM `quiz_list` ORDER BY `quiz_list`.`start_quiz` ASC";
 
-if ($sort_column == 'dateCreated') {
-    $sql .= " ORDER BY `quiz_list`.`start_quiz` ASC";
+    } elseif (isset($_GET['dropdown']) && $_GET['dropdown'] == 'listed') {
+        $sql = "SELECT * FROM `quiz_list` WHERE `q_display_setting` = 'listed'";
 
-} elseif ($sort_column == 'listed') {
-    $sql .= " WHERE `q_display_setting` = 'listed'";
+    } elseif (isset($_GET['dropdown']) && $_GET['dropdown'] == 'unlisted'){
+        $sql = "SELECT * FROM `quiz_list` WHERE `q_display_setting` = 'unlisted'";
 
-} elseif ($sort_column == 'unlisted'){
-    $sql .= " WHERE `q_display_setting` = 'unlisted'";
+    } elseif (isset($_GET['dropdown']) && $_GET['dropdown'] == 'subjectNum'){
+        $sql = "SELECT * FROM `quiz_list` WHERE `quiz_set` LIKE 'nmqs%'";
 
-} elseif ($sort_column == 'subjectNum'){
-    $sql .= " WHERE `subject_code` = 'nm'";
+    } elseif (isset($_GET['dropdown']) && $_GET['dropdown'] == 'subjectTech'){
+        $sql = "SELECT * FROM `quiz_list` WHERE `quiz_set` LIKE 'tpqs%'";
 
-} elseif ($sort_column == 'subjectTech'){
-    $sql .= " WHERE `subject_code` = 'tp'";
+    } elseif (isset($_GET['dropdown']) && $_GET['dropdown'] == 'subjectPer'){
+        $sql = "SELECT * FROM `quiz_list` WHERE `quiz_set` LIKE 'pdqs%'";
 
-} elseif ($sort_column == 'subjectPer'){
-    $sql .= " WHERE `subject_code` = 'pd'";
+    } elseif (isset($_GET['dropdown']) && $_GET['dropdown'] == 'subjectApp'){
+        $sql = "SELECT * FROM `quiz_list` WHERE `quiz_set` LIKE 'adqs%'";
 
-} elseif ($sort_column == 'subjectApp'){
-    $sql .= " WHERE `subject_code` = 'ad'";
+    } elseif (isset($_GET['dropdown']) && $_GET['dropdown'] == 'subjectWeb'){
+        $sql = "SELECT * FROM `quiz_list` WHERE `quiz_set` LIKE 'wdqs%'";
 
-} elseif ($sort_column == 'subjectWeb'){
-    $sql .= " WHERE subject_code` = 'wd'";
+    } elseif (isset($_GET['dropdown']) && $_GET['dropdown'] == 'subjectSoft'){
+        $sql = "SELECT * FROM `quiz_list` WHERE `quiz_set` LIKE 'seqs%'";
 
-} elseif ($sort_column == 'subjectSoft'){
-    $sql .= " WHERE `subject_code` = 'se'";
+    } else {
+        $sql = "SELECT * FROM `quiz_list` ORDER by `subject_code` ASC";
 
-} else {
-    $sql == " ORDER by `subject_code` ASC";
+    }
 
-}
+    $result = mysqli_query($connection, $sql);
 
-$result = mysqli_query($sql);
-
-if(!$result){
-    die("Query failed: " . mysqli_error($conn));
-}
-
-while($row = mysqli_fetch_assoc($result)){
-    //process the data
-}
-
+    while ($row = $result->fetch_assoc()) {
+        echo "<div class='left_Section'>";
+        echo "<h2 class='Subject'>" . $row['q_name'] . "</h2>";
+        echo "<h3 class='Quiz_title'>" . $row['q_name'] . "</h3>";
+        echo "<div class='date'>";
+        echo "<h3 class='datePosted'> Date Posted: " . $row['start_quiz'] . "</h2>";
+        echo "<h3 class='dateQuiz'> Date Due: " . $row['end_quiz'] . "</h2>";
+        echo "</div>";
+        echo "<div class='right_Section'>";
+        echo "<button class='listUnlist'> Unlist </button>";
+        echo "<button class='View'> View </button>";
+        echo "<button class='Edit'> Edit </button>";
+        echo "</div>";
+    }
 ?>
