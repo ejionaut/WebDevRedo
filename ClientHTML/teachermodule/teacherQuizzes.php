@@ -44,7 +44,7 @@
         </div>
         <div class="QuizList">
             <div class="quizzes" id="quizzes">
-                    
+                
             </div>
         </div>
         <button class="createQuiz"> Create Quiz </button>
