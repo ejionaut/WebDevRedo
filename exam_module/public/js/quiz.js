@@ -51,7 +51,7 @@ const result = ((req, res) => {
     if(req.session.loggedIn){
         checkAnswers(req.body)
             .then((data) => {
-                saveAnswers(req.session.userid, data)
+                saveResult(req.session.userid, data)
                 res.redirect("/dashboard")
             })
     }else{
@@ -73,9 +73,20 @@ function getQuestionnaires(){
     return promise
 }
 
-function saveAnswers(userid, score){
-    const q = "INSERT INTO student_quiz (user_id, quiz_code, score) VALUES (?, ?, ?)"
-    db.query(q, [userid, chosenQuiz[0], score])
+// Saves the result of a student's quiz and returns its sq_id
+function saveResult(userid, score){
+    const promise = new Promise((resolve, reject) => {
+        const q = "INSERT INTO student_quiz (user_id, quiz_code, score) VALUES (?, ?, ?)"
+
+        db.query(q, [userid, chosenQuiz[0], score])
+
+    })
+}
+
+function saveAnswers(answerData){
+    const promise = new Promise((resolve, reject) => {
+        const q = "INSERT INTO student_quiz_answer ()"
+    })
 }
 
 function checkAnswers(answers){
@@ -103,6 +114,8 @@ function getQCode(quiz_name){
     })
     return promise
 }
+
+//function getStudentQuizCode()
 
 module.exports = {
     postQuiz: postQuiz,

@@ -6,6 +6,7 @@ const { auth, login, logout } = require("../public/js/auth")
 //routes for authorization
 router.post("/login", auth)
 router.get("/login", login)
-router.post("/logout", logout)
+//router.post("/logout", logout)
+router.get("/logout", logout)
 
 module.exports = router

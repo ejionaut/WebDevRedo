@@ -14,7 +14,7 @@
             <div className="header__greet">
                 <h1 className="greetingTXT"> <span className="studentName"><%= studentName%>,</span> Hello! </h1>
                 <div className="header__buttons">
-                    <button className="buttons">Log out</button>
+                    <a href="/logout"><button className="buttons">Log out</button></a>
                 </div>
             </div>
         </header>
@@ -36,8 +36,9 @@
                 <div className="display_history">
                     <% studentHistory.forEach(function(data) { %>
                         <div>
-                            <p><% data.quiz_code%></p>
-                            <p><% data.score%></p>
+                            <p><%= data.quiz_name%></p>
+                            <p><%= data.quiz_code%></p>
+                            <p><%= `${data.score}/${data.over}`%></p>
                         </div>
                     <% }) %>
                 </div>
