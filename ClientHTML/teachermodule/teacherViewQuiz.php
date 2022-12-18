@@ -1,7 +1,7 @@
 <?php
     include "config.php";
 
-    $quiz_code = "tp001a";
+    $quiz_code = "tpqs001";
 
     $highestScoreName = "SELECT CONCAT(student.firstname, ' ', student.lastname) as fullname, student_quiz.score as score
     FROM student JOIN student_quiz on student.user_id = student_quiz.user_id
@@ -99,23 +99,11 @@
                                     $row = mysqli_fetch_assoc($highestScoreResult);
                                     $highestScore = $row['score'];
                                 
-                                    echo $highestScore . " /";
+                                    echo '<h3>Score: ' . $highestScore .'</h3>' ;
                                 } else {
                                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                                 }
                             ?>  
-
-                            <?php
-                                if ($overResult) {
-                                    
-                                    $row = mysqli_fetch_assoc($overResult);
-                                    $over = $row['total_Score'];
-                                
-                                    echo $over;
-                                } else {
-                                    echo "Error: " . $sql . "<br>" . mysqli_error($connection);
-                                }
-                            ?> 
                         </h3>
                     </div>
                 </div>
@@ -179,12 +167,12 @@
                         <h3> Students Missed </h3>
                         <h2 class="missedStudents"> 
                             <?php
-                                    if ($studentsCompletedResult) {
+                                    if ($studentsMissedResult) {
                                         
-                                        $row = mysqli_fetch_assoc($studentsCompletedResult);
-                                        $studentsCompleted= $row['students_Completed'];
+                                        $row = mysqli_fetch_assoc($studentsMissedResult);
+                                        $studentsMissed= $row['students_Missed'];
                                     
-                                        echo $studentsCompleted;
+                                        echo $studentsMissed;
                                     } else {
                                         echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                                     }
@@ -195,12 +183,12 @@
                         <h3> Students Completed </h3>
                         <h2 class="missedStudents">
                             <?php
-                                if ($studentsMissedResult) {
+                                if ($studentsCompleted) {
                                     
-                                    $row = mysqli_fetch_assoc($studentsMissedResult);
-                                    $studentsMissed= $row['students_Missed'];
+                                    $row = mysqli_fetch_assoc($studentsCompletedResult);
+                                    $studentsCompleted= $row['students_Completed'];
                                 
-                                    echo $studentsMissed;
+                                    echo $studentsCompleted;
                                 } else {
                                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                                 }
