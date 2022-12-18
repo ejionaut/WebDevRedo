@@ -9,15 +9,7 @@
     </head>
 
     <body>
-        <header className="Header_Section">
-            <img className="studentLOGO" src="css/images/logo_square.png" alt="" />
-            <div className="header__greet">
-                <h1 className="greetingTXT"> <span className="studentName"><%= studentName%>,</span> Hello! </h1>
-                <div className="header__buttons">
-                    <a href="/logout"><button className="buttons">Log out</button></a>
-                </div>
-            </div>
-        </header>
+        <%- include("header_footer/header", {studentName: studentName})%>
         <main className="Center_Section">
             <div className="container_left">
                 <div className="display_quizes">
@@ -44,32 +36,10 @@
                 </div>
                 <div className="buttons_right_container">
                     <button> Refresh </button>
-                    <button> Remove </button>
                 </div>
             </div>
         </main>
     </body>
-    <footer>
-        <div>
-            <img src="/css/images/logo_white.png" alt="">
-        </div>
-        <div class="footer__mid">
-            <h3 class="footer__socials"> Check our  <span class="socials">socials!</span></h3>
-            <div class="logo__container">
-                <img src="./style/images/fblogo.png" alt="">
-                <img src="./style/images/iglogo.png" alt="">
-                <img src="./style/images/twitterlogo.png" alt="">
-            </div>
-        </div>
-        <div class="members">
-            <h3> Team Members: </h3>
-            <p class="group__mates"> Jun Roy Gahid </p>
-            <p class="group__mates"> Danielle Nicole Javier </p>
-            <p class="group__mates"> El Charis Laguitan </p>
-            <p class="group__mates"> Joanne Mangsat </p>
-            <p class="group__mates"> Eugene Justin Pangwi</p>
-            <p class="group__mates"> Francisco Miguel Villa </p>
-        </div>
-    </footer>
+    <%- include("header_footer/footer")%>
 
 </html>
