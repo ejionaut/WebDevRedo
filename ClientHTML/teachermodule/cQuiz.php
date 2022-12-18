@@ -6,17 +6,17 @@
     if (isset($_POST['submitCQuiz'])) {
         // collect values of input field
         
-        $code = $_POST['quiz_set'];
-        $query = "SELECT quiz_set FROM quiz_list WHERE quiz_set LIKE '%$code%' ORDER BY quiz_set DESC LIMIT 1;";
+        $code = $_POST['quiz_code'];
+        $query = "SELECT quiz_code FROM quiz_list WHERE quiz_code LIKE '%$code%' ORDER BY quiz_code DESC LIMIT 1;";
         $queryResult = $connection->query($query);
 
-        $_SESSION['quiz_set'] = "";
+        $_SESSION['quiz_code'] = "";
 
         while ($row = mysqli_fetch_array($queryResult)) {
-            $quiz_set = ++$row['quiz_set'];
+            $quiz_code = ++$row['quiz_code'];
         }
 
-        $_SESSION['quiz_set'] = $quiz_set;
+        $_SESSION['quiz_code'] = $quiz_code;
 
         $subject_code = trim($code, "qs");
 
@@ -33,7 +33,7 @@
         $q_display_setting = $_POST['q_display_setting'];
         $start_quiz = $_POST['start_quiz'];
         $end_quiz = $_POST['end_quiz'];
-        $sql = "INSERT INTO `quiz_list`(`q_name`, `q_password`, `quiz_set`, `subject_code`, `q_display_setting`, `start_quiz`, `end_quiz`) VALUES('$q_name', '$q_password', '$quiz_set', '$subject_code', '$q_display_setting', '$start_quiz', '$end_quiz')";
+        $sql = "INSERT INTO `quiz_list`(`q_name`, `q_password`, `quiz_code`, `q_display_setting`) VALUES('$q_name', '$q_password', '$quiz_code', '$q_display_setting')";
         $result = $connection->query($sql);
         if($result == TRUE) {
             echo "<script>alert('Quiz Created.')</script>";

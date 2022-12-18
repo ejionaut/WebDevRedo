@@ -24,7 +24,7 @@
                 <h2> Create Quiz </h2>
                 <form action="cQuiz.php" method="POST" id="QuizForm">
                     <label class="Quiz">Subject</label>
-                    <select name="quiz_set" id="quiz_set" required>
+                    <select name="quiz_code" id="quiz_code" required>
                         <option name="_">--Select subject--</option>
                         <option name="tpqs" value="tpqs">Technolgy Assisted Presentation and Communication</option>
                         <option name="nmqs" value="nmqs">Numerical Methods</option>
