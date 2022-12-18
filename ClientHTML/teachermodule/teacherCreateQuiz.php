@@ -38,9 +38,9 @@
                     <label> Quiz Password </label>
                     <input type="text" name="q_password" id="q_password" required> 
                     <label> Quiz Start </label>
-                    <input type="date" name="start_quiz" id="start_quiz" required> 
+                    <input type="date" name="start_date" id="start_date" required> 
                     <label> Quiz Due Date </label>
-                    <input type="date" name="end_quiz" id="end_quiz" required> 
+                    <input type="date" name="end_date" id="end_date" required> 
                     <input type="submit" value="Next" name="submitCQuiz" id="submitForm">
                 </form>
             </section-right>

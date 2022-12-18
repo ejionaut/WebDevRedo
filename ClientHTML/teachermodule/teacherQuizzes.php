@@ -17,17 +17,17 @@
     <header>
         <img src="./styles/images/logo_square.png" alt="">
         <ul>
-            <li>Home</li>
+            <li><a href="teacherHome.php" style="text-decoration: none; color: white;">Home</a></li>
             <li>Quizzes</li>
         </ul>
     </header>
     <main>
         <div class="Head">
             <h1> Quizzes </h1>
-            <form>
+            <form name="form" id="form">
                 <label class="sort" for="dropdown"> Sort by: </label>
                 <select name="dropdown">
-                    <option value="dateCreated" > Date Created </option>
+                    <option value="dateCreated" selected> Date Created </option>
                     <option value="listed" > Listed </option>
                     <option value="unlisted" > Unlisted </option>
                     <option value="subjectNum" > Subject: Numerical Methods </option>
@@ -37,7 +37,7 @@
                     <option value="subjectWeb" > Subject: Web Dev </option>
                     <option value="subjectSoft" > Subject: Soft Eng </option>
                 </select>
-                <button type="submit"> Sort </button>
+                <button type="submit" id="submitSort"> Sort </button>
             </form>
         </div>
         <div class="QuizList">

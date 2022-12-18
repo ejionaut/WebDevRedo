@@ -1,8 +1,6 @@
 <?php
     include "config.php";
 
-    $dropdown = $_POST['dropdown'];
-
     $sql = "";
 
     if (isset($_GET['dropdown']) && $_GET['dropdown'] == 'dateCreated') {
