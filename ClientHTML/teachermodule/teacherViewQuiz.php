@@ -1,7 +1,7 @@
 <?php
     include "config.php";
 
-    $quiz_code = "tpqs001";
+    $quiz_code = "tp001a";
 
     $highestScoreName = "SELECT CONCAT(student.firstname, ' ', student.lastname) as fullname, student_quiz.score as score
     FROM student JOIN student_quiz on student.user_id = student_quiz.user_id
