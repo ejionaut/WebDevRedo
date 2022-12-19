@@ -16,6 +16,8 @@ html, body {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     background-color: var(--clr-background);
     width: 100vw;
     height: 100vh;
@@ -43,7 +45,7 @@ header > :nth-child(2){
 }
 
 
-header > :nth-child(2) > :nth-child(2) > button{
+a > button {
     width: 9rem;
     padding: 0.4rem;
     border-radius: 2rem;
@@ -52,8 +54,7 @@ header > :nth-child(2) > :nth-child(2) > button{
     font-weight: bold;
     cursor: pointer;
 }
-
-header > :nth-child(2) > :nth-child(2) > button:hover {
+a > button:hover {
     background-color: rgb(94, 180, 214);
 }
 
@@ -62,6 +63,8 @@ main {
     flex-direction: row;
     column-gap: 2rem;
     padding: 2rem;
+    flex: 1;
+    
 }
 
 main > :nth-child(1) {
@@ -110,15 +113,41 @@ main > :nth-child(1) > :nth-child(1) > *:is(input):hover {
 main > :nth-child(2) {
     width: 20%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     background-color: #422546;
     padding: 2rem;
 }
 
-main > :nth-child(2) > :nth-child(1){
-    height: 80%;
+main > :nth-child(2) > :nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
 }
+
+main > :nth-child(2) > :nth-child(1) > * {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #6f4aa0;
+    color: white;
+    border-radius: 2rem;
+    border: 0.2rem white;
+    border-style:solid dashed solid dashed ;
+    font-family: var(--fnt-Quicksand);
+}
+
+main > :nth-child(2) > :nth-child(1) > * > :last-child {
+    margin-top: 0.2rem;
+    font-size: 3ch;
+}
+
+main > :nth-child(2) > :nth-child(1) > *:last-child {
+    margin-bottom: 2rem;
+}
+
 
 main > :nth-child(2) > :nth-child(2){
     width: 100%;
@@ -139,18 +168,12 @@ main > :nth-child(2) > :nth-child(2) > *:hover {
     background-color: #52a160;
 }
 
-main > :nth-child(2) > :nth-child(1) {
-    background-color: #6f4aa0;
-    height: 80%;
-}
-
 footer {
     background-color: var(--clr-footer);
     display: grid;
     grid-template-columns: 20rem 1fr 20rem;
-    position: absolute;
-    bottom: 0;
     width: 100%;
+    
 }
 
 
