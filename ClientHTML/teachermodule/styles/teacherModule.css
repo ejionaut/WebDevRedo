@@ -98,7 +98,7 @@ main > :nth-child(1) > :nth-child(1) > * {
         font-size: 2ch;
         color: white;
     }
-    main > :nth-child(1) > :nth-child(1) {
+    main > :nth-child(1) > :nth-child(2) {
         flex-direction: column;
         row-gap: 2rem;
         width: 100%;

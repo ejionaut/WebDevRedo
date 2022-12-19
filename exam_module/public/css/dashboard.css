@@ -280,14 +280,14 @@ footer div img:hover {
     
 
     main > :nth-child(1) {
-        width: 100%;
+        width: inherit;
     }
 
     main > :nth-child(2) {
         width: inherit;
     }
 
-    main > :nth-child(2) > :nth-child(2) > * {
+    main > :nth-child(1) > :nth-child(1) > * {
         width: 10rem;
     }
 
@@ -327,14 +327,14 @@ footer div img:hover {
 }
 
 @media screen and (max-width: 700px) {
-    main > :nth-child(1) > :nth-child(1){
+    main > :nth-child(1) > :nth-child(2){
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media screen and (max-width: 550px) {
 
-    main > :nth-child(1) > :nth-child(1){
+    main > :nth-child(1) > :nth-child(2){
         grid-template-columns: 1fr;
     }
 
