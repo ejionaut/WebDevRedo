@@ -78,12 +78,8 @@ function getQuestionnaires(){
 
 // Saves the result of a student's quiz and returns its sq_id
 function saveResult(userid, score){
-    const promise = new Promise((resolve, reject) => {
-        const q = "INSERT INTO student_quiz (user_id, quiz_code, score) VALUES (?, ?, ?)"
-
-        db.query(q, [userid, chosenQuiz[0], score])
-
-    })
+    const q = "INSERT INTO student_quiz (user_id, quiz_code, score) VALUES (?, ?, ?)"
+    db.query(q, [userid, chosenQuiz[0], score])
 }
 
 // Saves student's answers
@@ -97,15 +93,38 @@ function saveAnswers(answerData){
 function checkAnswers(answers){
     const promise = new Promise((resolve, reject) => {
         var points = 0
-        var ans = Object.values(answers)
+        var studAns = Object.values(answers)
+        
         for(i = 0; i < questionnaire.length; i++){
-            if(ans[i] === questionnaire[i].answer){
+            if(questionnaire[i].type === "enum"){
+                let correctAnswer = questionnaire[i].answer.toLowerCase().split(",")
+                let studentAnswer = studAns[i].toLowerCase().split(",")
+
+                checkEnum(correctAnswer, studentAnswer)
+                    .then((enumScore) => {
+                        console.log(enumScore)
+                        points += enumScore
+                    })
+            }
+            if(studAns[i] === questionnaire[i].answer){
                 points++
             }
         }
+        console.log(points)
         resolve(points)
     })
     return promise
+}
+
+// Checks the enumeration part of the quiz
+async function checkEnum(correctAnswer, studentAnswer){
+    let score = 0
+    await studentAnswer.every((answer) => {
+        if(correctAnswer.includes(answer)){
+            score++
+        }
+    })
+    return score
 }
 
 // Fetches and returns the quiz code of a given quiz name
