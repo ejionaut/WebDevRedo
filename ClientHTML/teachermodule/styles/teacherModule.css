@@ -19,6 +19,16 @@ h1 {
     font-size: 10ch;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+    transition: text-decoration 0.17s ease-in-out;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -79,4 +89,17 @@ main > :nth-child(1) > :nth-child(1) > * {
 
 .statboxStudents > h2 {
     color: rgb(54, 12, 94);
+}
+
+@media screen and (max-width: 600px) {
+
+    header ul {
+        font-size: 2ch;
+        color: white;
+    }
+    main > :nth-child(1) > :nth-child(1) {
+        flex-direction: column;
+        row-gap: 2rem;
+        width: 100%;
+    }
 }

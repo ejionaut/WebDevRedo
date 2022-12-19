@@ -3,11 +3,14 @@
 
 body{
     background-color: var(--clr-background);
+    width: 100vw;
 }
 
 main {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
@@ -49,6 +52,9 @@ h1 {
     width: 100%;
     background-color: #C8CCCC;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
 }
 
 .quizzes {
@@ -84,14 +90,12 @@ h1 {
 }
 
 
-.quizzes .right_Section > :nth-child(2), 
-.quizzes .right_Section > :nth-child(3) {
+.quizzes .right_Section > * {
     background-color: #472C4D;
     color: white;
 }
 
-.quizzes .right_Section > :nth-child(2):hover, 
-.quizzes .right_Section > :nth-child(3):hover {
+.quizzes .right_Section > *:hover {
     background-color: #694771;
 }
 
@@ -109,4 +113,60 @@ h1 {
 
 .createQuiz:hover {
     background-color: #679160;
+}
+
+@media screen and (max-width:600px) {
+    .Head form {
+        align-self: flex-end;
+    }
+    
+    .Head form button {
+        width: 3rem;
+        height: 2rem;
+        border-radius: 2rem;
+        background-color: #472C4D;
+        cursor: pointer;
+        color: white;
+    }
+    
+    .Head form button:hover {
+        background-color: #553c5b;
+    }
+    
+    .Head form select {
+        cursor: pointer;
+        width: 40%;
+    }
+    
+    .Head form label {
+        font-size: 1.4ch;
+    }
+
+    .quizzes .left_Section h2 {
+        font-size: 2.5ch;
+    }
+
+    .quizzes .left_Section h3 {
+        font-size: 2ch;
+    }
+
+    .quizzes {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 1rem;
+    }
+
+    .quizzes .left_Section {
+        flex-direction: column;
+        text-align: center;
+        max-width: 70%;
+    }
+    
+    .quizzes .right_Section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
