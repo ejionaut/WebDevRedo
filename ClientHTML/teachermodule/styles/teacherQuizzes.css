@@ -1,6 +1,10 @@
 @import url(./FontAndColors.css);
 @import url(./teacherModule.css);
 
+header {
+    width: 100%;
+}
+
 body{
     background-color: var(--clr-background);
     width: 100vw;
@@ -95,6 +99,10 @@ h1 {
     color: white;
 }
 
+.listUnlist {
+    color: white;
+}
+
 .quizzes .right_Section > *:hover {
     background-color: #694771;
 }
@@ -116,6 +124,10 @@ h1 {
 }
 
 @media screen and (max-width:600px) {
+    .Head> :nth-child(1){
+        margin-right: 2rem;
+    }
+
     .Head form {
         align-self: flex-end;
     }
@@ -168,5 +180,14 @@ h1 {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .createQuiz {
+        width: 15rem;
+    }
+
+    .QuizList{
+        align-items: center;
+        justify-content: center;
     }
 }

@@ -41,29 +41,29 @@
 
     while ($row = $result->fetch_assoc()) {
         echo "<div class='quizzes' id='quizzes'>";
-        echo "<div class='left_Section'>";
-        echo "<h2 class='Subject'>" . $row['q_name'] . "</h2>";
-        echo "<h3 class='Quiz_title'>" . $row['q_name'] . "</h3>";
-        echo "</div>";
-        echo "<div class='date'>";
-        echo "<h3 class='datePosted'> Date Posted: " . $row['start_date'] . "</h2>";
-        echo "<h3 class='dateQuiz'> Date Due: " . $row['end_date'] . "</h2>";
-        echo "</div>";
-        echo "<div class='right_Section'>";
+            echo "<div class='left_Section'>";
+                echo "<h2 class='Subject'>" . $row['q_name'] . "</h2>";
+                echo "<h3 class='Quiz_title'>" . $row['q_name'] . "</h3>";
+            echo "</div>";
+            echo "<div class='date'>";
+                echo "<h3 class='datePosted'> Date Posted: " . $row['start_date'] . "</h2>";
+                echo "<h3 class='dateQuiz'> Date Due: " . $row['end_date'] . "</h2>";
+            echo "</div>";
+            echo "<div class='right_Section'>";
 
-        if ($row['q_display_setting'] == "listed"){
-            echo "<button class='listUnlist'><a href=unlist.php?quiz_code=" .$row['quiz_code']." style='text-decoration: none; color: black;'> Listed </a></button>";
-            
-        } else if($row['q_display_setting'] == "unlisted")
-            echo "<button class='listUnlist'><a href=list.php?quiz_code=" .$row['quiz_code']." style='text-decoration: none; color: black;'> Unlisted </a></button>";
-            
-        
-        echo "<button class='Manage'> Manage </button>";
-        echo "<button class='Edit'><a href='teacherEditQuiz.php?quiz_code=" . $row['quiz_code'] . "' style='text-decoration: none; color: white;'>Edit</a></button>";
+                if ($row['q_display_setting'] == "listed"){
+                    echo "<button class='listUnlist'><a href=unlist.php?quiz_code=" .$row['quiz_code']." style='text-decoration: none;'> Listed </a></button>";
+                    
+                } else if($row['q_display_setting'] == "unlisted")
+                    echo "<button class='listUnlist'><a href=list.php?quiz_code=" .$row['quiz_code']." style='text-decoration: none;'> Unlisted </a></button>";
+                    
+                
+                echo "<button class='Manage'> Manage </button>";
+                echo "<button class='Edit'><a href='teacherEditQuiz.php?quiz_code=" . $row['quiz_code'] . "' style='text-decoration: none; color: white;'>Edit</a></button>";
 
 
-        echo "<button class='Delete'><a href=deleteQuizList.php?quiz_code=" .$row['quiz_code']. " style='text-decoration: none; color: black;'> Delete </a></button>";
-        echo "</div>";
+                echo "<button class='Delete'><a href=deleteQuizList.php?quiz_code=" .$row['quiz_code']. " style='text-decoration: none; '> Delete </a></button>";
+            echo "</div>";
         echo "</div>";
     }
     
