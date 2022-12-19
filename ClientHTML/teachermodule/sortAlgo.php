@@ -51,12 +51,16 @@
 
         if ($row['q_display_setting'] == "listed"){
             echo "<button class='listUnlist'><a href=unlist.php?id=" .$row['quiz_code']."> Listed </a></button>";
+            
         } else if($row['q_display_setting'] == "unlisted")
             echo "<button class='listUnlist'><a href=list.php?id=" .$row['quiz_code']."> Unlisted </a></button>";
+            
     
         echo "<button class='Manage'> Manage </button>";
-        echo "<button class='Edit'><a href='teacherEditQuiz.php?quiz_code=" . $row['quiz_code'] . "' style='text-decoration: none; color: white;'>Edit</a></button>";
-        echo "<button class='Delete'> Delete </button>";
+        echo "<button class='Edit'><a href='teacherEditQuiz.php?id=" . $row['quiz_code'] . "' style='text-decoration: none; color: white;'>Edit</a></button>";
+
+
+        echo "<button class='Delete'><a href=deleteQuizList.php?id=" .$row['quiz_code']. "> Delete </a></button>";
         echo "</div>";
     }
     
