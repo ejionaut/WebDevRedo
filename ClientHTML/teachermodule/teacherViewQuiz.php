@@ -1,7 +1,7 @@
 <?php
     include "config.php";
 
-    $quiz_code = "tp001a";
+    $quiz_code = "tpqs001";
 
     $highestScoreName = "SELECT CONCAT(student.firstname, ' ', student.lastname) as fullname, student_quiz.score as score
     FROM student JOIN student_quiz on student.user_id = student_quiz.user_id
@@ -39,7 +39,7 @@
     $failedResult = $connection->query($failed);
     $overResult = $connection->query($over);
     $highestScoreNameResult = $connection->query($highestScoreName);
-    $highestScoreResult = $connection->query($highestScoreName);
+    $highestScoreResult = $connection->query($highestScore);
     $averageScoreResult = $connection->query($averageScore);
     $studentsNameResult = $connection->query($studentsName);
 ?>
@@ -84,9 +84,9 @@
                                 if ($highestScoreNameResult) {
                                     
                                     $row = mysqli_fetch_assoc($highestScoreNameResult);
-                                    $highestScore = $row['fullname'];
+                                    $highestScoreName = $row['fullname'];
                                 
-                                    echo $highestScore;
+                                    echo $highestScoreName;
                                 } else {
                                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                                 }
@@ -202,7 +202,7 @@
                 </div>
             </section-right>
         </div>
-        <button class="returnBTN"> Return </button>
+        <button action="teacherQuizzes.php" method="POST" class="returnBTN"> Return </button>
     </main>
 </body>
 </html>
