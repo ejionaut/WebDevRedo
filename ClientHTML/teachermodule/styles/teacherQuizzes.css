@@ -24,6 +24,7 @@ h1 {
 .Head {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .Head form {
