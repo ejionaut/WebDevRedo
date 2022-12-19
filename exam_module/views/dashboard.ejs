@@ -12,8 +12,8 @@
         <%- include("header_footer/header", {studentName: studentName})%>
         <main className="Center_Section">
             <div className="container_left">
+                <h1>Available Quizzes</h1>
                 <div className="display_quizes">
-                    <h1>Available Quizzes</h1>
                     <% availQuizzes.forEach(function(quiz) { %>
                         <form action="/take_quiz"  method="POST">
                             <div className="quiz">
@@ -26,8 +26,8 @@
                 </div>
             </div>
             <div className="container_right">
+                <h1>Your history</h1>
                 <div className="display_history">
-                    <h1>Your history</h1>
                     <% studentHistory.forEach(function(data) { %>
                         <% if(data.quiz_code == 0) { %>
                             <div>
