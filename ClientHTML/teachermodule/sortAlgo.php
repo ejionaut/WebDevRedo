@@ -40,9 +40,11 @@
     $result = mysqli_query($connection, $sql);
 
     while ($row = $result->fetch_assoc()) {
+        echo "<div class='quizzes' id='quizzes'>";
         echo "<div class='left_Section'>";
         echo "<h2 class='Subject'>" . $row['q_name'] . "</h2>";
         echo "<h3 class='Quiz_title'>" . $row['q_name'] . "</h3>";
+        echo "</div>";
         echo "<div class='date'>";
         echo "<h3 class='datePosted'> Date Posted: " . $row['start_date'] . "</h2>";
         echo "<h3 class='dateQuiz'> Date Due: " . $row['end_date'] . "</h2>";
@@ -61,6 +63,7 @@
 
 
         echo "<button class='Delete'><a href=deleteQuizList.php?id=" .$row['quiz_code']. " style='text-decoration: none; color: black;'> Delete </a></button>";
+        echo "</div>";
         echo "</div>";
     }
     

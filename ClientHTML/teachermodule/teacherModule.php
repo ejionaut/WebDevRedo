@@ -110,7 +110,6 @@ $countCompletedQuizResult = $connection->query($countCompletedQuiz);
                 </div>
         </div>
 
-        <div>
             <div class="Head" id="quizzes">
                 <h1> Quizzes </h1>
                 <form name="form" id="form">
@@ -135,11 +134,10 @@ $countCompletedQuizResult = $connection->query($countCompletedQuiz);
                         include "sortAlgo.php";
                     ?>
                 </div>
+                <form action="teacherCreateQuiz.php" method="POST">
+                    <button class="createQuiz"> Create Quiz </button>
+                </form>
             </div>
-            <form action="teacherCreateQuiz.php" method="POST">
-                <button class="createQuiz"> Create Quiz </button>
-            </form>
-        </div>
     </main>
 </body>
 </html>
