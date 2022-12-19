@@ -21,7 +21,9 @@
             <section-left>
                 <h3> Current Questions </h3>
                 <div class="quizQuestions" id="quizQuestions">
-
+                    <?php
+                        include "rQuestions.php";
+                    ?>
                 </div>
             </section-left>
             <section-right>

@@ -28,7 +28,6 @@
     
         $q_name = $_POST['q_name'];
         $q_password = $_POST['q_password'];
-        $q_display_setting = $_POST['q_display_setting'];
         $start_date = $_POST['start_date'];
         $end_date = $_POST['end_date'];
         $sql = "INSERT INTO `quiz_list`(`q_name`, `q_password`, `quiz_code`, `q_display_setting`, `start_date`, `end_date`) VALUES('$q_name', '$q_password', '$quiz_code', '$q_display_setting', '$start_date', '$end_date')";
