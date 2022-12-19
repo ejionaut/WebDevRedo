@@ -13,6 +13,7 @@
         <main className="Center_Section">
             <div className="container_left">
                 <div className="display_quizes">
+                    <h1>Available Quizzes</h1>
                     <% availQuizzes.forEach(function(quiz) { %>
                         <form action="/take_quiz"  method="POST">
                             <div className="quiz">
@@ -26,6 +27,7 @@
             </div>
             <div className="container_right">
                 <div className="display_history">
+                    <h1>Your history</h1>
                     <% studentHistory.forEach(function(data) { %>
                         <% if(data.quiz_code == 0) { %>
                             <div>
