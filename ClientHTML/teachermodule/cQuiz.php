@@ -18,8 +18,6 @@
 
         $_SESSION['quiz_code'] = $quiz_code;
 
-        $subject_code = trim($code, "qs");
-
         $today = date("m/d/Y");
         $start_date = date("m/d/Y", strtotime($_POST['start_date']));
         if ($today == $start_date) {

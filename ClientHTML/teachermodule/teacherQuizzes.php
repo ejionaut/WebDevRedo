@@ -18,7 +18,7 @@
         <img src="./styles/images/logo_square.png" alt="">
         <ul>
             <li><a href="teacherHome.php" style="text-decoration: none; color: white;">Home</a></li>
-            <li>Quizzes</li>
+            <li><a href="teacherQuizzes.php" style="text-decoration: none; color: white;">Quizzes</a></li>
         </ul>
     </header>
     <main>
