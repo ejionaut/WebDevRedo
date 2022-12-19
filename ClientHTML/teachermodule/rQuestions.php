@@ -10,12 +10,12 @@
     $result = mysqli_query($connection, $sql);
 
     while ($row = $result->fetch_assoc()) {
-        echo `<div>
-                <h4>`. $row['question'] . `</h4>
-                <div>
-                    <button class='editQuestion'><a href='teacherEditQuestion.php?question='`. $row['question'] . `> edit </a></button>
-                    <button class='deleteQuestion'> delete </button>
-                </div>
-            </div>`;
+        echo "<div>";
+        echo "<h4>". $row['question'] . "</h4>";
+        echo "<div>";
+        echo "<button class='editQuestion'><a href='teacherEditQuestion.php?question='". $row['question'] . "> edit </a></button>";
+        echo "<button class='deleteQuestion'> delete </button>";
+        echo "</div>";
+        echo "</div>";
     }
 ?>
