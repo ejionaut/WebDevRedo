@@ -46,10 +46,17 @@
         echo "<h3 class='dateQuiz'> Date Due: " . $row['end_date'] . "</h2>";
         echo "</div>";
         echo "<div class='right_Section'>";
-        echo "<button class='listUnlist'> Unlist </button>";
+
+        if ($row['q_display_setting'] == "listed"){
+            echo "<button class='listUnlist'><a href=unlist.php> Listed </a></button>";
+        } else
+        echo "<button class='listUnlist'><a href=list.php> Unlisted </a></button>";
+        
+        //echo "<button class='listUnlist'>" . $row['q_display_setting'] . "</button>";
         echo "<button class='Manage'> Manage </button>";
         echo "<button class='Edit'> Edit </button>";
-        echo "<button class='Delete'> Delete </button>";
+        echo "<button type='submit' id='deleteQuiz'> Delete </button>";
         echo "</div>";
     }
+    
 ?>
