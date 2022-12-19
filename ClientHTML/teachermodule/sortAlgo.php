@@ -48,11 +48,10 @@
         echo "<div class='right_Section'>";
 
         if ($row['q_display_setting'] == "listed"){
-            echo "<button class='listUnlist'><a href=unlist.php> Listed </a></button>";
-        } else
-        echo "<button class='listUnlist'><a href=list.php> Unlisted </a></button>";
-        
-        //echo "<button class='listUnlist'>" . $row['q_display_setting'] . "</button>";
+            echo "<button class='listUnlist'><a href=unlist.php?id=" .$row['quiz_code']."> Listed </a></button>";
+        } else if($row['q_display_setting'] == "unlisted")
+            echo "<button class='listUnlist'><a href=list.php?id=" .$row['quiz_code']."> Unlisted </a></button>";
+    
         echo "<button class='Manage'> Manage </button>";
         echo "<button class='Edit'> Edit </button>";
         echo "<button type='submit' id='deleteQuiz'> Delete </button>";
