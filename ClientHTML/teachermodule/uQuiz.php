@@ -1,13 +1,15 @@
 <?php
     include "config.php";
 
+    session_start();
+
     if (isset($_POST['uQuiz'])) {
         $q_name = $_POST['q_name'];
         $q_password = $_POST['q_password'];
         $start_date = $_POST['start_date'];
         $end_date = $_POST['end_date'];
 
-        $sql = "UPDATE `quiz_list` SET `q_name`='$q_name',`q_password`='$q_password',`start_date`='$start_date',`end_date`='$end_date' WHERE `quiz_code` = '$quiz_code'"; 
+        $sql = "UPDATE `quiz_list` SET `q_name`='$q_name',`q_password`='$q_password',`start_date`='$start_date',`end_date`='$end_date' WHERE `quiz_code`='" . $_SESSION['quiz_code'] . "'"; 
 
         $result = $connection->query($sql); 
         if ($result == TRUE) {
@@ -17,9 +19,9 @@
         }
     }
 
-    $string = preg_replace('/[0-9]+/', '', $quiz_code);
+    $sql = "SELECT * FROM `quiz_list` WHERE `quiz_code` = '" . $_SESSION['quiz_code'] . "'";
 
-    $sql = "SELECT * FROM `quiz_list` WHERE `quiz_code` = '$quiz_code'";
+    $string = preg_replace('/[0-9]+/', '', $_SESSION['quiz_code']);
 
     $result = mysqli_query($connection, $sql);
 

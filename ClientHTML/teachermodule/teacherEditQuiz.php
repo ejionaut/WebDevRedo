@@ -1,5 +1,7 @@
 <?php
-    $quiz_code = $_GET['quiz_code'];
+    session_start();
+
+    $_SESSION['quiz_code'] = $_GET['quiz_code'];
 
     include "uQuiz.php";
 ?>
