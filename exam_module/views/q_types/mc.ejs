@@ -3,7 +3,7 @@
     <p class="question"><%= question%></p>
     <fieldset class="choice_container">
         <% choices.split(",").forEach(function(choice){ %>
-            <input type="radio" name="<%= question%>" id="<%= choice%>" value="<%= choice%>">
+            <input type="radio" name="<%= question%>" id="<%= choice%>" value="<%= choice%>" required>
             <label for="<% choice%>"><%= choice%></label>
         <% })%>
     </fieldset>
