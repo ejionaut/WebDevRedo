@@ -1,6 +1,8 @@
 <?php
     include "config.php";
 
+    
+
     $sql = "";
 
     if (isset($_GET['dropdown']) && $_GET['dropdown'] == 'dateCreated') {
@@ -48,7 +50,7 @@
         echo "<div class='right_Section'>";
         echo "<button class='listUnlist'> Unlist </button>";
         echo "<button class='Manage'> Manage </button>";
-        echo "<button class='Edit'> Edit </button>";
+        echo "<button class='Edit'><a href='teacherEditQuiz.php?quiz_code=" . $row['quiz_code'] . "' style='text-decoration: none; color: white;'>Edit</a></button>";
         echo "<button class='Delete'> Delete </button>";
         echo "</div>";
     }
