@@ -51,18 +51,17 @@
             echo "</div>";
             echo "<div class='right_Section'>";
 
-                if ($row['q_display_setting'] == "listed"){
-                    echo "<button class='listUnlist'><a href=unlist.php?quiz_code=" .$row['quiz_code']." style='text-decoration: none;'> Listed </a></button>";
+                if ($row['q_display_setting'] == "listed" || $row['q_display_setting'] == ""){
+                    echo "<button class='listUnlist'><a href=unlist.php?quiz_code=" .$row['quiz_code']."' style='text-decoration: none;'> Unlist </a></button>";
                     
                 } else if($row['q_display_setting'] == "unlisted")
-                    echo "<button class='listUnlist'><a href=list.php?quiz_code=" .$row['quiz_code']." style='text-decoration: none;'> Unlisted </a></button>";
+                    echo "<button class='listUnlist'><a href=list.php?quiz_code=" .$row['quiz_code']."' style='text-decoration: none;'> List </a></button>";
                     
                 
                 echo "<button class='Manage'> Manage </button>";
-                echo "<button class='Edit'><a href='teacherEditQuiz.php?quiz_code=" . $row['quiz_code'] . "' style='text-decoration: none; color: white;'>Edit</a></button>";
+                echo "<button class='Edit'><a href='teacherEditQuiz.php?quiz_code='" . $row['quiz_code'] . " style='text-decoration: none; color: white;'>Edit</a></button>";
 
-
-                echo "<button class='Delete'><a href=deleteQuizList.php?quiz_code=" .$row['quiz_code']. " style='text-decoration: none; '> Delete </a></button>";
+                echo "<button class='Delete'><a href=deleteQuizList.php?quiz_code=" .$row['quiz_code']. "' style='text-decoration: none; '> Delete </a></button>";
             echo "</div>";
         echo "</div>";
     }

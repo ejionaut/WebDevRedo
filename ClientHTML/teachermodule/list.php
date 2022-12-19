@@ -4,11 +4,11 @@ include "config.php";
   
     // Check if id is set or not if true toggle,
     // else simply go back to the page
-if (isset($_GET['id'])) {
+if (isset($_GET['quiz_code'])) {
 
     // Store the value from get to a 
     // local variable "course_id"
-    $quiz_code = $_GET['id'];
+    $quiz_code = $_GET['quiz_code'];
 
     // SQL query that sets the status
     // to 1 to indicate activation.
@@ -19,6 +19,6 @@ if (isset($_GET['id'])) {
     mysqli_query($connection, $sql);
 
 
-    header('location: teacherQuizzes.php');
+    header('location: teacherModule.php');
 }
 ?>

@@ -20,7 +20,7 @@
         <div>
             <section-left>
                 <h3> Current Questions </h3>
-                <div class="quizQuestions" id="quizQuestions">
+                <div class="studentQuizzes">
                     <?php
                         include "rQuestions.php";
                     ?>
@@ -47,7 +47,7 @@
                         <label class="Question" id="points"> Points </label> 
                         <input type="text" name="points" id="points"> 
                     </fieldset>
-                    <input type="submit" value="Next" name="submitCQuestion" id="submitForm" onclick="showQuestions();">
+                    <input type="submit" value="Next" name="submitCQuestion" id="submitForm">
                     <input type="reset" value="Reset">
                 </form>
                 <iframe name="hiddenFrame" style="display: none;"></iframe>
