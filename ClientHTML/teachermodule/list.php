@@ -17,8 +17,7 @@ include "config.php";
   
         // Execute the query
         mysqli_query($connection,$sql);
-    }
   
     
-    header('location: teacherHome.php');
+    header('location: teacherQuizzes.php');
 ?>
