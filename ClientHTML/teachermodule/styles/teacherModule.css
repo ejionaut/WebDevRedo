@@ -6,8 +6,17 @@
     font-family: var(--fnt-Quicksand);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+
 body {
     background-color: var(--clr-background);
+}
+
+h1 {
+    font-size: 10ch;
 }
 
 header {
@@ -31,94 +40,43 @@ header ul {
 }
 
 main {
-    padding: 2.3rem;
-}
-
-h1 {
-    font-size: 10ch;
-}
-
-.listOfStudents h3 {
-    font-size: 1.9ch;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
 }
 
 main > :nth-child(1) {
-    font-size: 7ch;
-    margin-bottom: 1rem;
-    color: var(--clr-font-purple);
+    width: 100%;
 }
 
-.stats {
-    display: grid;
-    gap: 1.5rem;
-    height: 50rem;
-    grid-template-areas: 
-        "general"
-        "students"
-        "sum"
-        "done"
-        "missed"
-    ;
-    margin-inline: auto;
-}
-
-.statbox {
-    color: white;
-    padding: 2rem;
-}
-
-.statbox:nth-child(1) {
-    grid-area: general;
-    background-color: var(--clr-chart-purple);
-    border-radius: 2rem;
-    padding: 2rem;
+main > :nth-child(1) > :nth-child(1) {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    column-gap: 3rem;
 }
 
-.statbox:nth-child(1) > * {
-    border-right: 0.2rem dotted white;
+main > :nth-child(1) > :nth-child(1) > * {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 2rem;
+    border-radius: 2rem;
+    color: white;
+    background-color: rgb(108, 69, 145);
 }
 
-.statbox:nth-child(1) > :nth-child(1) {
-    border-left: 0.2rem dotted white;
+.mainStatBox{
+    margin-bottom: 2rem;
 }
 
-.statbox:nth-child(2) {
-    grid-area: done;
-    background-color: var(--clr-chart-grey);
+.statboxStudents {
+   margin-bottom: 2rem;
+   background-color: #A5ADAE;
+   color: white;
+   padding: 2rem;
 }
 
-.statbox:nth-child(3) {
-    grid-area: missed;
-    background-color: var(--clr-chart-grey);
-}
-
-.statbox:nth-child(4) {
-    grid-area: sum;
-    background-color: var(--clr-chart-grey);
-}
-
-.statbox:nth-child(5) {
-    grid-area: students;
-    background-color: var(--clr-chart-grey);
-}
-
-@media all and (min-width:50em) {
-    header li {
-        cursor: pointer;
-        border-radius: 2rem;
-        padding: 2rem;
-    }
-
-    .stats {
-        grid-template-areas: 
-            'general general general students'
-            'done sum sum students'
-            'missed sum sum students'
-        ;
-    }
+.statboxStudents > h2 {
+    color: rgb(54, 12, 94);
 }
