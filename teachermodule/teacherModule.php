@@ -123,9 +123,13 @@ $countCompletedQuizResult = $connection->query($countCompletedQuiz);
         <div class="statboxStudents" id="home">
             <h2> Students </h2>
                 <div class="listOfStudents">
-                    <h2> 
-                        mark spenser
-                    </h2>
+                    <?php
+                        if ($studentsNameResult->num_rows > 0) {
+                            while ($row = $studentsNameResult->fetch_assoc()) {
+                                echo "<h2>" . $row['fullname'] . "</h2>";         
+                            }
+                        }
+                    ?>
                 </div>
         </div>
 

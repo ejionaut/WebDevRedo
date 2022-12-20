@@ -19,7 +19,7 @@
     <main>
         <div>
             <h1 class="subject">  <?php echo $q_name?> </h1>
-            <h2 class="quizTitle"> <?php echo $q_name?> </h2>
+            <!--<h2 class="quizTitle"> <?php echo $q_name?> </h2>-->
         </div>
         <div>
             <section-left>
