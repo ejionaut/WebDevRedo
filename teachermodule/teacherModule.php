@@ -1,4 +1,17 @@
-<?php 
+<?php
+/*
+        require 'sessionConfig.php';
+
+        if(!empty($_SESSION["user_id"])){
+            $user = $_SESSION["user_id"];
+            $result = mysqli_query($conn, "SELECT user_id FROM accounts WHERE user_id = $user");
+            $row = mysqli_fetch_assoc($result);
+        } 
+        else {
+            header("Location: login.php");
+        }
+*/
+
 
 include "config.php";
 
@@ -14,6 +27,7 @@ $countCompletedQuizResult = $connection->query($countCompletedQuiz);
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,11 +41,18 @@ $countCompletedQuizResult = $connection->query($countCompletedQuiz);
 </head>
 <body>
     <header>
-        <img src="./styles/images/logo_square.png" alt="">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#quizzes">Quizzes</a></li>
-        </ul>
+        <div>
+            <img src="./styles/images/logo_square.png" alt="">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#quizzes">Quizzes</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2> Welcome! <!--<?php echo $row["user_id"]; ?>--> </h2>
+            <a href="logout.php"> Logout </a>
+        </div>
+
     </header>
 
     <main>
@@ -127,12 +148,12 @@ $countCompletedQuizResult = $connection->query($countCompletedQuiz);
                 </form>
             </div>
             <div class="QuizList">
-                    <?php
-                        include "sortAlgo.php";
-                    ?>
                 <form action="teacherCreateQuiz.php" method="POST">
                     <button class="createQuiz"> Create Quiz </button>
                 </form>
+                    <?php
+                        include "sortAlgo.php";
+                    ?>
             </div>
     </main>
 </body>
