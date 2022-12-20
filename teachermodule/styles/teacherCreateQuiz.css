@@ -35,6 +35,14 @@ header {
     width: 100%;
 }
 
+fieldset{
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset > *:is(input){
+    margin-bottom: 1.2rem;
+}
 
 main {
     width: 100%;
@@ -73,19 +81,6 @@ main > :nth-child(2) > section-left > div > *  {
     margin-bottom: 0.2rem;
 }
 
-main > :nth-child(2) > section-left > div > * > :nth-child(2) > button {
-    padding: 0.4rem 1rem;
-    background-color: #472C4D;
-    border: none;
-    color: white;
-    border-radius: 2rem;
-    cursor: pointer;
-}
-
-main > :nth-child(2) > section-left > div > * > :nth-child(2) > button:hover {
-    background-color: #694471;
-}
-
 main > :nth-child(2) > section-right > :nth-child(1) > div {
     display: flex;
     justify-content: space-between;
@@ -115,10 +110,15 @@ form > :is(input), :is(select)  {
     margin-bottom: 1.2rem;
 }
 
+form > :nth-child(2) > * {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-top: 0.4rem;
+}
 
-input[type=submit] {
+input[type=submit], input[type=reset], .cancelBTN, .submitBTN {
     width: 30%;
-    margin-left: auto;
     height: 2rem;
     background-color: #472C4D;
     border: none;
@@ -126,10 +126,26 @@ input[type=submit] {
     color: white;
     font-size: 2ch;
     cursor: pointer;
+    transition: background-color 0.17s ease-in-out;
 }
 
-form button:hover{
-    background-color: #694272;
+input[type=submit]:hover {
+    background-color: #6e4378;
+}
+
+main >:nth-child(2) > :nth-child(3) {
+    display: flex;
+    align-items: center;
+    justify-content: inherit;
+    margin-right: 2rem;
+    width: 100%;
+}
+
+section-right > :nth-child(3) {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-top: 1rem;
 }
 
 .subject {
@@ -140,37 +156,21 @@ form button:hover{
     color: #B659CB;
 }
 
-.returnBTN {
-    width: 10%;
-    height: 5rem;
-    border: none;
-    border-radius: 2rem;
+.submitBTN {
     background-color: #629051;
     color: white;
-    font-size: 2ch;
-    font-weight: bold;
-    margin-top: 2rem;
-    cursor: pointer;
 }
 
-.returnBTN:hover {
+.submitBTN:hover {
     background-color: #4e7341;
 }
 
-.cancelBTN {
-    width: 10%;
-    height: 5rem;
-    border: none;
-    border-radius: 2rem;
+.cancelBTN,input[type=reset] {
     background-color: #6c2b31;
     color: white;
-    font-size: 2ch;
-    font-weight: bold;
-    margin-top: 2rem;
-    cursor: pointer;
 }
 
-.cancelBTN:hover {
+.cancelBTN:hover, input[type=reset]:hover {
     background-color: #351418;
 }
 

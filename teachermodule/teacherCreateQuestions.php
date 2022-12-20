@@ -42,19 +42,25 @@
                         </select> 
                         <label class="Question" id="answerpart"> Answer </label> 
                         <input type="text" name="answer" id="answer"required> 
-                        <label class="Question" id="ifYesLabel" style="display: block;"> Choices </label> 
+                        <label class="Question" id="ifYesLabel" style="display: block;" placeholder="Use ' , ' to seperate your answers"> Choices </label> 
                         <input type="text" id="ifYesInput" style="display: block;" name="choices" id="choices"> 
                         <label class="Question" id="points"> Points </label> 
                         <input type="text" name="points" id="points"> 
                     </fieldset>
-                    <input type="submit" value="Next" name="submitCQuestion" id="submitForm">
-                    <input type="reset" value="Reset">
+                    <div>
+                        <div>
+                            <input type="submit" value="Next" name="submitCQuestion" id="submitForm">
+                            <input type="reset" value="Reset">
+                        </div>
+                    </div>
                 </form>
+                <div>
+                    <button class="submitBTN" name="submitCQuestion" value="submit"> Submit </button>
+                    <button class="cancelBTN"> Cancel </button>
+                </div>
                 <iframe name="hiddenFrame" style="display: none;"></iframe>
             </section-right>
         </div>
-        <button class="returnBTN" name="submitCQuestion" value="submit"> Submit </button>
-        <button class="cancelBTN"> Cancel </button>
     </main>
 </body>
 </html>
