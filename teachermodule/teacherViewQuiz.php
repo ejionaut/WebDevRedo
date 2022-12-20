@@ -1,54 +1,13 @@
 <?php
-    include "config.php";
-
-    $quiz_code = "tpqs001";
-
-    $highestScoreName = "SELECT CONCAT(student.firstname, ' ', student.lastname) as fullname, student_quiz.score as score
-    FROM student JOIN student_quiz on student.user_id = student_quiz.user_id
-    WHERE score = (SELECT MAX(score) FROM `student_quiz` WHERE quiz_code = '$quiz_code')
-    LIMIT 1";
-
-    $highestScore = "SELECT CONCAT(student.firstname, ' ', student.lastname) as fullname, student_quiz.score as score
-    FROM student JOIN student_quiz on student.user_id = student_quiz.user_id
-    WHERE score = (SELECT MAX(score) FROM `student_quiz` WHERE quiz_code = '$quiz_code')
-    LIMIT 1";
-
-    $averageScore = "SELECT AVG(score) as average FROM student_quiz WHERE quiz_code ='$quiz_code'";
-
-    $passed = "SELECT COUNT(CASE WHEN score >= 0.50 * (SELECT total_score FROM quiz_list WHERE quiz_code = '$quiz_code') THEN 1 END) as passed
-    FROM student JOIN student_quiz on student.user_id = student_quiz.user_id
-    WHERE quiz_code ='$quiz_code'";
-
-    $failed = "SELECT COUNT(CASE WHEN score < 0.50 * (SELECT total_score FROM quiz_list WHERE quiz_code = '$quiz_code') THEN 1 END) as failed
-    FROM student JOIN student_quiz on student.user_id = student_quiz.user_id
-    WHERE quiz_code ='$quiz_code'";
-
-    $over = "SELECT total_Score from quiz_list
-    WHERE quiz_code = '$quiz_code'";
-
-    $studentsName = "SELECT CONCAT(firstname,' ',lastname) as fullname FROM student JOIN student_quiz on student.user_id = student_quiz.user_id WHERE quiz_code ='$quiz_code'";
-
-    $missed = "SELECT (SELECT COUNT(*) FROM student) - (SELECT COUNT(*) FROM student JOIN student_quiz on student.user_id = student_quiz.user_id WHERE quiz_code = '$quiz_code') as total_studentsMissed";
-
-    $studentsCompleted = "SELECT COUNT(student_quiz.user_id) as students_Completed FROM student_quiz";
-    $studentsMissed = "SELECT (SELECT COUNT(student.user_id) FROM student) - (SELECT COUNT(student_quiz.user_id) FROM student_quiz) as students_Missed";
-
-    $studentsCompletedResult = $connection->query($studentsCompleted);
-    $studentsMissedResult = $connection->query($studentsMissed);
-    $passedResult = $connection->query($passed);
-    $failedResult = $connection->query($failed);
-    $overResult = $connection->query($over);
-    $highestScoreNameResult = $connection->query($highestScoreName);
-    $highestScoreResult = $connection->query($highestScore);
-    $averageScoreResult = $connection->query($averageScore);
-    $studentsNameResult = $connection->query($studentsName);
+    include "viewQuizStaticData.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/teacherViewQuiz.css">
     <title>View Quiz Details</title>
@@ -59,8 +18,8 @@
     </header>
     <main>
         <div>
-            <h1 class="subject"> Numerical Methods </h1>
-            <h2 class="quizTitle"> Prelims Quiz 2 </h2>
+            <h1 class="subject">  <?php echo $q_name?> </h1>
+            <h2 class="quizTitle"> <?php echo $q_name?> </h2>
         </div>
         <div>
             <section-left>
@@ -202,7 +161,7 @@
                 </div>
             </section-right>
         </div>
-        <button action="teacherQuizzes.php" method="POST" class="returnBTN"> Return </button>
+        <button class="returnBTN" onclick="history.go(-1)"> Return </button>
     </main>
 </body>
 </html>
