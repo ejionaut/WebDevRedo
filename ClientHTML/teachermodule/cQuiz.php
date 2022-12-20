@@ -11,6 +11,7 @@
         $queryResult = $connection->query($query);
 
         $_SESSION['quiz_code'] = "";
+        $quiz_code = "";
 
         while ($row = mysqli_fetch_array($queryResult)) {
             $quiz_code = ++$row['quiz_code'];
@@ -41,5 +42,5 @@
         $connection->close();
     }
 
-    header('Location: teacherCreateQuestions.php');
+    header('Location: teacherCreateQuestions.php?quiz_code=' . $_SESSION['quiz_code']);
 ?>

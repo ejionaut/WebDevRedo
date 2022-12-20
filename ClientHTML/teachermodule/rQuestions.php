@@ -13,8 +13,8 @@
         echo "<div>";
         echo "<h4>". $row['question'] . "</h4>";
         echo "<div>";
-        echo "<button class='editQuestion'><a href='teacherEditQuestion.php?question='". $row['question'] . "> edit </a></button>";
-        echo "<button class='deleteQuestion'> delete </button>";
+        echo "<button class='editQuestion'><a href='teacherEditQuestion.php?quiz_code=" . $_SESSION['quiz_code'] . "&question=". $row['question'] . "'> edit </a></button>";
+        echo "<button class='Delete'><a href='dQuestion.php?quiz_code=" . $_SESSION['quiz_code'] . "&question=". $row['question'] . "'> delete </a>";
         echo "</div>";
         echo "</div>";
     }

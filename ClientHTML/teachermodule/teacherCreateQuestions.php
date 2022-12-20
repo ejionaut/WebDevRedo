@@ -22,7 +22,11 @@
                 <h3> Current Questions </h3>
                 <div class="studentQuizzes">
                     <?php
+                        session_start();
+
+                        $_SESSION['quiz_code'] = $_GET['quiz_code'];
                         include "rQuestions.php";
+
                     ?>
                 </div>
             </section-left>

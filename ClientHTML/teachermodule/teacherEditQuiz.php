@@ -46,7 +46,6 @@
                     <label> Quiz Due Date </label>
                     <input type="date" name="end_date" id="end_date" value="<?php echo date('Y-m-d',strtotime($end_date)) ?>" required> 
                     <input type="submit" value="Save" name="uQuiz" id="submitForm">
-
                 </form>
             </section-right>
         </div>

@@ -13,7 +13,7 @@
 
         $result = $connection->query($sql); 
         if ($result == TRUE) {
-            header('Location: teacherQuizzes.php');
+            header('Location: teacherModule.php');
         }else{
             echo "Error:" . $sql . "<br>" . $connection->error;
         }
