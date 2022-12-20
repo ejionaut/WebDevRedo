@@ -59,7 +59,7 @@
                     </div>
                 </form>
                 <div>
-                    <button class="submitBTN" name="submitCQuestion" value="submit"> Submit </button>
+                    <button class="submitBTN" name="submitCQuestion" value="submit" onclick="location.href='teacherModule.php'"> Done </button>
                     <button class="cancelBTN"> Cancel </button>
                 </div>
                 <iframe name="hiddenFrame" style="display: none;"></iframe>
