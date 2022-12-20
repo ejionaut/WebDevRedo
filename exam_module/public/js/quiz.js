@@ -53,6 +53,7 @@ const result = ((req, res) => {
     if(req.session.loggedIn){
         checkAnswers(req.body)
             .then((data) => {
+                console.log(req.body)
                 saveResult(req.session.userid, data)
                 res.redirect("/dashboard")
             })
@@ -91,7 +92,7 @@ function saveAnswers(answerData){
 
 // Checks student's answers
 function checkAnswers(answers){
-    const promise = new Promise((resolve, reject) => {
+    const promise = new Promise(async(resolve, reject) => {
         var points = 0
         var studAns = Object.values(answers)
         
@@ -100,17 +101,15 @@ function checkAnswers(answers){
                 let correctAnswer = questionnaire[i].answer.toLowerCase().split(",")
                 let studentAnswer = studAns[i].toLowerCase().split(",")
 
-                checkEnum(correctAnswer, studentAnswer)
-                    .then((enumScore) => {
-                        console.log(enumScore)
-                        points += enumScore
+                await checkEnum(correctAnswer, studentAnswer)
+                    .then(enumScore => {
+                        points = points + enumScore
                     })
             }
             if(studAns[i] === questionnaire[i].answer){
                 points++
             }
         }
-        console.log(points)
         resolve(points)
     })
     return promise
@@ -119,7 +118,7 @@ function checkAnswers(answers){
 // Checks the enumeration part of the quiz
 async function checkEnum(correctAnswer, studentAnswer){
     let score = 0
-    await studentAnswer.every((answer) => {
+    await studentAnswer.forEach((answer) => {
         if(correctAnswer.includes(answer)){
             score++
         }
