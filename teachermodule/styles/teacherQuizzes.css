@@ -100,10 +100,6 @@ h1 {
     color: white;
 }
 
-.listUnlist {
-    color: white;
-}
-
 .quizzes .right_Section > *:hover {
     background-color: #694771;
 }
@@ -122,6 +118,14 @@ h1 {
 
 .createQuiz:hover {
     background-color: #679160;
+}
+
+.quizzes .right_Section .unlist {
+    background-color: #679160;
+}
+
+.quizzes .right_Section .list{
+    background-color: #66272b;
 }
 
 @media screen and (max-width:600px) {

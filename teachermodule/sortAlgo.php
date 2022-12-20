@@ -52,10 +52,10 @@
             echo "<div class='right_Section'>";
 
                 if ($row['q_display_setting'] == "listed" || $row['q_display_setting'] == ""){
-                    echo "<button class='listUnlist'><a href=unlist.php?quiz_code=" .$row['quiz_code']."' style='text-decoration: none;'> Unlist </a></button>";
+                    echo "<button class='list'><a href=unlist.php?quiz_code=" .$row['quiz_code']."' style='text-decoration: none;'> Unlist </a></button>";
                     
                 } else if($row['q_display_setting'] == "unlisted")
-                    echo "<button class='listUnlist'><a href=list.php?quiz_code=" .$row['quiz_code']."' style='text-decoration: none;'> List </a></button>";
+                    echo "<button class='unnlist'><a href=list.php?quiz_code=" .$row['quiz_code']."' style='text-decoration: none;'> List </a></button>";
                     
                 
                 echo "<button class='Manage'> Manage </button>";
