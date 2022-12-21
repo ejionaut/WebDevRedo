@@ -1,5 +1,11 @@
 <?php
     include "viewQuizStaticData.php";
+    
+    $row = mysqli_fetch_assoc($passedResult);
+    $passed = $row['passed'];
+
+    $row = mysqli_fetch_assoc($failedResult);
+    $failed = $row['failed'];
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +17,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/teacherViewQuiz.css">
     <title>View Quiz Details</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+            ['Result', 'Number Of Students'],
+            ['Passed', <?php echo $passed?>],
+            ['Failed', <?php echo $failed?>]
+            ]);
+
+            var options = {
+                backgroundColor: 'transparent',
+                title: 'Passed vs. Failed',
+                width: 400,
+                height: 240,
+                title: 'Passed vs. Failed',
+                colors: ['#618F51', '#B64A18'],
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -90,31 +122,7 @@
                     </div>
                     <div>
                         <h3> Passed vs Failed <br>
-                            <?php
-                                if ($passedResult) {
-                                    
-                                    $row = mysqli_fetch_assoc($passedResult);
-                                    $passed = $row['passed'];
-                                
-                                    echo $passed . " :";
-                                } else {
-                                    echo "Error: " . $sql . "<br>" . mysqli_error($connection);
-                                }
-                            ?> 
-
-                                <?php
-                                    if ($failedResult) {
-                                        
-                                        $row = mysqli_fetch_assoc($failedResult);
-                                        $failed = $row['failed'];
-                                    
-                                        echo $failed;
-                                    } else {
-                                        echo "Error: " . $sql . "<br>" . mysqli_error($connection);
-                                    }
-                                ?>
-                        
-                    
+                            <div id="piechart" style="width: 900px; height: 500px;"></div>
                         </h3>
                         <div class="AveragePassVsFail">
         

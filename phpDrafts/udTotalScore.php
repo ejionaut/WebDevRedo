@@ -1,1 +1,0 @@
-UPDATE `quiz_list` SET `total_Score`= 21 WHERE quiz_code = "tp001a"
