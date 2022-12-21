@@ -59,8 +59,8 @@
                     </div>
                 </form>
                 <div>
-                    <button class="submitBTN" name="submitCQuestion" value="submit" onclick="location.href='teacherModule.php'"> Done </button>
-                    <button class="cancelBTN"> Cancel </button>
+                    <button class="submitBTN" name="submitCQuestion" value="submit" onclick=<?php if (strpos($_SERVER['HTTP_REFERER'], "teacherCreateQuiz.php")) { echo "location.href='teacherModule.php'";} else { echo "history.go(-1)";}?>> Done </button>
+                    <button class="cancelBTN" onclick="location.href='teacherModule.php'"> Cancel </button>
                 </div>
                 <iframe name="hiddenFrame" style="display: none;"></iframe>
             </section-right>
