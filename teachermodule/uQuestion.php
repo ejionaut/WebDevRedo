@@ -14,7 +14,26 @@
 
         $result = $connection->query($sql); 
         if ($result == TRUE) {
+            $sqlCreate = "SELECT SUM(`points`) as total_score FROM `quiz_list` WHERE `quiz_code` = '$quiz_code'";
+
+            $sqlCreateResult =  $connection->query($sqlCreate);
+
+            $total_score = 0;
+
+            while ($row = mysqli_fetch_array($sqlCreateResult)) {
+                $total_score += $row['total_score'];
+            }
+
+            $sqlCreate = "UPDATE `quiz_list` SET `total_score` = $total_score WHERE `quiz_code` = '$quiz_code'";
+
+            $sqlCreateResult =  $connection->query($sqlCreate);
+
             echo "<script>alert('Question Updated.')</script>";
+            if (strpos($_SERVER['HTTP_REFERER'], "teacherCreateQuestions")) {
+                header("Location: teacherCreateQuestions.php?quiz_code=" . $quiz_code);
+            } else {
+                header("Location: teacherManageQuestions.php?quiz_code=" . $quiz_code);
+            }
         // unset($_SESSION['quiz_code']);
         // unset($_SESSION['question']);
         }else{

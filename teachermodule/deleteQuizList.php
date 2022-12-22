@@ -6,7 +6,7 @@ $query2 = "DELETE FROM `quiz_inventory` WHERE `quiz_code` = '$quiz_code'";
 
 if($connection->query($query) === TRUE){
 	$connection->query($query2);
-	header('Location: teacherQuizzes.php');
+	header('Location: teacherModule.php');
 }
 
 ?>

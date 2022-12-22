@@ -8,8 +8,11 @@
 
     if($connection->query($query) === TRUE){
         echo "<script>confirm('Are you sure? Data will be deleted.')</script>";
-        header("Location: teacherCreateQuestions.php?quiz_code=" . $quiz_code);
+        if (strpos($_SERVER['HTTP_REFERER'], "teacherCreateQuestions")) {
+            header("Location: teacherCreateQuestions.php?quiz_code=" . $quiz_code);
+        } else {
+            header("Location: teacherManageQuestions.php?quiz_code=" . $quiz_code);
+        }
+
     }
-
-
 ?>

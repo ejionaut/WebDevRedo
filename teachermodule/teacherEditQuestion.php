@@ -56,7 +56,7 @@
                         <label class="Question" id="points"> Points </label> 
                         <input type="text" name="points" id="points" value="<?php echo $points?>"> 
                     </fieldset>
-                    <input type="submit" value="Save" name="uQuestion" id="submitForm" onclick="location.reload(); history.go(-1)">
+                    <input type="submit" value="Save" name="uQuestion" id="submitForm" onclick="location.reload();" onclick=<?php if (strpos($_SERVER['HTTP_REFERER'], "teacherCreateQuiz.php")) { echo "location.href='teacherModule.php'";} else { echo "teacherCreateQuestions.php?quiz_code=" . $quiz_code;}?>>
                     <input type="reset" value="Reset">
                 </form>
                 <iframe name="hiddenFrame" style="display: none;"></iframe>

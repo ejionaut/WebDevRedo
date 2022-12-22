@@ -31,16 +31,29 @@
         $q_password = $_POST['q_password'];
         $start_date = $_POST['start_date'];
         $end_date = $_POST['end_date'];
-        $sql = "INSERT INTO `quiz_list`(`q_name`, `q_password`, `quiz_code`, `q_display_setting`, `start_date`, `end_date`) VALUES('$q_name', '$q_password', '$quiz_code', '$q_display_setting', '$start_date', '$end_date')";
-        $result = $connection->query($sql);
-        if($result == TRUE) {
-            echo "<script>alert('Quiz Created.')</script>";
-        } else {
-            echo "Error:" . $sql . "<br>" . $connection->error;
-        }
+        $total_score = 0;
 
+        $sqlCreate = "SELECT `q_name` FROM `quiz_list` WHERE `q_name` = '$q_name'";
+
+        $sqlCreateResult =  $connection->query($sqlCreate);
+
+        $row = mysqli_fetch_array($sqlCreateResult);
+
+        if (empty($row)) {
+            $sql = "INSERT INTO `quiz_list`(`q_name`, `q_password`, `quiz_code`, `q_display_setting`, `start_date`, `end_date`, `total_score`) 
+            VALUES('$q_name', '$q_password', '$quiz_code', '$q_display_setting', '$start_date', '$end_date', '$total_score')";
+            $result = $connection->query($sql);
+            if($result == TRUE) {
+                echo "<script>alert('Quiz Created.')</script>";
+                header('Location: teacherCreateQuestions.php?quiz_code=' . $_SESSION['quiz_code']);
+            } else {
+                echo "Error:" . $sql . "<br>" . $connection->error;
+            }
+        } else {
+            echo "<script>alert('Quiz name already exists!')</script>";
+            echo "<script>history.go(-1)</script>";
+        }
+        
         $connection->close();
     }
-
-    header('Location: teacherCreateQuestions.php?quiz_code=' . $_SESSION['quiz_code']);
 ?>
