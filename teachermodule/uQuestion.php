@@ -13,21 +13,22 @@
         $sql = "UPDATE `quiz_inventory` SET `question`='$question', `type_of_quiz`='$type_of_quiz', `choices`='$choices', `answer`='$answer', `points`='$points' WHERE `quiz_code`='" . $_SESSION['quiz_code'] . "' AND `question`='" . $_SESSION['question'] ."'";
 
         $result = $connection->query($sql); 
+
+        $sqlCreate = "SELECT `points` FROM `quiz_inventory` WHERE `quiz_code` = '" . $_SESSION['quiz_code'] . "'";
+
+        $sqlCreateResult =  $connection->query($sqlCreate);
+
+        $ts = 0;
+
+        while ($row = mysqli_fetch_array($sqlCreateResult)) {
+            $ts += $row['points'];
+        }
+
+        $sqlCreate = "UPDATE `quiz_list` SET `total_score` = '$ts' WHERE `quiz_code` = '" . $_SESSION['quiz_code'] . "'";
+
+        $sqlCreateResult =  $connection->query($sqlCreate);
+
         if ($result == TRUE) {
-            $sqlCreate = "SELECT SUM(`points`) as total_score FROM `quiz_list` WHERE `quiz_code` = '$quiz_code'";
-
-            $sqlCreateResult =  $connection->query($sqlCreate);
-
-            $total_score = 0;
-
-            while ($row = mysqli_fetch_array($sqlCreateResult)) {
-                $total_score += $row['total_score'];
-            }
-
-            $sqlCreate = "UPDATE `quiz_list` SET `total_score` = $total_score WHERE `quiz_code` = '$quiz_code'";
-
-            $sqlCreateResult =  $connection->query($sqlCreate);
-
             echo "<script>alert('Question Updated.')</script>";
             if (strpos($_SERVER['HTTP_REFERER'], "teacherCreateQuestions")) {
                 header("Location: teacherCreateQuestions.php?quiz_code=" . $quiz_code);

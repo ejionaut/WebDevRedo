@@ -24,7 +24,7 @@
     FROM student JOIN student_quiz on student.user_id = student_quiz.user_id
     WHERE quiz_code ='$quiz_code'";
 
-    $over = "SELECT total_Score from quiz_list
+    $over = "SELECT total_score from quiz_list
     WHERE quiz_code = '$quiz_code'";
 
     $studentsName = "SELECT CONCAT(firstname,' ',lastname) as fullname FROM student JOIN student_quiz on student.user_id = student_quiz.user_id WHERE quiz_code ='$quiz_code'";
