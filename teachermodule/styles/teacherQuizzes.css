@@ -128,13 +128,15 @@ h1 {
     background-color: #66272b;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:800px) {
+
     .Head> :nth-child(1){
         margin-right: 2rem;
     }
 
     .Head form {
         align-self: flex-end;
+        margin-right: 0;
     }
     
     .Head form button {
@@ -180,11 +182,15 @@ h1 {
         max-width: 70%;
     }
     
-    .quizzes .right_Section{
+    .quizzes .right_Section {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .quizzes .right_Section > * {
+        margin: 0 auto;
     }
 
     .createQuiz {

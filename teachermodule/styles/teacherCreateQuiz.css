@@ -14,6 +14,11 @@ body {
     height: 100vh;
 }
 
+#questionSection {
+    flex-direction: column-reverse;
+    row-gap: 2rem;
+}
+
 h1 {
     font-size: 4ch;
 }
@@ -60,6 +65,7 @@ main > :nth-child(1) {
 
 main > :nth-child(2) {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -117,7 +123,7 @@ form > :nth-child(2) > * {
     margin-top: 0.4rem;
 }
 
-input[type=submit], input[type=reset], .cancelBTN, .submitBTN {
+input[type=submit], input[type=reset], .cancelBTN, .submitBTN, .returnBTN {
     width: 30%;
     height: 2rem;
     background-color: #472C4D;
@@ -172,6 +178,17 @@ section-right > :nth-child(3) {
 
 .cancelBTN:hover, input[type=reset]:hover {
     background-color: #351418;
+}
+
+.returnBTN {
+    align-self: inherit;
+    background-color: #629051;
+    margin-top: 2rem;
+    color: white;
+}
+
+.returnBTN:hover {
+    background-color: #4e7341;
 }
 
 @media screen and (max-width: 650px) {

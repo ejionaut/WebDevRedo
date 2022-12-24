@@ -32,13 +32,14 @@ a:hover{
 header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: var(--clr-header-purple);
     height: 100%;
     color: white;
 }
 
 header img {
-    width: max(10%, 15rem);
+    width: max(15%, 12rem);
 }
 
 header ul {
@@ -47,6 +48,31 @@ header ul {
     list-style-type: none;
     font-size: 2.4ch;
     font-weight: bold;
+}
+
+header > :nth-child(1),
+header > :nth-child(2) {
+    display: flex;
+    align-items: center;
+}
+
+header > :nth-child(2) {
+    margin-right: 2rem;
+}
+
+header > :nth-child(2) > :nth-child(1) {
+    margin-right: 1rem;
+}
+
+header > :nth-child(2) > a {
+    background-color: rgb(90, 25, 25);
+    padding: 0.1rem 2rem;
+    border-radius: 1.5rem;
+}
+
+header > :nth-child(2) > a:hover {
+    text-decoration: none;
+    background-color: rgb(136, 47, 47);
 }
 
 main {
@@ -94,10 +120,21 @@ main > :nth-child(1) > :nth-child(1) > * {
 
 @media screen and (max-width: 600px) {
 
+    header {
+        flex-direction: column;
+    }
+
+
     header ul {
         font-size: 2ch;
         color: white;
     }
+
+    main > :nth-child(1) > :nth-child(1)  {
+        flex-direction: column;
+        row-gap: 0.5rem;
+    }
+
     main > :nth-child(1) > :nth-child(2) {
         flex-direction: column;
         row-gap: 2rem;
@@ -107,4 +144,5 @@ main > :nth-child(1) > :nth-child(1) > * {
     .mainStatBox > * {
         width: 100%;
     }
+
 }

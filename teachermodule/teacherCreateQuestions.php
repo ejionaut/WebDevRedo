@@ -17,7 +17,7 @@
     <main>
         <div>
         </div>
-        <div>
+        <div id="questionSection">
             <section-left>
                 <h3> Current Questions </h3>
                 <div class="studentQuizzes">
