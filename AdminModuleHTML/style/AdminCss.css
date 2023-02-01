@@ -1,0 +1,38 @@
+@font-face { font-family: 'Quicksand'; src: url(./font/Quicksand-VariableFont_wght.ttf); }
+
+
+* {
+    margin: 0;
+    border: 0;
+}
+
+body {
+    background-color: #221B23;
+    color: white;
+    font-family: 'Quicksand';
+}
+
+header {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.2rem solid white;
+}
+
+ul {
+    display: flex;
+    column-gap: 3rem;
+}
+
+
+li {
+    list-style: none;
+    font-size: max(2ch, 5%);
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+img {
+    width: max(10%, 10rem);
+}
+
