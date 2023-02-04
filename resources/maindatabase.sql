@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 04, 2023 at 01:17 PM
+-- Generation Time: Feb 04, 2023 at 01:49 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -143,24 +143,25 @@ CREATE TABLE IF NOT EXISTS `students` (
   `acc_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `password` text,
-  `name` varchar(255) DEFAULT NULL
+  `last_name` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`acc_id`, `user_id`, `password`, `name`) VALUES
-(1, 2022001, 'nicktoh1', 'Dwayne Johnson'),
-(2, 2022002, 'nicktoh2', 'Troy Wilson'),
-(3, 2022003, 'nicktoh3', 'Sam Smith'),
-(4, 2022004, 'nicktoh4', 'Robert Williams'),
-(5, 2022005, 'nicktoh5', 'John Davis'),
-(6, 2022006, 'nicktoh6', 'Giselle Garcia'),
-(7, 2022007, 'nicktoh7', 'Indianna Jones'),
-(8, 2022008, 'nicktoh8', 'Jake Browne'),
-(9, 2022009, 'nicktoh9', 'Mandy Moore'),
-(10, 2022010, 'nicktoh10', 'Gilbert Miller');
+INSERT INTO `students` (`acc_id`, `user_id`, `password`, `last_name`, `first_name`) VALUES
+(1, 2022001, 'nicktoh1', 'Johnson', 'Dwayne'),
+(2, 2022002, 'nicktoh2', 'Wilson', 'Troy'),
+(3, 2022003, 'nicktoh3', 'Smith', 'Sam'),
+(4, 2022004, 'nicktoh4', 'Williams', 'Robert'),
+(5, 2022005, 'nicktoh5', 'Davis', 'John'),
+(6, 2022006, 'nicktoh6', 'Garcia', 'Giselle'),
+(7, 2022007, 'nicktoh7', 'Jones', 'Indianna'),
+(8, 2022008, 'nicktoh8', 'Browne', 'Jake'),
+(9, 2022009, 'nicktoh9', 'Moore', 'Mandy'),
+(10, 2022010, 'nicktoh10', 'Miller', 'Gilbert');
 
 -- --------------------------------------------------------
 
@@ -213,15 +214,16 @@ CREATE TABLE IF NOT EXISTS `teachers` (
   `acc_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `password` text,
-  `name` varchar(255) DEFAULT NULL
+  `last_name` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `teachers`
 --
 
-INSERT INTO `teachers` (`acc_id`, `user_id`, `password`, `name`) VALUES
-(1, 1011001, 'teacher1', 'Anne Sullivan');
+INSERT INTO `teachers` (`acc_id`, `user_id`, `password`, `last_name`, `first_name`) VALUES
+(1, 1011001, 'teacher1', 'Sullivan', 'Anne');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
