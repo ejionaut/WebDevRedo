@@ -20,5 +20,5 @@ include "config.php";
 
     }
   
-    header('location: teacherModule.php');
+    header('location: ../index.php');
 ?>

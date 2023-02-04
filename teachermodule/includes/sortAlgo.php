@@ -43,7 +43,7 @@
         $quiz_code_url = urlencode($row['q_name']);
         echo "<div class='quizzes' id='quizzes'>";
             echo "<div class='left_Section'>";
-                echo "<h2 class='Subject'><a href='teacherViewQuiz.php?quiz_code=" .$row['quiz_code']."&q_name=" . $quiz_code_url . "' style='text-decoration: none;'>" . $row['q_name'] . "</a></h2>";
+                echo "<h2 class='Subject'><a href='../teacherViewQuiz.php?quiz_code=" .$row['quiz_code']."&q_name=" . $quiz_code_url . "' style='text-decoration: none;'>" . $row['q_name'] . "</a></h2>";
                 //echo "<h3 class='Quiz_title'>" . $row['q_name'] . "</h3>";
             echo "</div>";
             echo "<div class='date'>";
@@ -58,8 +58,8 @@
                 } else if($row['q_display_setting'] == "unlisted")
                     echo "<button class='unnlist'><a href=list.php?quiz_code=" .$row['quiz_code']." style='text-decoration: none;'> List </a></button>";
 
-                echo "<button class='Manage'><a href=teacherManageQuestions.php?quiz_code=" . $row['quiz_code'] . " style='text-decoration: none; color: white;'> Manage </a></button>";
-                echo "<button class='Edit'><a href=teacherEditQuiz.php?quiz_code=" . $row['quiz_code'] . " style='text-decoration: none; color: white;'>Edit</a></button>";
+                echo "<button class='Manage'><a href=../teacherManageQuestions.php?quiz_code=" . $row['quiz_code'] . " style='text-decoration: none; color: white;'> Manage </a></button>";
+                echo "<button class='Edit'><a href=../teacherEditQuiz.php?quiz_code=" . $row['quiz_code'] . " style='text-decoration: none; color: white;'>Edit</a></button>";
 
                 echo "<button class='Delete'><a onClick=\"javascript: return confirm('Are you sure you want to delete?');\" href=deleteQuizList.php?quiz_code=" .$row['quiz_code']. " style='text-decoration: none; '> Delete </a></button>";
             echo "</div>";

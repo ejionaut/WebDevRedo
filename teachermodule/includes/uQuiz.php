@@ -11,7 +11,7 @@
 
         $result = $connection->query($sql); 
         if ($result == TRUE) {
-            header('Location: teacherModule.php');
+            header('Location: ../index.php');
         }else{
             echo "Error:" . $sql . "<br>" . $connection->error;
         }

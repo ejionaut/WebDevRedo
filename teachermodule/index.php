@@ -137,7 +137,7 @@ $countCompletedQuizResult = $connection->query($countCompletedQuiz);
                 </form>
             </div>
             <div class="QuizList">
-                <form action="./includes/teacherCreateQuiz.php" method="POST">
+                <form action="teacherCreateQuiz.php" method="POST">
                     <button class="createQuiz"> Create Quiz </button>
                 </form>
                     <?php

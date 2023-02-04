@@ -38,7 +38,6 @@
                 $sqlCreateResult =  $connection->query($sqlCreate);
 
                 echo "<script>alert('Question created!');</script>";
-                //header("Reload: 0; Location: teacherCreateQuestions.php?quiz_code=" . $quiz_code);
             } else{
                 echo "Error:". $sql . "<br>". $connection->error;
             } 
@@ -54,6 +53,4 @@
     WHERE quiz_code = '$quiz_code'";
 
     $quizQuestionsResults = $connection->query($quizQuestions);
-
-    // header('Location: teacherCreateQuestions.php');
 ?>

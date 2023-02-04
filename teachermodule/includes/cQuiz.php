@@ -45,7 +45,7 @@
             $result = $connection->query($sql);
             if($result == TRUE) {
                 echo "<script>alert('Quiz Created.')</script>";
-                header('Location: teacherCreateQuestions.php?quiz_code=' . $_SESSION['quiz_code']);
+                header('Location: ../teacherCreateQuestions.php?quiz_code=' . $_SESSION['quiz_code']);
             } else {
                 echo "Error:" . $sql . "<br>" . $connection->error;
             }
