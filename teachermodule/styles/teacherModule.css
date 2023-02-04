@@ -102,6 +102,11 @@ main > :nth-child(1) > :nth-child(1) > * {
     background-color: rgb(108, 69, 145);
 }
 
+a:hover(){
+    cursor: pointer;
+    color: rgb(77, 58, 95);
+}
+
 .mainStatBox{
     margin-bottom: 2rem;
 }
