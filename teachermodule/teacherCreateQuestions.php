@@ -69,7 +69,7 @@ $quiz_code = $_SESSION['quiz_code'];
                     </div>
                 </form>
                 <div>
-                    <button class="submitBTN" name="submitCQuestion" value="submit" onclick=<?php if (strpos($_SERVER['HTTP_REFERER'], "teacherCreateQuiz.php")) { echo "location.href='teacherModule.php'";} else { echo "history.go(-1)";}?>> Done </button>
+                    <button class="submitBTN" name="submitCQuestion" value="submit" onclick=<?php if (strpos($_SERVER['HTTP_REFERER'], "teacherCreateQuiz.php") || strpos($_SERVER['HTTP_REFERER'], "teacherCreateQuestions.php")) { echo "location.href='teacherModule.php'";} else { echo "history.go(-1)";}?>> Done </button>
                     <?php
                     if (strpos($_SERVER['HTTP_REFERER'], "teacherCreateQuiz.php")) {
                         echo "<button class='Delete'><a onClick=\"javascript: return confirm('Are you sure you want to cancel? All data will be lost.');\" href=deleteQuizList.php?quiz_code=" . $quiz_code . " style='text-decoration: none; '> Cancel </a></button>";

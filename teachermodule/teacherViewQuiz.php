@@ -58,9 +58,12 @@
                 <h3> Students Completed </h3>
                 <div class="studentQuizzes">
                     <?php
+                        $row2 = $overResult->fetch_assoc();
+                        $total_score = $row2['total_score'];
                         if ($studentsNameResult->num_rows > 0) {
                             while ($row = $studentsNameResult->fetch_assoc()) {
-                                echo "<div><h4>" . $row['fullname'] . "</h4><br><button class='viewStudentQuiz'> View </button></div>";         
+                                $row1 = $studentsScoreResult->fetch_assoc();
+                                echo "<div><h4>" . $row['fullname'] . "</h4><h4>". $row1['score']. "/". $total_score . "</h4></div>";         
                             }
                         }
                     ?>
@@ -147,7 +150,7 @@
                         </h2>
                     </div>
                     <div>
-                        <h3> Students Completed </h3>
+                        <h3> No. of Students Completed </h3>
                         <h2 class="missedStudents">
                             <?php
                                 if ($studentsCompleted) {
@@ -164,7 +167,19 @@
                     </div>
                     <div>
                         <h3> Late Submissions </h3>
-                        <h2 class="missedStudents"> 8 </h2>
+                        <h2 class="missedStudents">
+                            <?php
+                                if ($lateSubmissions) {
+                                    
+                                    $row = mysqli_fetch_assoc($lateSubmissionsResult);
+                                    $lateSubmissions= $row['late_submissions'];
+                                
+                                    echo $lateSubmissions;
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . mysqli_error($connection);
+                                }
+                            ?>  
+                        </h2>
                     </div>
                 </div>
             </section-right>
