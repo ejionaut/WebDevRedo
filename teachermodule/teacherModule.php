@@ -50,7 +50,6 @@ $countCompletedQuizResult = $connection->query($countCompletedQuiz);
         </div>
         <div>
             <h2> Welcome! <!--<?php echo $row["user_id"]; ?>--> </h2>
-            <a href="logout.php"> Logout </a>
         </div>
 
     </header>
