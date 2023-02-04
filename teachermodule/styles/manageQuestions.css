@@ -47,6 +47,10 @@ td {
     overflow:auto;
 }
 
+.title {
+    color: var(--clr-header-purple);
+}
+
 .studentQuizzes {
     display: flex;
     width: 80%;
@@ -54,5 +58,9 @@ td {
     padding: 2rem;
     margin: 0 auto;
     overflow-x: auto;
+}
+
+.addQuestion {
+    margin-left: auto;
 }
 

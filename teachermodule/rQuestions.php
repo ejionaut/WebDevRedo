@@ -1,6 +1,4 @@
 <?php
-    session_start();
-
     include "config.php";
 
     $_SESSION['quiz_code'];

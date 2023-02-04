@@ -20,7 +20,7 @@
         </div>
         <div>
             <div class="showQuestions">
-                <h3> Current Questions </h3>
+                <h1 class="title"> Current Questions </h1>
                 <div class="studentQuizzes">
                     <table>
                         <tr>
