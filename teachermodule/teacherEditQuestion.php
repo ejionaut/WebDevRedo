@@ -4,7 +4,7 @@
     $_SESSION['question'] = $_GET['question'];
     $_SESSION['quiz_code'] = $_GET['quiz_code'];
 
-    include "uQuestion.php";
+    include('./includes/uQuestion.php');
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +29,7 @@
         <div>
             <section-right>
                 <h2> Edit Question </h2>
-                <form action="uQuestion.php" method="POST" id="QuestionForm" target="hiddenFrame" onSubmit="return confirm('Are you sure? Data will be changed.') ">
+                <form action="./includes/uQuestion.php" method="POST" id="QuestionForm" target="hiddenFrame" onSubmit="return confirm('Are you sure? Data will be changed.') ">
                     <fieldset>
                         <label class="Question"> Question </label> 
                         <input type="text" name="question" id="question" value="<?php echo $_SESSION['question']?>"required> 

@@ -3,7 +3,7 @@
 
     $_SESSION['quiz_code'] = $_GET['quiz_code'];
 
-    include "uQuiz.php";
+    include('./includes/uQuiz.php');
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
         <div>
             <section-right>
                 <h2> Update Quiz </h2>
-                <form action="uQuiz.php" method="POST" id="QuizForm" onSubmit="return confirm('Are you sure? Data will be changed.') ">
+                <form action="./includes/uQuiz.php" method="POST" id="QuizForm" onSubmit="return confirm('Are you sure? Data will be changed.') ">
                     <label class="Quiz">Subject</label>
                     <select name="quiz_code" id="quiz_code" required>
                         <option name="_">--Select subject--</option>
@@ -49,7 +49,7 @@
                 </form>
             </section-right>
         </div>
-        <button class="returnBTN"><a href="teacherModule.php" style="text-decoration: none; color: white;">Return</a></button>
+        <button class="returnBTN"><a href="./includes/teacherModule.php" style="text-decoration: none; color: white;">Return</a></button>
     </main>
                     
 </body>

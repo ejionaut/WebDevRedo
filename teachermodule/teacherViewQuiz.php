@@ -1,5 +1,5 @@
 <?php
-    include "viewQuizStaticData.php";
+    include('./includes/viewQuizStaticData.php');
     
     $row = mysqli_fetch_assoc($passedResult);
     $passed = $row['passed'];
@@ -88,12 +88,12 @@
                         </h3>
                         <h3> 
                             <?php
-                                if ($highestScoreResult) {
-
-                                    $row = mysqli_fetch_assoc($highestScoreResult);
-                                    $highestScore = $row['score'];
+                                if ($highestScoreNameResult) {
+                                        
+                                    $row = mysqli_fetch_assoc($highestScoreNameResult);
+                                    $highestScoreName = $row['score'];
                                 
-                                    echo '<h3>Score: ' . $highestScore .'</h3>' ;
+                                    echo '<h3>Score: ' . $highestScore .'</h3>';
                                 } else {
                                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                                 }

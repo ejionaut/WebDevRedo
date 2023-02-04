@@ -1,22 +1,8 @@
 <?php
-/*
-        require 'sessionConfig.php';
+include('./includes/config.php');
 
-        if(!empty($_SESSION["user_id"])){
-            $user = $_SESSION["user_id"];
-            $result = mysqli_query($conn, "SELECT user_id FROM accounts WHERE user_id = $user");
-            $row = mysqli_fetch_assoc($result);
-        } 
-        else {
-            header("Location: login.php");
-        }
-*/
-
-
-include "config.php";
-
-$studentsName = "SELECT concat(firstname,' ',lastname) as fullname from student";
-$countStudents = "SELECT COUNT(*) as numberOfStudents FROM student";
+$studentsName = "SELECT concat(first_name,' ',last_name) as fullname from students";
+$countStudents = "SELECT COUNT(*) as numberOfStudents FROM students";
 $countQuizList = "SELECT COUNT(*) as numberOfQuiz FROM quiz_list";
 $countCompletedQuiz = "SELECT COUNT(*) as numberOfCompletedQuiz FROM student_quiz";
 
@@ -152,11 +138,11 @@ $countCompletedQuizResult = $connection->query($countCompletedQuiz);
                 </form>
             </div>
             <div class="QuizList">
-                <form action="teacherCreateQuiz.php" method="POST">
+                <form action="./includes/teacherCreateQuiz.php" method="POST">
                     <button class="createQuiz"> Create Quiz </button>
                 </form>
                     <?php
-                        include "sortAlgo.php";
+                        include('./includes/sortAlgo.php');
                     ?>
             </div>
     </main>

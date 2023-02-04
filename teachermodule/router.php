@@ -4,14 +4,14 @@
 
  switch ($request) {
      case '/':
-         require 'login.php';
+         require 'teacherModule.php';
          break;
      case '':
-         require 'login.php';
+         require 'teacherModule.php';
          break;
      default:
          http_response_code(404);
-         require 'login.php';
+         require 'teacherModule.php';
          break;
  }
 ?>

@@ -1,5 +1,5 @@
 <?php
-    include "config.php";
+    include('./includes/config.php');
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
         <div>
             <section-right>
                 <h2> Create Quiz </h2>
-                <form action="cQuiz.php" method="POST" id="QuizForm">
+                <form action="./includes/cQuiz.php" method="POST" id="QuizForm">
                     <label class="Quiz">Subject</label>
                     <select name="quiz_code" id="quiz_code" required>
                         <option name="_">--Select subject--</option>
@@ -45,7 +45,7 @@
                 </form>
             </section-right>
         </div>
-        <button class="returnBTN"><a href="teacherModule.php" style="text-decoration: none; color: white;">Return</a></button>
+        <button class="returnBTN"><a href="./includes/teacherModule.php" style="text-decoration: none; color: white;">Return</a></button>
     </main>
 </body>
 </html>
