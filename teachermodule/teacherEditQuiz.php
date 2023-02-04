@@ -49,7 +49,7 @@
                 </form>
             </section-right>
         </div>
-        <button class="returnBTN"><a href="./includes/teacherModule.php" style="text-decoration: none; color: white;">Return</a></button>
+        <button class="returnBTN"><a href="index.php" style="text-decoration: none; color: white;">Return</a></button>
     </main>
                     
 </body>

@@ -37,7 +37,7 @@
                         ?>
                     </table>
                 </div>
-                <button class="addQuestion" id="addQuestion"><a href="./includes/teacherCreateQuestions.php?quiz_code=<?php echo $_SESSION['quiz_code']?>"> Add Question </a></button>
+                <button class="addQuestion" id="addQuestion"><a href="teacherCreateQuestions.php?quiz_code=<?php echo $_SESSION['quiz_code']?>"> Add Question </a></button>
             </div>
     </main>
 </body>
