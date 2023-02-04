@@ -1,34 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-
+    <title> Login Page </title>
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-    <main>
-        <img src="/css/images/logo_square.png">
-        <form action="/login" method="post">
-            <div id="error_message">
-                <h3 id="error_message_text">
+    <div>
+        <div>
+            <img src="css/images/logo_white.png" alt="" />
+            <h1> Student Landing </h1>
+        </div>
+        <main>
+            <form method="post" action="/login">
+                <div class="errorMsg">
                     <%- errMessage %>
-                </h3>
-            </div>
+                </div>
+                    <div>
+                        <label>Username: </label>
+                        <input type="text" placeholder="Enter Username" id="userid" name="username" required>
+                    </div>
+                    <div>
+                        <label>Password: </label>
+                        <input type="password" placeholder="Enter Password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" name="login_btn" value="Login">Login</button>
+            </form>
             <div>
-                <div>
-                    <label class="username_label"> User ID: </label>
-                    <input type="text" name="userid" required>
-                </div>
-                <div>
-                    <label class="password_label"> Password: </label>
-                    <input type="password" name="password" required>
-                </div>
-                <input type="submit" class="login_btn" value="Login">
+                    <h2> If password is forgotten please contact management</h2>
             </div>
-        </form>
-    </main>
+        </main>
+    </div>
 </body>
 </html>
