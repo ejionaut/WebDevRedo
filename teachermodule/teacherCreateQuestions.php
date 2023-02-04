@@ -15,12 +15,6 @@ $quiz_code = $_SESSION['quiz_code'];
     <title>View Quiz Details</title>
     <script src="mcOrNot.js"></script>
     <script src="showQuestions.js"></script>
-    <script>
-        function clearForm() {
-            document.getElementByName("QuestionForm").submit();
-            window.location.reload(true);
-        }
-</script>
     
 </head>
 <body>
