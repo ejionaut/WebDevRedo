@@ -130,11 +130,11 @@ function populateHistory(historyData){
 // Gets the name of the logged in user
 function getName(userid){
     const promise = new Promise((resolve, reject) => {
-        const q = "SELECT lastname, firstname FROM student WHERE user_id = ?"
+        const q = "SELECT last_name, first_name FROM students WHERE user_id = ?"
     
         db.query(q, [userid], (err, result) => {
             result = JSON.parse(JSON.stringify(result))[0]
-            resolve(`${result.firstname} ${result.lastname}`)
+            resolve(`${result.first_name} ${result.last_name}`)
             reject(err)
         })
     })

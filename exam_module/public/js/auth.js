@@ -4,7 +4,7 @@ const auth = ((req, res) => {
     if(req.session.loggedIn){
         res.redirect("/dashboard")
     }else{
-        const q = "SELECT * FROM accounts WHERE user_id = ? AND password = ?"
+        const q = "SELECT * FROM students WHERE user_id = ? AND password = ?"
     
         db.query(q, [req.body.userid, req.body.password], (error, result) => {
             if(error) throw error
