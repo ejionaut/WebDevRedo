@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+    $_SESSION['quiz_code'] = $_GET['quiz_code'];
+$quiz_code = $_SESSION['quiz_code'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +15,13 @@
     <title>View Quiz Details</title>
     <script src="mcOrNot.js"></script>
     <script src="showQuestions.js"></script>
+    <script>
+        function clearForm() {
+            document.getElementByName("QuestionForm").submit();
+            window.location.reload(true);
+        }
+</script>
+    
 </head>
 <body>
     <header>
@@ -22,17 +36,13 @@
                 <h3> Current Questions </h3>
                 <div class="studentQuizzes">
                     <?php
-                        session_start();
-
-                        $_SESSION['quiz_code'] = $_GET['quiz_code'];
                         include "rQuestions.php";
-
                     ?>
                 </div>
             </section-left>
             <section-right>
                 <h2> Create Question </h2>
-                <form action="cQuestion.php" method="POST" id="QuestionForm" target="hiddenFrame">
+                <form action="cQuestion.php" name="QuestionForm" method="POST" id="QuestionForm" target="hiddenFrame" onsubmit="this.submit(); history.go(0)">
                     <fieldset>
                         <label class="Question"> Question </label> 
                         <input type="text" name="question" id="question" required> 
@@ -60,7 +70,13 @@
                 </form>
                 <div>
                     <button class="submitBTN" name="submitCQuestion" value="submit" onclick=<?php if (strpos($_SERVER['HTTP_REFERER'], "teacherCreateQuiz.php")) { echo "location.href='teacherModule.php'";} else { echo "history.go(-1)";}?>> Done </button>
-                    <button class="cancelBTN" onclick="location.href='teacherModule.php'"> Cancel </button>
+                    <?php
+                    if (strpos($_SERVER['HTTP_REFERER'], "teacherCreateQuiz.php")) {
+                        echo "<button class='Delete'><a onClick=\"javascript: return confirm('Are you sure you want to cancel? All data will be lost.');\" href=deleteQuizList.php?quiz_code=" . $quiz_code . " style='text-decoration: none; '> Cancel </a></button>";
+                    } else {
+                        echo "<button class='Delete'><a onClick=history.go(-1) style='text-decoration: none; '> Cancel </a></button>";
+                    }
+                    ?>
                 </div>
                 <iframe name="hiddenFrame" style="display: none;"></iframe>
             </section-right>

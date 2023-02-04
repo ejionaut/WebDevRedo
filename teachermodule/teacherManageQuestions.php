@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="./styles/manageQuestions.css">
     <title>View Quiz Details</title>
     <script src="mcOrNot.js"></script>
-    <script src="showQuestions.js"></script>
+    
 </head>
 <body>
     <header>
-        <h2> Manage Quizzes </h2>
+        <h2> Manage Questions </h2>
     </header>
 
     <main>
@@ -24,7 +24,7 @@
                 <div class="studentQuizzes">
                     <table>
                         <tr>
-                            <th>Question/th>
+                            <th>Question</th>
                             <th>Choices</th>
                             <th>Answer</th>
                             <th>Points</th>

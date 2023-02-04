@@ -61,7 +61,7 @@
                 echo "<button class='Manage'><a href=teacherManageQuestions.php?quiz_code=" . $row['quiz_code'] . " style='text-decoration: none; color: white;'> Manage </a></button>";
                 echo "<button class='Edit'><a href=teacherEditQuiz.php?quiz_code=" . $row['quiz_code'] . " style='text-decoration: none; color: white;'>Edit</a></button>";
 
-                echo "<button class='Delete'><a href=deleteQuizList.php?quiz_code=" .$row['quiz_code']. " style='text-decoration: none; '> Delete </a></button>";
+                echo "<button class='Delete'><a onClick=\"javascript: return confirm('Are you sure you want to delete?');\" href=deleteQuizList.php?quiz_code=" .$row['quiz_code']. " style='text-decoration: none; '> Delete </a></button>";
             echo "</div>";
         echo "</div>";
     }
