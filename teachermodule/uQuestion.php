@@ -1,8 +1,6 @@
 <?php
     include "config.php";
 
-    session_start();
-
     if (isset($_POST['uQuestion'])) {
         $question = $_POST['question'];
         $type_of_quiz = $_POST['type_of_quiz'];

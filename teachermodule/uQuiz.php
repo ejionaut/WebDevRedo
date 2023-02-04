@@ -1,8 +1,6 @@
 <?php
     include "config.php";
 
-    session_start();
-
     if (isset($_POST['uQuiz'])) {
         $q_name = $_POST['q_name'];
         $q_password = $_POST['q_password'];

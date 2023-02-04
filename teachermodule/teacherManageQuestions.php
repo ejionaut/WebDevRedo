@@ -19,8 +19,7 @@
         <div>
         </div>
         <div>
-            <div class="showQuestions">
-                <h1 class="title"> Current Questions </h1>
+            <div class="showQuestions" id="showQuestions">
                 <div class="studentQuizzes">
                     <table>
                         <tr>
@@ -38,7 +37,7 @@
                         ?>
                     </table>
                 </div>
-                <button class="addQuestion"><a href="teacherCreateQuestions.php?quiz_code=<?php echo $_SESSION['quiz_code']?>"> Add Question </a></button>
+                <button class="addQuestion" id="addQuestion"><a href="teacherCreateQuestions.php?quiz_code=<?php echo $_SESSION['quiz_code']?>"> Add Question </a></button>
             </div>
     </main>
 </body>

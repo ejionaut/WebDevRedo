@@ -167,6 +167,10 @@ section-right > :nth-child(3) {
     background-color: #4e7341;
 }
 
+.cancelBTN{
+    text-decoration: ;
+}
+
 .cancelBTN,input[type=reset] {
     background-color: #6c2b31;
     color: white;
@@ -187,8 +191,36 @@ section-right > :nth-child(3) {
     background-color: #4e7341;
 }
 
-@media screen and (max-width: 650px) {
+.studentQuizzes > * {
+    padding: 0.4rem 0;
+    border-top: 0.2rem dashed white ;
+    display: flex;
+    flex-direction: column;
+}
+
+.studentQuizzes > * > div {
+    display: flex;
+    margin-top: 0.2rem;
+    column-gap: 1.2rem;
+}
+
+.studentQuizzes > * > div > button {
+    padding: 0.2rem 1rem;
+    background-color: #6e4378;
+    border: none;
+}
+
+a {
+    color: white;
+}
+
+@media screen and (max-width: 900px) {
     .returnBTN {
         width: 10rem;
+    }
+
+    
+    main > :nth-child(2) {
+        flex-direction: column-reverse;
     }
 }
