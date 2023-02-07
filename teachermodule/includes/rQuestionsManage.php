@@ -15,7 +15,7 @@
         echo "<td>" . $row['points'] . "</td>";
         echo "<td>";
         echo "<button class='editQuestion'><a href='../teacherEditQuestion.php?quiz_code=" . $_SESSION['quiz_code'] . "&question=". $row['question'] . "'> edit </a></button>";
-        echo "<button class='Delete'><a onClick=\"javascript: return confirm('Are you sure you want to delete?');\" href='dQuestion.php?quiz_code=" . $_SESSION['quiz_code'] . "&question=" . $row['question'] . "'>delete</a></button>";
+        echo "<button class='Delete'><a onClick=\"javascript: return confirm('Are you sure you want to delete?');\" href='../includes/dQuestion.php?quiz_code=" . $_SESSION['quiz_code'] . "&question=" . $row['question'] . "'>delete</a></button>";
         echo "</td>";
         echo "</tr>";
     }
