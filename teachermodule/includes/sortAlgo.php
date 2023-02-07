@@ -53,15 +53,15 @@
             echo "<div class='right_Section'>";
 
                 if ($row['q_display_setting'] == "listed" || $row['q_display_setting'] == ""){
-                    echo "<button class='list'><a href=unlist.php?quiz_code=" .$row['quiz_code']." style='text-decoration: none;'> Unlist </a></button>";
+                    echo "<button class='list'><a href=./includes/unlist.php?quiz_code=" .$row['quiz_code']." style='text-decoration: none;'> Unlist </a></button>";
                     
                 } else if($row['q_display_setting'] == "unlisted")
-                    echo "<button class='unnlist'><a href=list.php?quiz_code=" .$row['quiz_code']." style='text-decoration: none;'> List </a></button>";
+                    echo "<button class='unnlist'><a href=./includes/list.php?quiz_code=" .$row['quiz_code']." style='text-decoration: none;'> List </a></button>";
 
-                echo "<button class='Manage'><a href=../teacherManageQuestions.php?quiz_code=" . $row['quiz_code'] . " style='text-decoration: none; color: white;'> Manage </a></button>";
-                echo "<button class='Edit'><a href=../teacherEditQuiz.php?quiz_code=" . $row['quiz_code'] . " style='text-decoration: none; color: white;'>Edit</a></button>";
+                echo "<button class='Manage'><a href=teacherManageQuestions.php?quiz_code=" . $row['quiz_code'] . " style='text-decoration: none; color: white;'> Manage </a></button>";
+                echo "<button class='Edit'><a href=teacherEditQuiz.php?quiz_code=" . $row['quiz_code'] . " style='text-decoration: none; color: white;'>Edit</a></button>";
 
-                echo "<button class='Delete'><a onClick=\"javascript: return confirm('Are you sure you want to delete?');\" href=deleteQuizList.php?quiz_code=" .$row['quiz_code']. " style='text-decoration: none; '> Delete </a></button>";
+                echo "<button class='Delete'><a onClick=\"javascript: return confirm('Are you sure you want to delete?');\" href=./includes/deleteQuizList.php?quiz_code=" .$row['quiz_code']. " style='text-decoration: none; '> Delete </a></button>";
             echo "</div>";
         echo "</div>";
     }
