@@ -2,13 +2,33 @@
 
 <h1>Students</h1>
 
-<div id="students">
-  <% @students.each do |student| %>
-    <%= render student %>
-    <p>
-      <%= link_to "Show this student", student %>
-    </p>
-  <% end %>
-</div>
+<table id="students" class="table">
+	<thead>
+		<tr>
+			<th>Account No.</th>
+			<th>User ID</th>
+			<th>Password</th>
+			<th>Last Name</th>
+			<th>First Name</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @students.each do |student| %>
+	    	<tr>
+	    		<td><%= student.acc_id%></td>
+	    		<td><%= student.user_id%></td>
+	    		<td><%= student.password%></td>
+	    		<td><%= student.last_name%></td>
+	    		<td><%= student.first_name%></td>
+		    	<td>
+			      <%= link_to "Student Details", student %>
+			    </td>
+	    	</tr>
+	  	<% end %>
+	</tbody>
+</table>
 
-<%= link_to "New student", new_student_path %>
+<button>
+	<%= link_to "New student +", new_student_path %>
+</button>

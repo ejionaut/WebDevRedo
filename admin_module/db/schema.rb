@@ -43,16 +43,14 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.string "answer", limit: 45
   end
 
-  create_table "students", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "acc_id"
+  create_table "students", primary_key: "acc_id", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.text "password"
     t.string "last_name"
     t.string "first_name"
   end
 
-  create_table "teachers", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "acc_id"
+  create_table "teachers", primary_key: "acc_id", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.text "password"
     t.string "last_name"

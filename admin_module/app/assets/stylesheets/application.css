@@ -13,3 +13,48 @@
  *= require_tree .
  *= require_self
  */
+table {
+	text-align: center;
+	border: thin;
+	border-style: ridge;
+}
+
+th {
+	background-color: black;
+}
+
+.card-header {
+	border: thin;
+	border-style: solid;
+	border-color: grey;
+}
+
+footer {
+	background-color: grey;
+	display: grid;
+	width: 100;
+	left: 0;
+	bottom: 0;
+	margin-top: 3in;
+}
+
+.members {
+	margin-top: 0.1in;
+	margin-right: 0.3in;
+	text-align: right;
+}
+
+.group__mates {
+    font-size: 2ch;
+    color: white;
+    font-family: var(--fnt-footer-names);
+}
+
+.student_card {
+	border-style: solid;
+	border: thin;
+}
+
+button {
+	font-color: black;
+}
