@@ -75,14 +75,13 @@
                     <div>
                         <h3> 
                             <?php
-                                if ($highestScoreNameResult) {
-                                    
+                                if(mysqli_num_rows($highestScoreNameResult) == 0){
+                                echo "No students have taken the quiz yet.";
+                                } else if ($highestScoreNameResult > 0) {
                                     $row = mysqli_fetch_assoc($highestScoreNameResult);
                                     $highestScoreName = $row['fullname'];
                                 
                                     echo $highestScoreName;
-                                } else if ($highestScore == null){
-                                    echo "There are no students who have taken the exam yet";
                                 } else {
                                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                                 }
@@ -90,12 +89,12 @@
                         </h3>
                         <h3> 
                             <?php
-                                if ($highestScoreNameResult) {
+                                if ($highestScoreResult) {
                                         
-                                    $row = mysqli_fetch_assoc($highestScoreNameResult);
-                                    $highestScoreName = $row['score'];
+                                    $row = mysqli_fetch_assoc($highestScoreResult);
+                                    $highestScore = $row['highestScore'];
                                 
-                                    echo '<h3>Score: ' . $highestScoreName .'</h3>';
+                                    echo '<h3>Score: ' . $highestScore .'</h3>';
                                 } else {
                                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                                 }

@@ -4,9 +4,11 @@
     $quiz_code = $_GET['quiz_code'];
     $q_name = $_GET['q_name'];
 
-    $highestScoreName = "SELECT CONCAT(first_name,' ',last_name) as fullname, student_quiz.score AS score 
-    FROM students JOIN student_quiz ON student_quiz.user_id = students.user_id
+    $highestScoreName = "SELECT CONCAT(first_name,' ',last_name) as fullname FROM students JOIN student_quiz ON student_quiz.user_id = students.user_id
     WHERE score = (SELECT MAX(score) FROM student_quiz WHERE quiz_code = '$quiz_code')";
+
+    $highestScore = "SELECT MAX(score) as highestScore from student_quiz WHERE quiz_code = '$quiz_code'";
+
 
     $averageScore = "SELECT AVG(score) AS average FROM student_quiz WHERE quiz_code ='$quiz_code'";
 
@@ -36,6 +38,7 @@
     $failedResult = $connection->query($failed);
     $overResult = $connection->query($over);
     $highestScoreNameResult = $connection->query($highestScoreName);
+    $highestScoreResult = $connection->query($highestScore);
     $averageScoreResult = $connection->query($averageScore);
     $studentsNameResult = $connection->query($studentsName);
     $lateSubmissionsResult = $connection->query($lateSubmissions);
