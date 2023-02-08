@@ -81,6 +81,8 @@
                                     $highestScoreName = $row['fullname'];
                                 
                                     echo $highestScoreName;
+                                } else if ($highestScore == null){
+                                    echo "There are no students who have taken the exam yet";
                                 } else {
                                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                                 }
