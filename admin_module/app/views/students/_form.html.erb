@@ -12,18 +12,28 @@
   <% end %>
 
   <div>
+    <%= form.label :acc_id, style: "display: block" %>
+    <%= form.number_field :acc_id %>
+  </div>
+
+  <div>
     <%= form.label :user_id, style: "display: block" %>
     <%= form.number_field :user_id %>
   </div>
 
   <div>
-    <%= form.label :firstname, style: "display: block" %>
-    <%= form.text_field :firstname %>
+    <%= form.label :password, style: "display: block" %>
+    <%= form.text_area :password %>
   </div>
 
   <div>
-    <%= form.label :lastname, style: "display: block" %>
-    <%= form.text_field :lastname %>
+    <%= form.label :last_name, style: "display: block" %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= form.label :first_name, style: "display: block" %>
+    <%= form.text_field :first_name %>
   </div>
 
   <div>

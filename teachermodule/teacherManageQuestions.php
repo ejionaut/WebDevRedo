@@ -7,7 +7,8 @@
     <link rel="stylesheet" type="text/css" href="/styles/teacherCreateQuiz.css">
     <link rel="stylesheet" type="text/css" href="/styles/manageQuestions.css">
     <title>View Quiz Details</title>
-    <script src="mcOrNot.js"></script>
+    <!-- <script src="mcOrNot.js"></script> -->
+    <?php include('mcOrNot.php')?>
     
 </head>
 <body>
