@@ -77,7 +77,7 @@
                             <?php
                                 if(mysqli_num_rows($highestScoreNameResult) == 0){
                                 echo "No students have taken the quiz yet.";
-                                } else if ($highestScoreNameResult > 0) {
+                                } else if ($highestScoreNameResult ->num_rows > 0) {
                                     $row = mysqli_fetch_assoc($highestScoreNameResult);
                                     $highestScoreName = $row['fullname'];
                                 
