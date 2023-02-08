@@ -15,8 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles/teacherCreateQuiz.css">
     <title>View Quiz Details</title>
-    <!-- <script src="mcOrNot.js"></script> -->
-    <?php include('mcOrNot.php')?>
+    <script src="mcOrNot.js"></script>
     <script src="showQuestions.js"></script>
 </head>
 <body>
