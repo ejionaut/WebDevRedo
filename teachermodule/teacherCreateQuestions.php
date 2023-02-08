@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="/styles/teacherCreateQuiz.css">
     <title>View Quiz Details</title>
     <script src="mcOrNot.js"></script>
-    <script src="showQuestions.js"></script>
     
 </head>
 <body>

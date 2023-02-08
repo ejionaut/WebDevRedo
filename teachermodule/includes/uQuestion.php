@@ -12,13 +12,6 @@
 
         $result = $connection->query($sql); 
 
-        if ($result == TRUE) {
-            echo "<script>alert('Question Updated.')</script>";
-            echo "<script>history.go(-1)</script>";
-        } else{
-            echo "Error:" . $sql . "<br>" . $connection->error;
-        }
-
         $sqlCreate = "SELECT `points` FROM `quiz_inventory` WHERE `quiz_code` = '" . $_SESSION['quiz_code'] . "'";
 
         $sqlCreateResult =  $connection->query($sqlCreate);
@@ -29,9 +22,16 @@
             $ts += $row['points'];
         }
 
-        $sqlCreate = "UPDATE `quiz_list` SET `total_score` = '$ts' WHERE `quiz_code` = '" . $_SESSION['quiz_code'] . "'";
+        $sqlUpdate = "UPDATE `quiz_list` SET `total_score` = '$ts' WHERE `quiz_code` = '" . $_SESSION['quiz_code'] . "'";
 
-        $sqlCreateResult =  $connection->query($sqlCreate);
+        $sqlUpdateResult =  $connection->query($sqlUpdate);
+
+        if ($result == TRUE && $sqlCreateResult == TRUE && $sqlUpdateResult == TRUE) {
+            echo "<script>alert('Question Updated.')</script>";
+            echo "<script>history.go(-1)</script>";
+        } else{
+            echo "Error:" . $sql . "<br>" . $connection->error;
+        }
     }
 
     $sql = "SELECT * FROM `quiz_inventory` WHERE `question` = '" . $_SESSION['question'] . "'";
