@@ -93,7 +93,7 @@
                                     $row = mysqli_fetch_assoc($highestScoreNameResult);
                                     $highestScoreName = $row['score'];
                                 
-                                    echo '<h3>Score: ' . $highestScore .'</h3>';
+                                    echo '<h3>Score: ' . $highestScoreName .'</h3>';
                                 } else {
                                     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
                                 }
